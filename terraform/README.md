@@ -14,10 +14,10 @@ brew install terraform
 
 ### Setup configuration
 
-Go in "init-cluster" directory
+Go in "terraform/gke" directory
 
 ```bash
-cd init-cluster
+cd terraform/gke
 ```
 
 Setup environment variable : 
@@ -59,5 +59,5 @@ terraform apply
 ### Configure kubectl 
 
 ```bash
-gcloud container clusters get-credentials sfeirschool-gke-cluster --zone=europe-west3-a
+gcloud container clusters get-credentials sfeirschool-gke-cluster --project $TF_VAR_sfeirschool_k8s_gcp_projectid  --zone=europe-west3-a
 ```

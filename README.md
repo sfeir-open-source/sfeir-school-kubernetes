@@ -19,4 +19,4 @@ Les Slides sont derrière une license [CC BY ND 3.0](https://github.com/sfeir-op
 
 ## Commandes
 
-La formation se déroule step by step, les TP se trouve dans le dossier [`steps/`](steps).
+La formation se déroule step by step, les TPs se trouvent dans le dossier [`steps/`](steps).

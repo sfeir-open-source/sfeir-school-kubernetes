@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: domain-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: hello-gke-cluster
+    networking.gke.io/managed-certificates: certificate
+spec:
+  rules:
+    - host: lille.k8s-sfeirschool.com
+      http:
+        paths:
+          - path: /testpath
+            backend:
+              serviceName: web
+              servicePort: 8080

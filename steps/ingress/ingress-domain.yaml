@@ -10,7 +10,7 @@ spec:
     - host: lille.k8s-sfeirschool.com
       http:
         paths:
-          - path: /testpath
+          - path: /
             backend:
               serviceName: web
               servicePort: 8080

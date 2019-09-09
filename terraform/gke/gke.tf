@@ -1,8 +1,3 @@
-// Create a static global ip addresses
-//resource "google_compute_global_address" "default" {
-//  provider = "google-beta"
-//  name = "${var.gke_cluster_name}"
-//}
 
 // Create master node
 resource "google_container_cluster" "primary" {

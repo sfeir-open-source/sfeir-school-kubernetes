@@ -1,26 +1,22 @@
-# About
-Template repository for Sfeir School, this template could be use to start a school with revealJS and sfeir school theme
-
-Don't forget to replace all xxx by your techno
-
-## Files to changes
-
-* `docs/scss/xxx.scss` the entry point for your custom styles.
-* `docs/package.json` you should change the tasks `sass` and `sass-once` to reference your scss file
-* `docs/index.html` you should reference your markdown files and the the correct css file
-
-# Content of README
-
-The text below is the template you could use for your readme
-
-# XXX 
+# Kubernetes 200 
 
 A [SFEIR School](https://www.sfeir.com/formation/school/)
 
-![logo](https://www.sfeir.com/img/school/formations/xxx.png)
+![logo](https://www.sfeir.com//img/school/formations/Kubernetes%20200.png)
 
-[Planning, trainers and other details](https://www.sfeir.com/formation/school/xxx/)
+[Calendrier des formations, liste des formateurs et programme de formation](https://www.sfeir.com/formation/school/kubernetes-200/)
 
-# Slides
+## Installation
 
-You can view the slides [here](https://sfeir-open-source.github.io/sfeir-school-xxx/).
+- `git clone https://github.com/sfeir-open-source/sfeir-school-kubernetes.git`
+- `cd sfeir-school-kubernetes`
+
+## Slides
+
+Les slides sont disponibles ici : [Sfeir School Kubernetes](https://docs.google.com/presentation/d/1vpYx1yiLCrMf50SZ5zni_9ZKo6m-zrwmVbjj3Vzs2mk/edit?usp=sharing)
+
+Les Slides sont derrière une license [CC BY ND 3.0](https://github.com/sfeir-open-source/sfeir-school-kubernetes/blob/master/docs/LICENSE)
+
+## Commandes
+
+La formation se déroule step by step, les TPs se trouvent dans le dossier [`steps/`](steps).

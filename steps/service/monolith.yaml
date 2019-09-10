@@ -10,5 +10,5 @@ spec:
     - protocol: "TCP"
       port: 443
       targetPort: 443
-      nodePort: 31000
+#      nodePort: 31000
   type: NodePort

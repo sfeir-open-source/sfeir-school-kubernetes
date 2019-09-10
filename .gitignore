@@ -72,3 +72,6 @@ docs/test.html
 #Terraform
 *.tfstate*
 **/.terraform
+
+#IntelliJ
+.idea

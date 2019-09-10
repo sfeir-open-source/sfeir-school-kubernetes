@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+spec:
+  initContainers:
+    - name: init-myservice
+      image: busybox:1.28
+      command: ['sh', '-c', 'touch /var/run/touch/ready']
+      volumeMounts:
+        - mountPath: /var/run/touch/
+          name: touch
+  containers:
+    - name: myapp-container
+      image: nginx:alpine
+      readinessProbe:
+        exec:
+          command: ['sh', '-c', '[ -f "/var/run/touch/ready" ]']
+      volumeMounts:
+        - mountPath: /var/run/touch/
+          name: touch
+  volumes:
+    - name: touch
+      emptyDir: {}

@@ -12,7 +12,7 @@ kubectl create role "tiller-role-${Namespace}" \
 
 kubectl create rolebinding tiller-rolebinding-${Namespace} \
     --namespace ${Namespace} \
-    --role=admin \
+    --role="tiller-role-${Namespace}" \
     --serviceaccount=${Namespace}:tiller-${Namespace}
 ```
 

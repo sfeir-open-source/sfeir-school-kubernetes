@@ -37,7 +37,7 @@ helm version
 ```shell script
 helm repo update
 helm search stable
-helm install stable:mariadb --name mariadb
+helm install stable/mariadb --name mariadb
 ```
 
 ## Inspect release 

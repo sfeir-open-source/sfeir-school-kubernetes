@@ -8,7 +8,7 @@ kubectl create serviceaccount "tiller-${Namespace}" --namespace ${Namespace}
 kubectl create role "tiller-role-${Namespace}" \
     --namespace ${Namespace} \
     --verb='*' \
-    --resource='*.,*.apps,*.batch,*.extensions,*.authorization.k8s.io,*'  -o yaml --dry-run| kubectl apply -f -
+    --resource='*.,*.apps,*.batch,*.extensions,*.authorization.k8s.io,configmaps'
 
 kubectl create rolebinding tiller-rolebinding-${Namespace} \
     --namespace ${Namespace} \

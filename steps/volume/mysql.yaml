@@ -32,6 +32,8 @@ spec:
             - name: mysql-persistent-storage
               mountPath: /var/lib/mysql
           resources:
+            requests:
+              memory: 400Mi
             limits:
               cpu: 0.1
       volumes:

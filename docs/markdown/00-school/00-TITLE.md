@@ -1,8 +1,8 @@
-<!-- .slide: class="first-slide" sfeir-level="2" sfeir-techno="xxx" -->
+<!-- .slide: class="first-slide" sfeir-level="2" sfeir-techno="Kubernetes" -->
 
 # **Welcome to Sfeir School**
 
-## **XXX 200**
+## **Kubernetes 200**
 
 ##==##
 
@@ -23,7 +23,5 @@ Quand est-ce qu'on mange ?<br>
 Tour de table ...
 </p>
 <br><br>
-
 **Feuille de présence (obligatoire)** <!-- .element: class="center" -->
-
-https://bit.ly/sfeir-xxx <!-- .element: class="center" -->
+https://bit.ly/sfeir-kubernetes <!-- .element: class="center" -->

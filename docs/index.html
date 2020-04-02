@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
 
-    <title>Sfeir School - XXX</title>
+    <title>Sfeir School - Kubernetes</title>
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -47,7 +47,7 @@
     <link rel="stylesheet" type="text/css" href="./node_modules/sfeir-school-theme/dist/css/sfeir-school-theme.css" id="theme" />
     <script type="module" src="./node_modules/sfeir-school-theme/dist/js/sfeir-theme.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="./css/xxx.css" id="theme-custo" />
+    <link rel="stylesheet" type="text/css" href="./css/k8s.css" id="theme-custo" />
   </head>
 
   <body>
@@ -61,20 +61,32 @@
           data-separator-vertical="##--##"
           data-separator-notes="^Notes:"
         ></section>
+        <!--actually hidden in the original support
         <section
-          data-markdown="./markdown/00-school/speaker-jef.md"
+          data-markdown="./markdown/00-school/speaker-jfurgerot.md"
+          data-separator="##==##"
+          data-separator-vertical="##--##"
+          data-separator-notes="^Notes:"
+        ></section>-->
+        <section
+          data-markdown="./markdown/00-school/speaker-ameausoone.md"
           data-separator="##==##"
           data-separator-vertical="##--##"
           data-separator-notes="^Notes:"
         ></section>
+        <section 
+          data-markdown="./markdown/00-school/speaker-tproum.md"
+          data-separator="##==##"
+          data-separator-vertical="##--##"
+          data-separator-notes="^Notes:"
+        ></section>
+        <section 
+          data-markdown="./markdown/00-school/about.md" 
+          data-separator="##==##" 
+          data-separator-vertical="##--##"
+          data-separator-notes="^Notes:"></section>
         <!-- #endregion -->
-        <!-- #region Intro -->
-        <section
-          data-markdown="./markdown/intro/00-TITLE.md"
-          data-separator="##==##"
-          data-separator-vertical="##--##"
-          data-separator-notes="^Notes:"
-        ></section>
+        </section>
         <!-- #endregion -->
       </div>
     </div>

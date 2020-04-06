@@ -5,7 +5,7 @@
 <br>
 <br>
 <br>
-http://bit.ly/sfeir-school-k8s <!-- .element: class="center" -->
+https://github.com/sfeir-open-source/sfeir-school-kubernetes <!-- .element: class="center" -->
 
 ##==##
 <!-- .slide:-->

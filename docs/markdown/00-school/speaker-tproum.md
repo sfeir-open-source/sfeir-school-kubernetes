@@ -2,12 +2,14 @@
 
 # Présentation
 
-![speaker](./assets/images/speakers/g41b4731486_0_25.png)
+![speaker](./assets/images/speakers/T03L707TH-U2FRYQFKN-03a1aa346eb2-512.jpeg)
+![company](./assets/images/logo_sfeir_bleu_orange.png)
 
-## Tony Proum
+<h2> Tony<span> Proum</span></h2>
 
 ### “Code have to be ship in production ASAP”
+<!-- .element: class="icon-rule icon-first" -->
 
 ### @chezTone
+<!-- .element: class="icon-twitter icon-second" -->
 
-![company](./assets/images/logo_sfeir_bleu_orange.png)

@@ -3,8 +3,7 @@
 
 <br>
 <br>
-<br>
-<br>
+
 https://github.com/sfeir-open-source/sfeir-school-kubernetes <!-- .element: class="center" -->
 
 ##==##

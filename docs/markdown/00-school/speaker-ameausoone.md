@@ -2,13 +2,14 @@
 
 # Présentation
 
-![speaker](./assets/images/speakers/g41b4731486_0_16.png)
+![speaker](./assets/images/speakers/T03L707TH-U3P2A0CBC-f24698eab2ef-512.jpeg)
+![company](./assets/images/logo_sfeir_bleu_orange.png)
 ![badge](./assets/images/badges/ameausoone-badges.png)
 
-## Antoine Meausoone
+<h2> Antoine<span> Meausoone</span></h2>
 
-### Cloud DevOps
+### Cloud DevOps 
+<!-- .element: class="icon-rule icon-first" -->
 
 ### @Ameausoone
-
-![company](./assets/images/logo_sfeir_bleu_orange.png)
+<!-- .element: class="icon-twitter icon-second" -->

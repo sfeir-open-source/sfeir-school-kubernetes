@@ -35,6 +35,7 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+web_modules/
 
 # TypeScript v1 declaration files
 typings/
@@ -62,6 +63,9 @@ typings/
 
 #Max OS Files
 .DS_Store
+
+# node version manager local file
+.nvmrc
 
 #SfeirSchoolSpecifics
 .tmp/

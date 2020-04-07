@@ -21,7 +21,8 @@
 C'est quand la pause ?<br>
 Quand est-ce qu'on mange ?<br>
 Tour de table ...
-<br><br>
-<strong>Feuille de présence (obligatoire)</strong><br>
-https://github.com/sfeir-open-source/sfeir-school-kubernetes
 </p>
+<br><br>
+
+**Feuille de présence (obligatoire)** <!-- .element: class="center" -->
+https://github.com/sfeir-open-source/sfeir-school-kubernetes <!-- .element: class="center" -->

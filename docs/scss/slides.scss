@@ -1,5 +1,14 @@
-.reveal .slides section {
-  .center {
-    text-align: center !important;
-  }
+.reveal .slides {
+
+    .center {
+        text-align: center !important;
+    }
+    
+    section {
+        text-align: left;
+
+        .center {
+            text-align: center !important;
+        }
+    }
 }

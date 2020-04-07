@@ -6,10 +6,17 @@ function schoolSlides() {
   '00-school/about.md'];
 }
 
+// module 01 - docker slides
+function dockerSlides() {
+  return ['01-docker_reminders/00-reminders.md'
+  ];
+}
+
 function formation() {
   return [
     //
-    ...schoolSlides() //
+    ...schoolSlides(), //
+    ...dockerSlides() //
   ].map(slidePath => {
     return { path: slidePath };
   });

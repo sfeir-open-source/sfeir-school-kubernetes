@@ -63,6 +63,9 @@ typings/
 #Max OS Files
 .DS_Store
 
+# node version manager local file
+.nvmrc
+
 #SfeirSchoolSpecifics
 .tmp/
 

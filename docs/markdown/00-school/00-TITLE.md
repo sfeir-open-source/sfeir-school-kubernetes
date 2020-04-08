@@ -23,5 +23,6 @@ Quand est-ce qu'on mange ?<br>
 Tour de table ...
 </p>
 <br><br>
+
 **Feuille de présence (obligatoire)** <!-- .element: class="center" -->
 https://github.com/sfeir-open-source/sfeir-school-kubernetes <!-- .element: class="center" -->

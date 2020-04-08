@@ -8,15 +8,25 @@ function schoolSlides() {
 
 // module 01 - docker slides
 function dockerSlides() {
-  return ['01-docker_reminders/00-reminders.md'
+  return ['01-docker_reminders/00-reminders.md'];
+}
+
+// slides about 02 - k8s origins module
+function kubeOriginsSlides() {
+  return [
+    '02-k8s_origins/00-origins.md',
+    '02-k8s_origins/01-overview.md'
   ];
 }
+
+
 
 function formation() {
   return [
     //
     ...schoolSlides(), //
-    ...dockerSlides() //
+    ...dockerSlides(), //
+    ...kubeOriginsSlides()
   ].map(slidePath => {
     return { path: slidePath };
   });

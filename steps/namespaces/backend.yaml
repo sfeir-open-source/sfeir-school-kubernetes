@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hello-namespaces
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hello-namespaces
+    spec:
+      containers:
+        - name: hello
+          image: "tonyproum/hello-namespaces"
+          resources:
+            limits:
+              cpu: 0.05
+

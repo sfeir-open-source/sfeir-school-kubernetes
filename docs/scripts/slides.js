@@ -14,7 +14,7 @@ function dockerSlides() {
 
 // declare slides MD for module 04 - internal architecture 
 function internalArchitectureSlides() {
-  return ['04-internal_architecture/...'];
+  return ['04-internal_architecture/00-slides.md'];
 }
 
 // declare slides MD for module 05 - getting started 
@@ -102,7 +102,7 @@ function formation() {
     //
     ...schoolSlides(), //
     ...dockerSlides(), //
-    //...internalArchitectureSlides(), //
+    ...internalArchitectureSlides(), //
     //...gettingStartedSlides(), //
     //...interactWithPodsSlides(), //
     //...podMonitoringSlides(), //

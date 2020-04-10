@@ -1,9 +1,7 @@
 .reveal .slides .center {
   text-align: center !important; }
 
-.reveal .slides section {
-  text-align: left; }
-  .reveal .slides section .center {
-    text-align: center !important; }
+.reveal .slides section .center {
+  text-align: center !important; }
 
 /*# sourceMappingURL=slides.css.map */

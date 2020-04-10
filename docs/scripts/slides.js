@@ -12,11 +12,20 @@ function dockerSlides() {
   ];
 }
 
+// module 03 - cluster et configuration cliente
+function clusterConfigSlides() {
+  return [
+    '03-client_and_config/00-gke_cloudshell.md',
+    '03-client_and_config/01-kubectl.md'
+  ];
+}
+
 function formation() {
   return [
     //
     ...schoolSlides(), //
-    ...dockerSlides() //
+    ...dockerSlides(), //
+    ...clusterConfigSlides() //
   ].map(slidePath => {
     return { path: slidePath };
   });

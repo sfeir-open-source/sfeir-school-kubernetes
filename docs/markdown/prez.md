@@ -1992,7 +1992,7 @@ On labellise les pods
 
 
 ```
-apiVersion: extensions/v1beta1kind: ReplicaSetmetadata:  name: nginx  labels:    app: nginxspec:  replicas: 1  selector:    matchLabels:      app: nginx  template:    <... pod definition ...>
+apiVersion: apps/v1kind: ReplicaSetmetadata:  name: nginx  labels:    app: nginxspec:  replicas: 1  selector:    matchLabels:      app: nginx  template:    <... pod definition ...>
 
 ```
 
@@ -2022,7 +2022,7 @@ replicas
 $ kubectl get ReplicaSetNAME               DESIRED   CURRENT   READY     AGEnginx-5dbbff858d   1         1         1         14m
 
 $ kubectl get rs -o yaml nginx-5dbbff858d
-apiVersion: extensions/v1beta1kind: ReplicaSet
+apiVersion: apps/v1kind: ReplicaSet
 ...
 
 ```
@@ -2064,7 +2064,7 @@ On voit le status des replicas
 <!-- .slide: class="with-code"  class="with-code" -->
 
 ```
-apiVersion: extensions/v1beta1kind: Deploymentmetadata:  name: nginxspec:  replicas: 1  selector:    matchLabels:      app: nginx  template:
+apiVersion: apps/v1kind: Deploymentmetadata:  name: nginxspec:  replicas: 1  selector:    matchLabels:      app: nginx  template:
   ...
 
 
@@ -2092,7 +2092,7 @@ On retrouve dans le Deployment les specs du Pod et du ReplicaSet
 ```
 $ kubectl get deploymentNAME      DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGEnginx     1         1         1            1           1h
 $ kubectl get deploy -o yaml nginx
-apiVersion: extensions/v1beta1kind: Deployment
+apiVersion: apps/v1kind: Deployment
 ...
 
 ```
@@ -2328,7 +2328,7 @@ combien
 
 Editer le service frontend pour scaler à 2 replicas
 $ vim manifests/app/deployments/frontend.yaml
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
@@ -2617,7 +2617,7 @@ spec:
   minReplicas: 1
   targetCPUUtilizationPercentage: 50
   scaleTargetRef:
-    apiVersion: extensions/v1beta1
+    apiVersion: apps/v1
     kind: Deployment
     name: helloweb
 
@@ -2767,7 +2767,7 @@ le path HTTP (à partir du
 
 ```
 $ kubectl get ingressNAME      HOSTS     ADDRESS     PORTS     AGEnginx     *         localhost   80        3m$ kubectl get ingress -o yaml nginx
-apiVersion: extensions/v1beta1kind: Ingress
+apiVersion: networking.k8s.io/v1kind: Ingress
 metadata:
   name: nginx...
 

@@ -1,5 +1,5 @@
 kind: StorageClass
-apiVersion: storage.k8s.io/v1beta1
+apiVersion: storage.k8s.io/v1
 metadata:
   name: fast
 provisioner: kubernetes.io/gce-pd
@@ -20,13 +20,16 @@ spec:
   selector:
     role: mongo
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: mongo
 spec:
   serviceName: "mongo"
   replicas: 3
+  selector:
+    matchLabels:
+      role: mongo
   template:
     metadata:
       labels:

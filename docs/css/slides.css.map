@@ -1,9 +1,1 @@
-{
-	"version": 3,
-	"file": "slides.css",
-	"sources": [
-		"../scss/slides.scss"
-	],
-	"names": [],
-	"mappings": "AAAA,AAEI,OAFG,CAAC,OAAO,CAEX,OAAO,CAAC;EACJ,UAAU,EAAE,iBAAiB,GAChC;;AAJL,AAMI,OANG,CAAC,OAAO,CAMX,OAAO,CAAC;EACJ,UAAU,EAAE,IAAI,GAKnB;EAZL,AASQ,OATD,CAAC,OAAO,CAMX,OAAO,CAGH,OAAO,CAAC;IACJ,UAAU,EAAE,iBAAiB,GAChC"
-}
+{"version":3,"sourceRoot":"","sources":["../scss/kubernetes.scss"],"names":[],"mappings":"AACE;EACE;;AAEF;EACE;;AAIA;EACE;EACA;EACA;;AAEF;EACE;;AAMF;EACE;EACA;;AAIJ;EACE;EACA;EACA;;AAGF;EACE;EACA;EACA;;;AAOF;EACE","file":"slides.css"}

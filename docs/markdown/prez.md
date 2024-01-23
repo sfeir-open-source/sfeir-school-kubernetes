@@ -1,46 +1,45 @@
-##==##
-
-<!-- .slide: class="first-slide"  sfeir-level="1"  sfeir-techno="" -->
+<!-- .slide: class="first-slide"  sfeir-level="1"  sfeir-techno="kub" -->
 
 # Kubernetes, les fondamentaux
-
-![](./assets/images/g2adcb44acd5_0_564.png)
 
 ##==##
 
 <!-- .slide: class="speaker-slide" -->
 
-# Présentation
+# Votre hôte pour la journée
 
-<!-- Please choose for each image between speaker or company -->![speaker company](./assets/images/g2ad4208251d_6_37.png)
+![speaker](./assets/images/julien.png)
 
-![speaker company](./assets/images/g2ad4208251d_6_43.png)
+![compagny](./assets/images/logo-sfeir.png)
 
-![speaker company](./assets/images/g2ad4208251d_6_44.png)
+![badge first-badge](./assets/images/certif-cloud-archi.png)
 
-![speaker company](./assets/images/g2ad4208251d_6_45.png)
+![badge second-badge](./assets/images/certif-cloud-network.png)
 
-![speaker company](./assets/images/g2ad4208251d_6_46.png)
+![badge third-badge](./assets/images/certif-cloud-sec.png)
 
-![speaker company](./assets/images/g2ad4208251d_6_47.png)
+<h2> Julien <span>Furgerot</span></h2>
 
-![speaker company](./assets/images/g2ad4208251d_6_48.png)
+### GCP Trainer
 
-##==##
-
-<!-- .slide:-->
-
-![](./assets/images/gb710258689_0_1.png)
+<!-- .element: class="icon-rule icon-first" -->
 
 ##==##
 
 <!-- .slide:-->
 
-Pour assister à cette formation, il est nécessaire de connaître et comprendre les notions de base associées aux conteneurs. Vous êtes capable de construire une image (par exemple avec un Dockerfile), lancer un conteneur, l'arrêter, inspecter ses logs.
-Un navigateur
-Un compte GCP
+![center h-800](./assets/images/tour-de-table.png)
+
+##==##
+
+<!-- .slide:-->
 
 # Pré-requis
+
+Pour assister à cette formation, il est nécessaire de connaître et comprendre les notions de base associées aux conteneurs. Vous êtes capable de construire une image (par exemple avec un Dockerfile), lancer un conteneur, l'arrêter, inspecter ses logs.
+
+- Un navigateur
+- Un compte GCP
 
 Notes:
 Note : ce slide sera à exporter dans un document à part pour les SfeirSchools
@@ -55,7 +54,7 @@ qui connaît kubernetes ?
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Self-link
 
@@ -67,20 +66,20 @@ https://bit.ly/sfeir-school-k8s-2024
 
 # Agenda
 
-Rappel sur Docker
-Kubernetes : les origines
-Premier aperçu
-Architecture interne
-Getting started
-Configuration d’une application
-Mise à l’échelle et mise à jour
-Stocker des données
-Gestion avancée de Pods
-Méthodes d’installation de clusters
+- Rappel sur Docker
+- Kubernetes : les origines
+- Premier aperçu
+- Architecture interne
+- Getting started
+- Configuration d’une application
+- Mise à l’échelle et mise à jour
+- Stocker des données
+- Gestion avancée de Pods
+- Méthodes d’installation de clusters
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition"-->
 
 # Rappels sur Docker
 
@@ -90,12 +89,25 @@ Méthodes d’installation de clusters
 
 # Qu’est-ce que Docker ?
 
-Docker permet de packager une application
-avec l’ensemble de ses dépendances
-dans une unité standardisée pour le déploiement de logiciels :
+Docker permet de **packager une application**
 
-les CONTAINERS
+<!-- .element: class="center" -->
 
+avec **l’ensemble de ses dépendances**
+
+<!-- .element: class="center" -->
+
+dans une **unité standardisée** pour le déploiement de logiciels :
+
+<!-- .element: class="center" -->
+
+<br>
+
+les **CONTAINERS**
+
+<!-- .element: class="center" -->
+
+<br>
 Notes:
 Docker en une phrase
 
@@ -105,41 +117,7 @@ Docker en une phrase
 
 # Utilisation de Docker
 
-Database SQL
-
-Frontend application
-
-Backend application
-
-Database NoSql
-
-PROD
-
-DEV
-
-UAT
-
-PREPROD
-
-![](./assets/images/C:\Users\zandolsi\Downloads\téléchargement.png)
-
-![](./assets/images/C:\Users\zandolsi\Downloads\Generic_Databases.png)
-
-![](./assets/images/C:\Users\zandolsi\Downloads\Generic_Databases.png)
-
-![](./assets/images/C:\Users\zandolsi\Downloads\Generic_Databases.png)
-
-![](./assets/images/C:\Users\zandolsi\Downloads\Generic_Databases.png)
-
-![](./assets/images/C:\Users\zandolsi\Downloads\14822516839733_sevreur.png)
-
-![](./assets/images/C:\Users\zandolsi\Downloads\14822516839733_sevreur.png)
-
-![](./assets/images/C:\Users\zandolsi\Downloads\14822516839733_sevreur.png)
-
-![](./assets/images/C:\Users\zandolsi\Downloads\14822516839733_sevreur.png)
-
-![](./assets/images/C:\Users\zandolsi\Downloads\téléchargement (1).png)
+![center h-800](./assets/images/docker-utilisation.svg)
 
 Notes:
 En informatique, le container peut aussi embarquer une grande variété de contenus.
@@ -148,13 +126,12 @@ Il s’exécute à l’identique dans plusieurs environnements sans être modifi
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="flex-row" -->
 
 # VM vs Containers
 
-![](./assets/images/g41f33631ff_0_169.png)
-
-![](./assets/images/g41f33631ff_0_170.png)
+![h-600](./assets/images/vms.png)
+![h-600](./assets/images/containers.png)
 
 Notes:
 Avantages de Docker :
@@ -175,7 +152,7 @@ accès au matériel plus simple
 
 # Rappel sur les containers
 
-![](./assets/images/g3f0c37370d_0_342.png)
+![center h-800](./assets/images/docker-recap.png)
 
 Notes:
 Le Dockerfile :
@@ -206,7 +183,7 @@ Docker Hub, Google Container Registry, ...
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition"-->
 
 # Kubernetes : les origines
 
@@ -216,7 +193,7 @@ Docker Hub, Google Container Registry, ...
 
 # Google : 20 ans de containers
 
-![](./assets/images/g3f0c37370d_0_482.png)
+![h-800 center](./assets/images/google-containers.png)
 
 Notes:
 Google, 20 ans d’expérience sur l’orchestration de containers
@@ -229,11 +206,11 @@ Borg = c++, ~2003
 
 # Cloud Native Computing Foundation
 
-landscape.cncf.io
+![center h-800](./assets/images/cloud-native-foundation.svg)
 
-![](./assets/images/g3f0c37370d_0_492.png)
+[landscape.cncf.io](landscape.cncf.io)
 
-![](./assets/images/g3f0c37370d_0_527.png)
+<!-- .element: class="credits" -->
 
 Notes:
 Kubernetes réecrit en Go par les Googlers
@@ -262,21 +239,22 @@ en procurant les ressources et services centralisés, la Linux Foundation regrou
 
 ##==##
 
-<!-- .slide: class="with-code" -->
+<!-- .slide: class="two-column" -->
 
 # Kubernetes, pour quoi faire ?
 
-```
-Lancer 5 containers basés sur l’image redis:4.0
-Mettre en place un load-balancer interne au cluster pour servir ces 5 containers
-Lancer 10 containers webapp:1.0
-Mettre en place un load-balancer public pour permettre d’accéder aux containers de l’extérieur du cluster
-Augmenter le nombre de containers webapp pendant les soldes 😉
-Continuer à servir les requêtes pendant la mise à jour vers webapp:2.0
+![w-600](./assets/images/g3f0c37370d_0_502.png)
 
-```
+##--##
 
-![](./assets/images/g3f0c37370d_0_502.png)
+<br><br>
+
+- Lancer 5 containers basés sur l’image redis:4.0
+- Mettre en place un load-balancer interne au cluster pour servir ces 5 containers
+- Lancer 10 containers webapp:1.0
+- Mettre en place un load-balancer public pour permettre d’accéder aux containers de l’extérieur du cluster
+- Augmenter le nombre de containers webapp pendant les soldes 😉
+- Continuer à servir les requêtes pendant la mise à jour vers webapp:2.0
 
 Notes:
 Orchestration de containers dans un cluster de machines
@@ -289,23 +267,20 @@ Orchestration de containers dans un cluster de machines
 
 # Mais aussi
 
-```
-Mise à l’échelle automatique
-Déploiement “Blue/green” et “Canary”
-Exécution de traitements unitaires ou répétés
-Prioriser les tâches en cas de manque de ressources sur le cluster
-Exécuter des services qui persistent des données sur disque
-Contrôler l’accès aux différentes ressources
-Automatiser les tâches complexes (“operators”)
-
-```
+- Mise à l’échelle automatique
+- Déploiement “Blue/green” et “Canary”
+- Exécution de traitements unitaires ou répétés
+- Prioriser les tâches en cas de manque de ressources sur le cluster
+- Exécuter des services qui persistent des données sur disque
+- Contrôler l’accès aux différentes ressources
+- Automatiser les tâches complexes (“operators”)
 
 Notes:
 Orchestration de containers dans un cluster de machines
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 1
 
@@ -317,7 +292,7 @@ choix 3
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 1
 
@@ -329,7 +304,7 @@ choix 3
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 1
 
@@ -341,7 +316,7 @@ Les deux sont des moyens de virtualisation mais le container peut tourner sur to
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 1
 
@@ -353,7 +328,7 @@ Les deux sont des moyens de virtualisation mais le container peut tourner sur to
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition"-->
 
 # Premier aperçu
 
@@ -363,7 +338,7 @@ Les deux sont des moyens de virtualisation mais le container peut tourner sur to
 
 # Cluster
 
-![](./assets/images/g3f3310ef84_0_410.png)
+![center h-800](./assets/images/cluster.png)
 
 Notes:
 Un cluster est un ensemble de machines qui collaborent entre elles.
@@ -372,11 +347,11 @@ Sur Kubernetes, on distingue le master des noeuds (nodes).
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: -->
 
 # Exécuter des applications
 
-![](./assets/images/g3f3310ef84_0_411.png)
+![center h-800](./assets/images/cluster-2.png)
 
 Notes:
 Le master est responsable de d’essentiel de la partie “contrôle” (control plane) du cluster.
@@ -393,7 +368,7 @@ En dev ces deux fonctions peuvent être déployées sur une unique machine (ex: 
 
 # Node
 
-![](./assets/images/g3f3310ef84_0_418.png)
+![center h-800](./assets/images/cluster-node.png)
 
 Notes:
 Les noeuds exécutent les applications packagées dans des containers regroupés dans des “Pods”.
@@ -408,7 +383,7 @@ Kubelet est un process qui pilote l'engine docker pour deployer les resources
 
 # Pod
 
-![](./assets/images/g40daa77750_5_116.png)
+![center-h-600](./assets/images/cluster-pod.png)
 
 Notes:
 Pod :
@@ -429,7 +404,7 @@ un ou plusieurs volumes
 
 # Patterns
 
-![](./assets/images/g3f3310ef84_0_993.png)
+![center h-700](./assets/images/patterns.png)
 
 Notes:
 patterns :
@@ -452,7 +427,7 @@ ambassador
 
 # Orchestrer les pods
 
-![](./assets/images/g3386b050b1_0_69.png)
+![center h-800](./assets/images/orchestration-pod.png)
 
 Notes:
 Objectif du slide :
@@ -495,7 +470,7 @@ On reverra plus en détails ces objets et d’autres : ConfigMap, DaemonSet, Job
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 2
 
@@ -507,7 +482,7 @@ Kubelet et container
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 2
 
@@ -519,7 +494,7 @@ Kubelet et container
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition"-->
 
 # Architecture interne
 
@@ -529,11 +504,7 @@ Kubelet et container
 
 # Master et Nodes
 
-devs, ops
-
-clients
-
-master(s)
+![center h-800](./assets/images/master-and-node.svg)
 
 Notes:
 Cluster :
@@ -554,16 +525,9 @@ Les clients accèdent aux pods via les noeuds
 
 <!-- .slide:-->
 
-devs, ops
-kubectl
-
-master(s)
-
 # ApiServer et etcd
 
-Valide
-
-Stocke
+![center h-800](./assets/images/apiserver-etcd.svg)
 
 Notes:
 ApiServer
@@ -578,11 +542,9 @@ Objets stockés dans serveur etcd (serveur clé-valeur distribué)
 
 <!-- .slide:-->
 
-master(s)
-
 # Kubelet
 
-nodes
+![center h-800](./assets/images/kubelet.svg)
 
 Notes:
 Kubelet
@@ -597,11 +559,9 @@ S’enregistre auprès du master via l’apiserver
 
 <!-- .slide:-->
 
-master(s)
-
 # Controllers
 
-nodes
+![center h-800](./assets/images/controllers-node.svg)
 
 Notes:
 Controllers
@@ -620,21 +580,23 @@ le kubelet (lui-aussi un type de contrôleur) exécute le pod demandé puis enre
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="two-column" -->
 
 # Récapitulatif
 
-Le Kubelet s’enregistre dans la config
+- Le Kubelet s’enregistre dans la config
 
-L’utilisateur envoi l’état voulu sur etcd via l’apiserver
+- L’utilisateur envoi l’état voulu sur etcd via l’apiserver
 
-Les contrôleurs et le Kubelet réagissent aux changements d’états pour obtenir et maintenir l’état voulu
+- Les contrôleurs et le Kubelet réagissent aux changements d’états pour obtenir et maintenir l’état voulu
+
+##--##
 
 ![](./assets/images/gb710258689_0_72.png)
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 1
 
@@ -650,14 +612,14 @@ Les deux sont des moyens de virtualisation mais le container peut tourner sur to
 
 # À venir...
 
-![](./assets/images/g3f3310ef84_0_1014.png)
+![center h-800](./assets/images/a-venir.png)
 
 Notes:
 Ce qu’on voit dans le chapitre suivant
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 3
 
@@ -669,7 +631,7 @@ Systemd
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 3
 
@@ -681,7 +643,7 @@ Systemd
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 4
 
@@ -693,7 +655,7 @@ Kube-proxy
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 4
 
@@ -705,7 +667,7 @@ Kube-proxy
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 5
 
@@ -717,7 +679,7 @@ ETCD
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 5
 
@@ -729,7 +691,7 @@ ETCD
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 6
 
@@ -741,7 +703,7 @@ Kube-proxy
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 6
 
@@ -753,7 +715,7 @@ Kube-proxy
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 7
 
@@ -765,7 +727,7 @@ Nodes
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 7
 
@@ -777,7 +739,7 @@ Nodes
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 8
 
@@ -789,7 +751,7 @@ Kube-proxy
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 8
 
@@ -801,21 +763,21 @@ Kube-proxy
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition"-->
 
 # Getting started
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition-bg-sfeir-3"-->
 
 # Création de cluster
 
-Configuration de kubectl
+## Configuration de kubectl
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide" -->
 
 Google Kubernetes Engine
 
@@ -842,20 +804,17 @@ Note : ne pas démontrer ici les avantages de GKE vs K8S natif
 
 ##==##
 
-<!-- .slide: class="with-code" -->
+<!-- .slide:  -->
 
 # kubectl
 
-```
-Client Kubernetes en ligne de commande
-Astuces :
-kubectl version
-kubectl completion -h
-kubectl help <command>
-kubectl explain [--recursive] <resource>
-kubectl <verb> <resource>
-
-```
+- Client Kubernetes en ligne de commande
+- Astuces :
+  - `kubectl version`
+  - `kubectl completion -h`
+  - `kubectl help <command>`
+  - `kubectl explain [--recursive] <resource>`
+  - `kubectl <verb> <resource>`
 
 Notes:
 Comme Docker, Kubernetes s’utilise en mode client-server.
@@ -886,7 +845,7 @@ explain
 
 # ~/.kube/config
 
-<< auth-provider >>
+![center h-800](./assets/images/kube-config.svg)
 
 Notes:
 La configuration du client kubectl se fait dans le fichier ~/.kube/config
@@ -899,42 +858,75 @@ du Cloud SDK.
 
 ##==##
 
-<!-- .slide: class="with-code" -->
+<!-- .slide: class="with-code big-code" -->
+
+# Contextes Kubernetes sur GKE
 
 ```
 gcloud container clusters list
 
 gcloud container clusters get-credentials \   --zone europe-west1-a <mycluster>
-
 ```
 
-# Contextes Kubernetes sur GKE
+<!-- .element: class="big-code" -->
 
 Notes:
 La seconde commande permet de créer le contexte kubectl correspondant à une instance GKE.
 
 ##==##
 
-<!-- .slide: class="with-code"  class="with-code"  class="with-code" -->
-
-```
-$ kubectl config get-contexts # Lister les contexts
-$ kubectl config set-context gke-dev # Mettre à jour les contexts
-$ kubectl config view --minify=true # Afficher current-context configuration
-
-```
+<!-- .slide: class="with-code two-column"  -->
 
 # Changer de contexte
 
 ```
-apiVersion: v1kind: Configcurrent-context: gke-contextcontexts:- name: gke-context  context:    cluster: gke-cluster    user: gke-userclusters:- name: gke-cluster  cluster:    server: https://12.34.56.78
-
+# Lister les contexts
+$ kubectl config get-contexts
+# Mettre à jour les contexts
+$ kubectl config set-context gke-dev
+# Afficher current-context configuration
+$ kubectl config view --minify=true
 ```
 
 ```
-users:- name: gke-user  user:    auth-provider:      name: gcp      config:        cmd-path: /usr/bin/gcloud        cmd-args: config config-helper --format=json        access-token: ya29.GlwXBuG[...]KcYlQ        [...]
+apiVersion: v1
+kind: Config
+current-context: gke-context
+contexts:
+- name: gke-context
+  context:
+    cluster: gke-cluster
+    user: gke-user
+clusters:
+- name: gke-cluster
+  cluster:
+    server: https://12.34.56.78
+```
 
+##--##
 
+<!-- .slide: class="with-code"  -->
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+```
+users:
+- name: gke-user
+  user:
+    auth-provider:
+      name: gcp
+      config:
+        cmd-path: /usr/bin/gcloud
+        cmd-args: config config-helper --format=json
+        access-token: ya29.GlwXBuG[...]KcYlQ
+        [...]
 ```
 
 Notes:
@@ -946,16 +938,9 @@ On voit aussi l’utilisation de gcloud comme fournisseur d’authentification
 
 ##==##
 
-<!-- .slide: class="with-code" -->
-
 # Aide-mémoire des commandes de kubectl
 
-```
-https://kubernetes.io/fr/docs/reference/kubectl/cheatsheet/
-
-
-
-```
+- https://kubernetes.io/fr/docs/reference/kubectl/cheatsheet/
 
 ##==##
 
@@ -963,12 +948,18 @@ https://kubernetes.io/fr/docs/reference/kubectl/cheatsheet/
 
 # Utilitaires autour de kubectl
 
+- https://kubernetes.io/docs/reference/kubectl/quick-reference/#kubectl-autocomplete
+
 ```
-https://kubernetes.io/docs/reference/kubectl/quick-reference/#kubectl-autocomplete
 $ kubectl <TAB>		# auto-complétion
 $ k <TAB>				# alias
-https://github.com/ahmetb/kubectx$ kubectx gke-dev		# changer de contexte$ kubens kube-system	# modifier le ns du contexte courant
+```
 
+- https://github.com/ahmetb/kubectx
+
+```
+$ kubectx gke-dev		# changer de contexte
+$ kubens kube-system	# modifier le ns du contexte courant
 ```
 
 ##==##
@@ -977,16 +968,22 @@ https://github.com/ahmetb/kubectx$ kubectx gke-dev		# changer de contexte$ kub
 
 # Utilitaires autour de kubectl
 
+- ~800 kubectl aliases (bash/zsh)
+  https://github.com/ahmetb/kubectl-aliases
+
+`$ kgpo		# kubectl get pod`
+
+- Shell prompt
+  https://github.com/jonmosco/kube-ps1
+
+  ![](./assets/images/command-minikube.png)
+
+- https://github.com/mfuentesg/ksd
+
 ```
-~800 kubectl aliases (bash/zsh)https://github.com/ahmetb/kubectl-aliases$ kgpo		# kubectl get pod
-Shell prompthttps://github.com/jonmosco/kube-ps1
-
-https://github.com/mfuentesg/ksd$ kubectl get secret <secret name> -o <yaml|json> | ksd
- # Décoder les éléments d’un secret en base 64
-
+$ kubectl get secret <secret name> -o <yaml|json> | ksd
+# Décoder les éléments d’un secret en base 64
 ```
-
-![](./assets/images/gb710258689_0_63.png)
 
 ##==##
 
@@ -994,7 +991,7 @@ https://github.com/mfuentesg/ksd$ kubectl get secret <secret name> -o <yaml|jso
 
 # k9scli.io
 
-![](./assets/images/gb66a827f2c_0_0.png)
+![center h-800](./assets/images/k9scli.png)
 
 Notes:
 Installer l’extension Chrome suivante pour lire l’asciinema en live dans les slides :
@@ -1003,7 +1000,7 @@ https://chrome.google.com/webstore/detail/google-slides-asciinema/lbaccocfalidoa
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition-bg-sfeir-3"-->
 
 # Namespace
 
@@ -1013,13 +1010,13 @@ https://chrome.google.com/webstore/detail/google-slides-asciinema/lbaccocfalidoa
 
 # Namespace
 
-Espace de nom pour isoler les déploiements
-Peut être utilisé pour séparer les environnements (soft multi-tenant)
-Le nom d’une ressource est unique au sein d’un namespace.
-Par défaut:
-default
-kube-system
-kube-public
+- Espace de nom pour isoler les déploiements
+- Peut être utilisé pour séparer les environnements (soft multi-tenant)
+- Le nom d’une ressource est unique au sein d’un namespace.
+- Par défaut:
+  - default
+  - kube-system
+  - kube-public
 
 Notes:
 nom de ressource unique dans un namespace
@@ -1035,16 +1032,15 @@ kube-public : namespace créé par défaut pour les ressources exposés publique
 
 <!-- .slide: class="with-code" -->
 
-```
-Clonez le dépôt github suivant :
-git clone https://github.com/sfeir-open-source/sfeir-school-kubernetes.git
-
-et placez-vous dans le dépôt cloné :
-cd sfeir-school-kubernetes/steps
-
-```
-
 # Récupérer les exercices
+
+- Clonez le dépôt github suivant :
+
+`git clone https://github.com/sfeir-open-source/sfeir-school-kubernetes.git`
+
+- et placez-vous dans le dépôt cloné :
+
+`cd sfeir-school-kubernetes/steps`
 
 Notes:
 À faire
@@ -2575,8 +2571,6 @@ moyenne de l’ensemble de pods de ce RC/Déployment.
 https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
 
 https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
-
-
 
 ##==##
 

@@ -865,7 +865,8 @@ du Cloud SDK.
 ```
 gcloud container clusters list
 
-gcloud container clusters get-credentials \   --zone europe-west1-a <mycluster>
+gcloud container clusters get-credentials \
+   --zone europe-west1-a <mycluster>
 ```
 
 <!-- .element: class="big-code" -->
@@ -1055,49 +1056,64 @@ installés
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition-bg-sfeir-2"-->
 
 # TP : Configurer kubectl
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # TP : Configurer kubectl
 
-!! Faites une sauvegarde du fichier ~/.kube/config !!
+## LAB
+
+<br>
+
+1. !! Faites une sauvegarde du fichier ~/.kube/config !!
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice with-code" -->
 
 # TP : Configurer kubectl
 
-Installer gcloud & kubectl
-Configurer kubectl
+## LAB
+
+<br>
+
+1. Installer gcloud & kubectl
+1. Configurer kubectl
+
+```shell
 $ gcloud container clusters get-credentials <cluster> --zone <zone>
 $ echo 'source <(kubectl completion bash)' >>~/.bashrc
+```
+
+<!-- .element: class="big-code" -->
 
 ##==##
 
-<!-- .slide: class="with-code" -->
+<!-- .slide: class="exercice with-code" -->
 
 # TP : Configurer kubectl
 
-```
+## LAB
+
+```shell
 $ alias k=”kubectl”
 $ kubectl get nodes # Lister les noeuds du cluster
 $ kubectl get namespace # Lister les espaces de nom
-$ kubectl config set-context --current --namespace=<insert-namespace-name-here>
+$ kubectl config set-context --current
+    --namespace=<insert-namespace-name-here>
 $ kubectl config view --minify=true
-
-
-
 ```
+
+<!-- .element: class="big-code" -->
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition-bg-sfeir-3"-->
 
 # Manifest
 
@@ -1108,14 +1124,25 @@ Fichier de configuration : écrit en yaml ou json, ce fichier décrit l’état 
 
 ##==##
 
-<!-- .slide: class="with-code" -->
-
-```
-kind: PodapiVersion: v1metadata:  name: nginx  labels:    app: nginxspec:  containers:  - name: nginx    image: nginx:alpinestatus:  ...
-
-```
+<!-- .slide: class="with-code max-height" -->
 
 # Manifest
+
+```yaml
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  containers:
+    - name: nginx
+      image: nginx:alpine
+status: ...
+```
+
+<!-- .element: class="big-code"-->
 
 Notes:
 kind : type de resource que l’on va créé
@@ -1130,7 +1157,7 @@ status : état actuel de la ressource
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition-bg-sfeir-3"-->
 
 # Créer et interagir avec des objets Kubernetes
 
@@ -1140,10 +1167,14 @@ status : état actuel de la ressource
 
 # Mode déclaratif (préféré)
 
+```shell
+$ kubectl apply -f my-pod.yaml # Modifier ou mettre à jour l’objet
+$ kubectl replace -f my-pod.yaml # Recréer l’objet
+$ kubectl diff -f my-pod.yaml # Afficher les différences de l’objet
+$ kubectl delete -f my-pod.yaml # Supprimer l’objet
 ```
-$ kubectl apply -f my-pod.yaml # Modifier ou mettre à jour l’objet$ kubectl replace -f my-pod.yaml # Recréer l’objet$ kubectl diff -f my-pod.yaml # Afficher les différences de l’objet$ kubectl delete -f my-pod.yaml # Supprimer l’objet
 
-```
+<!-- .element: class="big-code" -->
 
 ##==##
 
@@ -1151,32 +1182,45 @@ $ kubectl apply -f my-pod.yaml # Modifier ou mettre à jour l’objet$ kubectl
 
 # Mode impératif
 
-```
-$ kubectl create <type-of-object> [<subtype-of-object>] <name-of-object> <properties> # Créer un objet$ kubectl create namespace <my-namespace> # Créer un espace de nom$ kubectl run <pod-name> --image=<image> # Créer un pod$ kubectl run <pod-name> --image=<image> --dry-run=client -oyaml > my-pod.yaml
+```shell
+$ kubectl create <type-of-object> [<subtype-of-object>] <name-of-object>
+  <properties> # Créer un objet
+$ kubectl create namespace <my-namespace> # Créer un espace de nom
+$ kubectl run <pod-name> --image=<image> # Créer un pod
+$ kubectl run <pod-name> --image=<image> --dry-run=client -oyaml >
+  my-pod.yaml
 # Générer le yaml du pod sans le créer sur le cluster
-
 ```
+
+<!-- .element: class="big-code"-->
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition-bg-sfeir-3"-->
 
 # Créer et interagir avec un pod
 
 ##==##
 
-<!-- .slide: class="with-code" -->
+<!-- .slide: class="with-code max-height" -->
 
 # kubectl get pods
 
-```
-$ kubectl get podsNAME                     READY     STATUS    RESTARTS   AGEnginx-5dbbff858d-qfb7f   1/1       Running   0          2m
-$ kubectl get po -oyaml nginx-5dbbff858d-qfb7f
-apiVersion: v1kind: Pod
-metadata:
-  name: nginx-5dbbff858d-qfb7f...
+```shell
+$ kubectl get pods
 
+NAME                     READY     STATUS    RESTARTS   AGE
+nginx-5dbbff858d-qfb7f   1/1       Running   0          2m
+
+$ kubectl get po -oyaml nginx-5dbbff858d-qfb7f
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-5dbbff858d-qfb7f
+  ...
 ```
+
+<!-- .element: class="big-code" -->
 
 Notes:
 READY : nombre de containers démarrés / nombre total de container
@@ -1185,25 +1229,49 @@ RESTART : si un container n’est pas dans l’état voulu (crash, indisponibili
 
 ##==##
 
-<!-- .slide: class="with-code" -->
-
-```
-apiVersion: v1kind: Podmetadata:  name: nginx  labels:    app: nginxspec:  containers:  - name: nginx    image: nginx:alpinestatus:  ...
-
-```
+<!-- .slide: class="with-code max-height" -->
 
 # Pod yaml
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  containers:
+    - name: nginx
+      image: nginx:alpine
+status: ...
+```
+
+<!-- .element: class="big-code" -->
 
 ##==##
 
 <!-- .slide: class="with-code" -->
 
-```
-$ kubectl explain podKIND:     PodVERSION:  v1DESCRIPTION:     Pod is a collection of containers that can run on a host. This resource is     created by clients and scheduled onto hosts.FIELDS:   apiVersion	<string>   kind	<string>   metadata	<Object>   spec	<Object>[...]
-
-```
-
 # Pods explained
+
+```shell
+$ kubectl explain pod
+KIND:     Pod
+VERSION:  v1
+
+DESCRIPTION:
+     Pod is a collection of containers that can run on a host. This resource is
+     created by clients and scheduled onto hosts.
+
+FIELDS:
+   apiVersion	<string>
+   kind	<string>
+   metadata	<Object>
+   spec	<Object>
+[...]
+
+```
 
 Notes:
 La commande
@@ -1216,23 +1284,44 @@ donne tous les détails sur les propriétés de chaque ressources Kubernetes…
 
 <!-- .slide: class="with-code" -->
 
-```
-$ kubectl explain pod.spec.containers.imageKIND:     PodVERSION:  v1FIELD:    image <string>DESCRIPTION:     Docker image name. More info:     https://kubernetes.io/docs/concepts/containers/images This field is     optional to allow higher level config management to default or override     container images in workload controllers like Deployments and     StatefulSets.
-
-```
-
 # Pods explained… deeper
+
+```shell
+$ kubectl explain pod.spec.containers.image
+KIND:     Pod
+VERSION:  v1
+
+FIELD:    image <string>
+
+DESCRIPTION:
+     Docker image name. More info:
+     https://kubernetes.io/docs/concepts/containers/images This field is
+     optional to allow higher level config management to default or override
+     container images in workload controllers like Deployments and
+     StatefulSets.
+
+```
 
 ##==##
 
 <!-- .slide: class="with-code" -->
 
-```
-...status:  containerStatuses:  - name: nginx    containerID: docker://8db3af41eb87[...]3d103255    image: nginx:alpine    imageID: docker-pullable://nginx@sha256:1aed1[...]a0a5440    state:      running:        startedAt: 2018-08-13T21:08:10Z  hostIP: 192.168.65.3  podIP: 10.1.0.227
-
-```
-
 # Pod status (live)
+
+```yaml
+---
+status:
+  containerStatuses:
+    - name: nginx
+      containerID: docker://8db3af41eb87[...]3d103255
+      image: nginx:alpine
+      imageID: docker-pullable://nginx@sha256:1aed1[...]a0a5440
+      state:
+        running:
+          startedAt: 2018-08-13T21:08:10Z
+  hostIP: 192.168.65.3
+  podIP: 10.1.0.227
+```
 
 Notes:
 Une fois le fichier yaml envoyé dans la configuration, les contrôleurs viennent mettre à jour le pod dans la partie status.
@@ -1245,68 +1334,94 @@ lui-même.
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition-bg-sfeir-2"-->
 
 # TP : Pod
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # TP : Pod
 
-Regarder le code pour créer un pod
-$ cat pod/monolith.yaml
-Créer le pod :
-$ kubectl apply -f pod/monolith.yaml
+## LAB
+
+- Regarder le code pour créer un pod
+
+`$ cat pod/monolith.yaml`
+
+- Créer le pod :
+
+`$ kubectl apply -f pod/monolith.yaml`
 
 Notes:
 Création d’un pod simple : on affiche les specs du pod, et on créé le pod avec kubectl.
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice with-code"-->
 
 # TP : Information sur le Pod
 
+## LAB
+
+```shell
 $ kubectl get po -owide
 $ kubectl describe po <pod-name>
 $ kubectl get po <pod-name> -oyaml
-Quelle est l’ip du pod ?
-Sur quel node le pod tourne ?
-Quel container tourne dans le pod ?
+```
+
+<!-- .element: class="big-code" -->
+
+- Quelle est l’ip du pod ?
+- Sur quel node le pod tourne ?
+- Quel container tourne dans le pod ?
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # TP : Interagir avec le Pod
 
-Créer un tunnel depuis son poste avec le pod
-$ kubectl port-forward monolith 10080:80
-Ouvrir une autre fenêtre shell
-$ curl http://127.0.0.1:10080
-$ curl http://127.0.0.1:10080/secure
-$ curl -u user http://127.0.0.1:10080/login
-Le mot de passe est : "password"
-$ curl -H "Authorization: Bearer <token>" http://127.0.0.1:10080/secure
+## LAB
+
+- Créer un tunnel depuis son poste avec le pod
+
+`$ kubectl port-forward monolith 10080:80`
+
+- Ouvrir une autre fenêtre shell
+
+`$ curl http://127.0.0.1:10080`
+`$ curl http://127.0.0.1:10080/secure`
+`$ curl -u user http://127.0.0.1:10080/login`
+
+- Le mot de passe est : "password"
+
+`$ curl -H "Authorization: Bearer <token>" http://127.0.0.1:10080/secure`
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # TP : Interagir avec le Pod
 
-Voir les logs du pods
-$ kubectl logs monolith
-Ouvrir un shell dans le pod
-$ kubectl exec monolith -it [-c monolith] -- /bin/sh
-Lister les process dans le container
-$ ps aux
+## LAB
+
+- Voir les logs du pods
+
+`$ kubectl logs monolith`
+
+- Ouvrir un shell dans le pod
+
+`$ kubectl exec monolith -it [-c monolith] -- /bin/sh`
+
+- Lister les process dans le container
+
+`$ ps aux`
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition-bg-sfeir-3"-->
 
 # Liveness/Readiness
 
@@ -1316,15 +1431,17 @@ $ ps aux
 
 # Readiness/Liveness
 
-Readiness :
-Vérifier que le container est prêt à recevoir du flux
+- Readiness :
 
-Liveness :
-Vérifier que le container répond correctement
+  - Vérifier que le container est prêt à recevoir du flux
 
-Startup :
-Vérifier que le container est démarré
-Désactiver les sondes précédentes en attendant cet état
+- Liveness :
+
+  - Vérifier que le container répond correctement
+
+- Startup :
+  - Vérifier que le container est démarré
+  - Désactiver les sondes précédentes en attendant cet état
 
 Notes:
 Kubeproxy sortira un pod du flux si le readiness devient ko.
@@ -1337,49 +1454,49 @@ Kubelet va redémarrer le container si le liveness est ko.
 
 # Readiness/Liveness : command
 
+```yaml
+livenessProbe:
+  exec:
+    command:
+      - cat
+      - /tmp/healthy
+  initialDelaySeconds: 5
+  periodSeconds: 5
 ```
 
-    livenessProbe:
-      exec:
-        command:
-        - cat
-        - /tmp/healthy
-      initialDelaySeconds: 5
-      periodSeconds: 5
-
-```
+<!-- .element: class="big-code" -->
 
 Notes:
 Il est possible d’utiliser une commande pour tester l’état du service
 
 ##==##
 
-<!-- .slide: class="with-code" -->
+<!-- .slide: class="with-code max-height" -->
 
 # Readiness/Liveness : tcp socket
 
+```yaml
+readinessProbe:
+  tcpSocket:
+    port: 8080
+  initialDelaySeconds: 5
+  periodSeconds: 10
+livenessProbe:
+  tcpSocket:
+    port: 8080
+  initialDelaySeconds: 15
+  periodSeconds: 20
 ```
-    readinessProbe:
-      tcpSocket:
-        port: 8080
-      initialDelaySeconds: 5
-      periodSeconds: 10
-    livenessProbe:
-      tcpSocket:
-        port: 8080
-      initialDelaySeconds: 15
-     periodSeconds: 20
 
-
-```
+<!-- .element: class="big-code" -->
 
 ##==##
 
-<!-- .slide: class="with-code" -->
+<!-- .slide: class="with-code max-height" -->
 
 # Readiness/Liveness : http
 
-```
+```yaml
 ...
 spec:
   containers:
@@ -1411,37 +1528,35 @@ livenessProbe indique si le pod est ok, si nok kubelet redémarre le pod
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition-bg-sfeir-2"-->
 
 # TP : Readiness/Liveness
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # TP : Readiness/Liveness
 
-Regarder le contenu du pod
-$ cat readiness/healthy-monolith.yaml
-$ kubectl apply -f readiness/healthy-monolith.yaml
-$ kubectl describe pods/healthy-monolith
+## LAB
+
+- Regarder le contenu du pod
+  `$ cat readiness/healthy-monolith.yaml`
+  `$ kubectl apply -f readiness/healthy-monolith.yaml`
+  `$ kubectl describe pods/healthy-monolith`
 
 ##==##
 
-<!-- .slide: class="with-code" -->
+<!-- .slide: class="with-code exercice" -->
 
 # TP : Readiness/Liveness
 
-```
-$ kubectl describe pods
+`$ kubectl describe pods`
 
-Comment est configurée la sonde readiness ?
-Comment est configurée la sonde liveness
-à quelle fréquence la surveillance readiness est effectuée ?
-à partir de combien de secondes la sonde liveness est effectuée ?
-
-
-```
+- Comment est configurée la sonde readiness ?
+- Comment est configurée la sonde liveness
+- à quelle fréquence la surveillance readiness est effectuée ?
+- à partir de combien de secondes la sonde liveness est effectuée ?
 
 Notes:
 Comment est configuré la sonde readiness ? httpGet sur /readiness:81
@@ -1454,38 +1569,58 @@ liveness est effectué à partir de 5 secondes
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # TP : Tester les sondes
 
+```
 $ kubectl get pods healthy-monolith
-Noter l’état OK du pod
+```
+
+- Noter l’état OK du pod
+
+```
 $ kubectl port-forward healthy-monolith 10081:81
-Forcer l’application a passé en état “failed”
+```
+
+- Forcer l’application a passé en état “failed”
+
+```
 $ curl http://127.0.0.1:10081/readiness/status
-Attendre 45 secondes que la sonde en failed
+```
+
+- Attendre 45 secondes que la sonde en failed
+
+```
 $ kubectl describe pods healthy-monolith
-Vous pouvez noter dans l’historique le moment où le pod est passé en “unhealthy”
+```
+
+- Vous pouvez noter dans l’historique le moment où le pod est passé en “unhealthy”
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice with-code"-->
 
 # TP : Tester les sondes
 
-Maintenant nous allons “casser” la sonde liveness
+- Maintenant nous allons “casser” la sonde liveness
+
+```shell
 $ curl http://127.0.0.1:10081/healthz/status
 
 $ kubectl get pods
+```
 
-Que se passe-t-il quand le liveness est ko ?
+<!-- .element: class="big-code"-->
+
+- Que se passe-t-il quand le liveness est ko ?
 
 Notes:
 Que se passe-t-il : dans ce cas le pod est redémarré
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition"-->
 
 # Configuration d’une application
 
@@ -1495,33 +1630,52 @@ Que se passe-t-il : dans ce cas le pod est redémarré
 
 # Configuration
 
-Configurer l’URI d’une base de données
-Injecter un fichier application-prod.yml
-Spécifier les credentials d’une api
+- Configurer l’URI d’une base de données
+- Injecter un fichier application-prod.yml
+- Spécifier les credentials d’une api
 
 ##==##
 
 <!-- .slide: class="with-code" -->
 
-```
-apiVersion: v1kind: Podmetadata:  name: envar-demospec:  containers:  - name: envar-demo-container    image: debian    env:    - name: DEMO_GREETING      value: "Hello from the environment"    - name: DEMO_FAREWELL      value: "Such a sweet sorrow"
-
-```
-
 # Variables d’environnement
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: envar-demo
+spec:
+  containers:
+    - name: envar-demo-container
+      image: debian
+      env:
+        - name: DEMO_GREETING
+          value: 'Hello from the environment'
+        - name: DEMO_FAREWELL
+          value: 'Such a sweet sorrow'
+```
+
+<!-- .element: class="big-code" -->
 
 Notes:
 On peut injecter une variable d’environnement via le champ “env”.
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="with-code"-->
 
 # ConfigMap : création
 
+```shell
 $ kubectl create configmap <map-name> <data-source>
-$ kubectl create configmap my-app-conf --from-file=my-app-conf/configmap/application-dev.properties
-$ kubectl create cm my-app-conf --from-literal=db-server=mydbserver.mycompany.com
+$ kubectl create configmap my-app-conf
+  --from-file=my-app-conf/configmap/application-dev.properties
+$ kubectl create cm my-app-conf
+  --from-literal=db-server=mydbserver.mycompany.com
+```
+
+<!-- .element: class="big-code" -->
 
 Notes:
 Pour injecter un fichier de configuration, on peut injecter un fichier de configuration dans un pod avec un configMap.
@@ -1542,7 +1696,7 @@ depuis la cli :
 
 # ConfigMap: manifests
 
-```
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -1551,31 +1705,62 @@ data:
   application.properties: |
     db-server=mydbserver.dev.mycompany.com
     username=my-rw-dbuser
-
-$ kubectl apply -f configmap.yml
-
 ```
+
+<!-- .element: class="big-code" -->
+
+```shell
+$ kubectl apply -f configmap.yml
+```
+
+<!-- .element: class="big-code" -->
 
 Notes:
 derrière le | on peut mettre n’importe un fichier non structuré yaml
 
 ##==##
 
-<!-- .slide: class="with-code"  class="with-code" -->
-
-```
-apiVersion: v1kind: Podmetadata:  name: configmap-podspec:  containers:    - name: test      image: busybox      volumeMounts:        - name: config-vol          mountPath: /etc/config
-
-```
+<!-- .slide: class="with-code two-column max-height" -->
 
 # ConfigMap : utilisation
 
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configmap-pod
+spec:
+  containers:
+    - name: test
+      image: busybox
+      volumeMounts:
+        - name: config-vol
+          mountPath: /etc/config
 ```
-  volumes:    - name: config-vol      configMap:        name: log-config        items:          - key: log_level            path: log_level
 
+<!-- .element: class="big-code" -->
+
+##--##
+
+<!-- .slide: class="with-code" -->
+
+<br>
+<br>
+<br>
+
+```yaml
+volumes:
+  - name: config-vol
+    configMap:
+      name: log-config
+      items:
+        - key: log_level
+          path: log_level
 ```
 
-Point de montage du fichier : /etc/config/log_level
+<!-- .element: class="big-code" -->
+
+Point de montage du fichier : **/etc/config**/_log_level_
 
 ##==##
 
@@ -1583,17 +1768,16 @@ Point de montage du fichier : /etc/config/log_level
 
 # Secret : type
 
-```
+```shell
 $ kubectl create secret --help
 
 Available Commands:
   docker-registry Create a secret for use with a Docker registry
   generic         Create a secret from a local file, directory or literal value
   tls             Create a TLS secret
-
-
-
 ```
+
+<!-- .element: class="big-code" -->
 
 Notes:
 On peut créer 3 types de secret :
@@ -1610,7 +1794,7 @@ tls : pour stocker un certificat serveur pour exposer un service en https
 
 # Secret : manifest
 
-```
+```yaml
 apiVersion: v1
 kind: Secret
 metadata:
@@ -1618,119 +1802,155 @@ metadata:
 type: Opaque
 data:
   username: YWRtaW4=
-  password: MWYyZDFlMmU2N2Rm
-
+  password: MWYyZDFlMmU2N2Rm
 ```
+
+<!-- .element: class="big-code"  -->
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="with-code"-->
 
 # Secret : création
 
-Créer un secret depuis un fichier
-$ kubectl create secret generic db-user-pass --from-file=./password.txt
-Créer un secret depuis une clé/valeur
-$ kubectl create secret generic prod-db-secret --from-literal=username=produser
-Créer un secret “docker-registry ”
-$ kubectl create secret docker-registry regcred --docker-server=<your-registry-server> --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email>
+- Créer un secret depuis un fichier
+
+`$ kubectl create secret generic db-user-pass --from-file=./password.txt`
+
+- Créer un secret depuis une clé/valeur
+
+`$ kubectl create secret generic prod-db-secret --from-literal=username=produser`
+
+- Créer un secret “docker-registry ”
+
+```shell
+$ kubectl create secret docker-registry regcred
+  --docker-server=<your-registry-server> --docker-username=<your-name>
+  --docker-password=<your-pword> --docker-email=<your-email>
+```
+
+<!-- .element: class="big-code" -->
 
 Notes:
 Un secret va permettre de stocker des informations sensibles, comme des mots de passe, des clés privées.
 
 ##==##
 
-<!-- .slide: class="with-code" -->
-
-```
-apiVersion: v1kind: Podspec:  containers:  - name: envar-demo-container    image: debian    env:    - name: DEMO_GREETING      valueFrom:
-secretKeyRef:
-name: demo      # le nom du secret
-key: password   # la clé dans le secret
-
-```
+<!-- .slide: class="with-code max-height" -->
 
 # Secret : env vars
 
-##==##
-
-<!-- .slide: class="with-code"  class="with-code" -->
-
-# Secret : volume
-
-```
-...
+```yaml
+apiVersion: v1
 kind: Pod
 spec:
   containers:
-  - name: mypod
-    image: redis
-    volumeMounts:
-    - name: secret-volume
-      mountPath: "/etc/foo"
-      readOnly: true
-
-
+    - name: envar-demo-container
+      image: debian
+      env:
+        - name: DEMO_GREETING
+          valueFrom:
+            secretKeyRef:
+              name: demo # le nom du secret
+              key: password # la clé dans le secret
 ```
 
-```
-  volumes:
-  - name: secret-volume
-    secret:
-      secretName: mysecret
-
-```
+<!-- .element: class="big-code" -->
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="with-code two-column" -->
+
+# Secret : volume
+
+```yaml
+kind: Pod
+spec:
+  containers:
+    - name: mypod
+      image: redis
+      volumeMounts:
+        - name: secret-volume
+          mountPath: '/etc/foo'
+          readOnly: true
+```
+
+<!-- .element: class="big-code" -->
+
+##--##
+<br>
+<br>
+<br>
+<br>
+
+```yaml
+volumes:
+  - name: secret-volume
+    secret:
+      secretName: mysecret
+```
+
+<!-- .element: class="big-code" -->
+
+##==##
+
+<!-- .slide: class="transition-bg-sfeir-2" -->
 
 # TP : Configuration
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # TP : ConfigMap
 
-$ kubectl create configmap nginx-proxy-conf --from-file=configuration/nginx/proxy.conf
+## LAB
 
-$ kubectl describe configmaps nginx-proxy-conf
+`$ kubectl create configmap nginx-proxy-conf --from-file=configuration/nginx/proxy.conf`
+
+`$ kubectl describe configmaps nginx-proxy-conf`
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # Quizz : ConfigMap
 
-Combien y a t-il d’éléments dans la configmap nginx-proxy-conf ?
-Quel est le nom de ces éléments ?
+## LAB
+
+- Combien y a t-il d’éléments dans la configmap nginx-proxy-conf ?
+- Quel est le nom de ces éléments ?
 
 Notes:
 1 element : le fichier proxy.conf
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # TP : Secret
 
-$ kubectl create secret generic tls-certs --from-file=configuration/tls/
+## LAB
 
-$ kubectl describe secrets tls-certs
+`$ kubectl create secret generic tls-certs --from-file=configuration/tls/`
+
+`$ kubectl describe secrets tls-certs`
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # Quizz : Secret
 
-Combien y a t-il d’éléments dans le Secret tls-cert ?
+## LAB
 
-Quel est le nom de ces éléments ?
+- Combien y a t-il d’éléments dans le Secret tls-cert ?
+
+- Quel est le nom de ces éléments ?
 
 Notes:
-Le secret contient 4 elements : ca-key.pem
+Le secret contient 4 elements :
+ca-key.pem
 
 ca.pem
 
@@ -1742,15 +1962,17 @@ on peut voir que les secrets ne sont pas affiche dans la console
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice" -->
 
 # TP : Injection de fichiers
 
-$ cat configuration/pod/secure-monolith.yaml
+## LAB
 
-Comment le secret est injecté dans le pod ?
+`$ cat configuration/pod/secure-monolith.yaml`
 
-Comment le configmap est injecté dans le pod ?
+- Comment le secret est injecté dans le pod ?
+
+- Comment le configmap est injecté dans le pod ?
 
 Notes:
 Les secrets sont injectés sous la forme d'un volume
@@ -1759,16 +1981,23 @@ de la meme facon le configMap est injecte sous la forme d'un volume.
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # TP : Injection de fichiers
 
-Créer le pod “secure-monolith”
-$ kubectl apply -f configuration/pod/secure-monolith.yaml
-Exposer le port sur votre poste
-$ kubectl port-forward secure-monolith 10443:443
-Faites une requête avec curl
-$ curl --cacert configuration/tls/ca.pem https://127.0.0.1:10443
+## LAB
+
+- Créer le pod “secure-monolith”
+
+`$ kubectl apply -f configuration/pod/secure-monolith.yaml`
+
+- Exposer le port sur votre poste
+
+`$ kubectl port-forward secure-monolith 10443:443`
+
+- Faites une requête avec curl
+
+`$ curl --cacert configuration/tls/ca.pem https://127.0.0.1:10443`
 
 Notes:
 Du coup on a injecté les certificats et la configuration du service nginx, et on arrive bien à faire une requête en https sur notre service.
@@ -1777,7 +2006,7 @@ Préciser : ce n’est pas la bonne méthode pour exposer un service en https su
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition-bg-sfeir-3"-->
 
 # Service
 
@@ -1787,7 +2016,7 @@ Préciser : ce n’est pas la bonne méthode pour exposer un service en https su
 
 # Exposer des pods
 
-![](./assets/images/g3f3310ef84_0_277.png)
+![center h-800](./assets/images/expose-pods.png)
 
 Notes:
 Les pods sont exposés au sein du cluster via les
@@ -1806,11 +2035,7 @@ labels
 
 # Service type ClusterIP
 
-IP interne 10.0.1.8
-
-10.0.0.6
-
-10.0.0.7
+![center h-800](./assets/images/cluster-ip.svg)
 
 Notes:
 Un Service de type ClusterIP est accessible depuis une IP interne au cluster.
@@ -1823,11 +2048,7 @@ On l’utilise en général pour la communication inter-pods.
 
 # Service type NodePort
 
-10.0.0.7
-
-10.0.0.6
-
-10.0.0.7
+![center h-800](./assets/images/service-type-node.svg)
 
 Notes:
 Un service du type nodePort est associé à un port identique sur chaque noeud du cluster.
@@ -1846,9 +2067,7 @@ Inconvénient : il faut donc connaître l’adresse IP d’au moins un noeud du 
 
 # Service type LoadBalancer
 
-10.0.0.6
-
-10.0.0.7
+![center h-800](./assets/images/service-type-loadbalancer.svg)
 
 Notes:
 Un Service de type LoadBalancer utilise un équilibreur de charge externe au cluster.
@@ -1859,11 +2078,11 @@ L’inconvénient c’est que chaque service aura son propre load balancer avec 
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Service type ExternalName
 
-IP interne 10.0.1.8
+![center h-800](./assets/images/service-type-externalname.svg)
 
 Notes:
 Un Service de type ExternalName fourni un alias DNS de type CNAME.
@@ -1872,11 +2091,11 @@ Il n’est utilisable qu’en interne.
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Service avec Endpoint explicite
 
-IP interne 10.0.1.8
+![center h-800](./assets/images/service-endpoint-explicite.svg)
 
 Notes:
 En interne, Kubernetes génère une ressource Endpoint pour chaque Pod ciblé par le sélecteur.
@@ -1887,14 +2106,27 @@ C’est la manière de rajouter une abstraction vers un service externe au clust
 
 ##==##
 
-<!-- .slide: class="with-code" -->
-
-```
-apiVersion: v1kind: Servicemetadata:  name: nginxspec:  selector:    app: nginx  type: NodePort  ports:  - name: http    port: 80    protocol: TCP    targetPort: 80
-
-```
+<!-- .slide: class="with-code max-height" -->
 
 # Service yaml
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+spec:
+  selector:
+    app: nginx
+  type: NodePort
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 80
+```
+
+<!-- .element: class="big-code" -->
 
 Notes:
 Le
@@ -1907,32 +2139,35 @@ de services qu’on voit tout de suite.
 
 ##==##
 
-<!-- .slide: class="with-code" -->
+# Créer un service
 
-```
-$ kubectl apply -f service.yaml
+`$ kubectl apply -f service.yaml`
 
 La ligne de commande suivante donne un résultat équivalent au fichier yaml :
 
-$ kubectl expose nginx --port=80 --type=NodePort
-
-```
-
-# Créer un service
+`$ kubectl expose nginx --port=80 --type=NodePort`
 
 ##==##
 
-<!-- .slide: class="with-code" -->
+<!-- .slide: class="with-code max-height" -->
 
 # Services
 
-```
-$ kubectl get servicesNAME        TYPE       CLUSTER-IP   EXTERNAL-IP PORT(S)       AGEkubernetes  ClusterIP  10.96.0.1    <none>      443/TCP       3dnginx       NodePort   10.97.47.155 <none>      80:31450/TCP  2s$ kubectl get svc -o yaml nginx
-apiVersion: v1kind: Service
-metadata:
-  name: nginx...
+```shell
+$ kubectl get services
+NAME        TYPE       CLUSTER-IP   EXTERNAL-IP PORT(S)       AGE
+kubernetes  ClusterIP  10.96.0.1    <none>      443/TCP       3d
+nginx       NodePort   10.97.47.155 <none>      80:31450/TCP  2s
 
+$ kubectl get svc -o yaml nginx
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  ...
 ```
+
+<!-- .element: class="big-code" -->
 
 ##==##
 
@@ -1940,9 +2175,9 @@ metadata:
 
 # Service : DNS interne
 
-Entrée DNS : <service>.<namespace>.svc.cluster.local
+- Entrée DNS : <service>.<namespace>.svc.cluster.local
 
-Et dans le namespace : <service>
+- Et dans le namespace : <service>
 
 Notes:
 Pour chaque service créé, le service est accessible via une entrée DNS : <service>.<namespace>.svc.cluster.local
@@ -1951,7 +2186,7 @@ Et à l’intérieur du namespace, uniquement avec le nom du service
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 9
 
@@ -1963,7 +2198,7 @@ LoadBalancer
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 9
 
@@ -1975,7 +2210,7 @@ LoadBalancer
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 10
 
@@ -1987,7 +2222,7 @@ LoadBalancer
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 10
 
@@ -1999,7 +2234,7 @@ LoadBalancer
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 11
 
@@ -2011,7 +2246,7 @@ LoadBalancer
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Question 11
 
@@ -2023,35 +2258,45 @@ LoadBalancer
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition-bg-sfeir-2" -->
 
 # TP : Service
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # TP : Créer un service
 
-Lire le manifest de l’objet service
-$ cat service/monolith.yaml
+## LAB
 
-Créer le service
-$ kubectl apply -f service/monolith.yaml
+- Lire le manifest de l’objet service
+
+`$ cat service/monolith.yaml`
+
+- Créer le service
+
+`$ kubectl apply -f service/monolith.yaml`
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice" data-type-show="hide" -->
 
 # TP : Interagir avec le service
 
+## LAB
+
+```shell
 $ gcloud compute instances list
 NAME ZONE MACHINE_TYPE PREEMPTIBLE INTERNAL_IP EXTERNAL_IP STATUS
 gke-istio-workshop-default-pool-e37360ba-369z europe-west1-b n1-standard-1 10.132.0.3 35.205.92.225 RUNNING
 gke-istio-workshop-default-pool-e37360ba-3hz4 europe-west1-b n1-standard-1 10.132.0.2 35.240.127.238 RUNNING
 ...
+```
+
 Prenez l’une des ips externes et connectez vous-y
-$ curl -k https://<EXTERNAL_IP>:31000
+
+`$ curl -k https://<EXTERNAL_IP>:31000`
 
 Notes:
 Le résultat est un échec :
@@ -2064,15 +2309,19 @@ Normal : il n’y a pas de label correspondant !
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # TP : Service
 
-Pourquoi la requête ne fonctionne pas ?
-$ kubectl get svc monolith
+## LAB
 
-$ kubectl describe services monolith
-Combien y a t-il de endpoints au service ?
+- Pourquoi la requête ne fonctionne pas ?
+
+`$ kubectl get svc monolith`
+
+`$ kubectl describe services monolith`
+
+- Combien y a t-il de endpoints au service ?
 
 Notes:
 Le résultat est un échec :
@@ -2085,37 +2334,56 @@ Normal : il n’y a pas de label correspondant !
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # TP : Service
 
-Lister les pods par labels
-$ kubectl get pods -l "app=monolith"
-$ kubectl get pods -l "app=monolith,secure=enabled"
-On va labelliser un pod
-$ kubectl label pods secure-monolith secure=enabled
-Et maintenant ?
-$ kubectl get pods -l "app=monolith,secure=enabled"
+## LAB
+
+- Lister les pods par labels
+
+`$ kubectl get pods -l "app=monolith"`
+`$ kubectl get pods -l "app=monolith,secure=enabled"`
+
+- On va labelliser un pod
+
+`$ kubectl label pods secure-monolith secure=enabled`
+
+- Et maintenant ?
+
+`$ kubectl get pods -l "app=monolith,secure=enabled"`
 
 Notes:
 On labellise les pods
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition-bg-sfeir-2"-->
 
 # ReplicaSet
 
 ##==##
 
-<!-- .slide: class="with-code" -->
+<!-- .slide: class="with-code max-height" -->
 
 # ReplicaSet.yaml
 
+```yaml
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template: <... pod definition ...>
 ```
-apiVersion: apps/v1kind: ReplicaSetmetadata:  name: nginx  labels:    app: nginxspec:  replicas: 1  selector:    matchLabels:      app: nginx  template:    <... pod definition ...>
 
-```
+<!-- .element: class="big-code" -->
 
 Notes:
 Le ReplicaSet inclut la définition du pod dans la partie
@@ -2137,21 +2405,26 @@ indique le nombre d’instances voulues.
 
 # kubectl get replicaset
 
-```
-$ kubectl get ReplicaSetNAME               DESIRED   CURRENT   READY     AGEnginx-5dbbff858d   1         1         1         14m
+```shell
+$ kubectl get ReplicaSet
+NAME               DESIRED   CURRENT   READY     AGE
+nginx-5dbbff858d   1         1         1         14m
 
 $ kubectl get rs -o yaml nginx-5dbbff858d
-apiVersion: apps/v1kind: ReplicaSet
+apiVersion: apps/v1
+kind: ReplicaSet
 ...
-
 ```
+
+<!-- .element: class="big-code" -->
 
 Notes:
 Le ReplicaSet maintient le nombre demandé de pods
 en état de fonctionnement
 .
 
-La colonne READY montre les pods qui sont fonctionnels, et pas juste les pods créés (
+La colonne READY montre les pods qui sont fonctionnels, et pas juste les pods créés
+(
 par exemple avec des
 containers en cours de création ou crashés)
 
@@ -2161,37 +2434,66 @@ containers en cours de création ou crashés)
 
 # ReplicaSet status (live)
 
+```yaml
+---
+status:
+  availableReplicas: 1
+  fullyLabeledReplicas: 1
+  readyReplicas: 1
+  replicas: 1
 ```
-...status:  availableReplicas: 1  fullyLabeledReplicas: 1  readyReplicas: 1  replicas: 1
 
-```
+<!-- .element: class="big-code" -->
 
 Notes:
 On voit le status des replicas
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition-bg-sfeir-3"-->
 
 # Deployment
 
 ##==##
 
-<!-- .slide: class="with-code"  class="with-code" -->
-
-```
-apiVersion: apps/v1kind: Deploymentmetadata:  name: nginxspec:  replicas: 1  selector:    matchLabels:      app: nginx  template:
-  ...
-
-
-```
+<!-- .slide: class="with-code max-height two-column" -->
 
 # Deployment.yaml
 
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
 ```
-  ...  template:    metadata:      labels:        app: nginx    spec:      containers:      - name: nginx        image: nginx:alpine
 
+<!-- .element: class="big-code" -->
+
+##--##
+
+<!-- .slide: class="with-code" -->
+
+<br>
+<br>
+<br>
+
+```yaml
+template:
+  metadata:
+    labels:
+      app: nginx
+  spec:
+    containers:
+      - name: nginx
+        image: nginx:alpine
 ```
+
+<!-- .element: class="big-code" -->
 
 Notes:
 On retrouve dans le Deployment les specs du Pod et du ReplicaSet
@@ -2202,13 +2504,17 @@ On retrouve dans le Deployment les specs du Pod et du ReplicaSet
 
 # kubectl get deployment
 
-```
-$ kubectl get deploymentNAME      DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGEnginx     1         1         1            1           1h
-$ kubectl get deploy -o yaml nginx
-apiVersion: apps/v1kind: Deployment
-...
+```shell
+$ kubectl get deployment
+NAME      DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+nginx     1         1         1            1           1h
 
+$ kubectl get deploy -o yaml nginx
+apiVersion: apps/v1
+kind: Deployment
 ```
+
+<!-- .element: class="big-code" -->
 
 Notes:
 Le Deployment gère des
@@ -2227,15 +2533,16 @@ Rolling upgrade
 
 <!-- .slide: class="with-code" -->
 
-```
+# Mise à l’échelle manuelle
+
+```shell
 
 $ kubectl scale deployment/nginx --replicas=10
 
 $ kubectl get all
-
 ```
 
-# Mise à l’échelle manuelle
+<!-- .element: class="big-code" -->
 
 Notes:
 La commande
@@ -2248,7 +2555,7 @@ mises à jours progressives
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition-bg-sfeir-3"-->
 
 # The Label Game
 
@@ -2258,9 +2565,9 @@ mises à jours progressives
 
 # Les labels Kubernetes
 
-Pour le fonctionnement interne de Kubernetes
-ReplicaSet && Deployments ⇒ Pods
-Services ⇒ Pods
+- Pour le fonctionnement interne de Kubernetes
+  - ReplicaSet && Deployments ⇒ Pods
+  - Services ⇒ Pods
 
 ##==##
 
@@ -2268,7 +2575,7 @@ Services ⇒ Pods
 
 # “The label game”
 
-![](./assets/images/g41f33631ff_0_65.png)
+![center h-800](./assets/images/label-game.png)
 
 Notes:
 Jeu : trouver le sélecteur permettant d’identifier les pods encadrés
@@ -2279,7 +2586,9 @@ Jeu : trouver le sélecteur permettant d’identifier les pods encadrés
 
 # “The label game”
 
-![](./assets/images/g41f33631ff_0_68.png)
+![center h-800](./assets/images/label-game.png)
+
+<div style="border:blue solid 3px; border-radius:100px; position:absolute; width:700px; height: 750px; top:250px; left: 600px;" ></div>
 
 Notes:
 selector:
@@ -2292,7 +2601,9 @@ App: MyApp
 
 # “The label game”
 
-![](./assets/images/g41f33631ff_0_73.png)
+![center h-800](./assets/images/label-game.png)
+
+<div style="border:blue solid 3px; border-radius:100px; position:absolute; width:350px; height: 750px; top:250px; left: 600px;" ></div>
 
 Notes:
 selector:
@@ -2305,7 +2616,9 @@ Rôle: Interface
 
 # “The label game”
 
-![](./assets/images/g41f33631ff_0_78.png)
+![center h-800](./assets/images/label-game.png)
+
+<div style="border:blue solid 3px; border-radius:100px; position:absolute; width:700px; height: 350px; top:250px; left: 600px;" ></div>
 
 Notes:
 selector:
@@ -2318,7 +2631,9 @@ Phase: Prod
 
 # “The label game”
 
-![](./assets/images/g41f33631ff_0_83.png)
+![center h-800](./assets/images/label-game.png)
+
+<div style="border:blue solid 3px; border-radius:100px; position:absolute; width:350px; height: 350px; top:650px; left: 950px;" ></div>
 
 Notes:
 selector:
@@ -2329,109 +2644,137 @@ Rôle: BE
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition-bg-sfeir-2"-->
 
 # TP : Deployment
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # TP : Deployment
 
-On va créer une stack complète hello, auth, frontend
+## LAB
 
-Avec deployment et service
+- On va créer une stack complète hello, auth, frontend
+
+- Avec deployment et service
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # Architecture de la stack
 
-service hello
+## LAB
 
-service auth
+![center h-800](./assets/images/archi-tp-deployment.svg)
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # TP : Deployment
 
-Créer un déploiement :
-$ kubectl apply -f deployments/auth.yaml
-$ kubectl describe deployments auth
+## LAB
 
-Et créer le service correspondant
-$ kubectl apply -f deployments/service-auth.yaml
+- Créer un déploiement :
+
+`$ kubectl apply -f deployments/auth.yaml`
+
+`$ kubectl describe deployments auth`
+
+- Et créer le service correspondant
+
+`$ kubectl apply -f deployments/service-auth.yaml`
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # TP : Deployment Hello
 
-Idem pour le service Hello
-$ kubectl apply -f deployments/hello.yaml
-$ kubectl describe deployments hello
-$ kubectl apply -f deployments/service-hello.yaml
+## LAB
+
+- Idem pour le service Hello
+
+`$ kubectl apply -f deployments/hello.yaml`
+
+`$ kubectl describe deployments hello`
+
+`$ kubectl apply -f deployments/service-hello.yaml`
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # TP : Deployment Frontend
 
-Et pour le service Front
-$ kubectl create configmap nginx-frontend-conf --from-file=configuration/nginx/
-$ kubectl apply -f deployments/frontend.yaml
-$ kubectl apply -f deployments/service-frontend.yaml
-$
-Quizz : Comment le frontend a accès au service auth et hello ?
+## LAB
+
+- Et pour le service Front
+
+`$ kubectl create configmap nginx-frontend-conf --from-file=configuration/nginx/`
+
+`$ kubectl apply -f deployments/frontend.yaml`
+
+`$ kubectl apply -f deployments/service-frontend.yaml`
+
+- Quizz : Comment le frontend a accès au service auth et hello ?
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition-bg-sfeir-2"-->
 
 # TP : C’est les soldes !
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # TP : Scaling Deployment
 
-On va maintenant augmenter le nombre de pod
+## LAB
 
-$ kubectl scale deployments hello --replicas=3
-$ kubectl describe deployments hello
-$ kubectl get pods
-$ kubectl get replicasets
+- On va maintenant augmenter le nombre de pod
+
+`$ kubectl scale deployments hello --replicas=3`
+
+`$ kubectl describe deployments hello`
+
+`$ kubectl get pods`
+
+`$ kubectl get replicasets`
 
 Notes:
 combien
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice with-code"-->
 
 # TP : Scaling Frontend
 
-Editer le service frontend pour scaler à 2 replicas
-$ vim deployments/frontend.yaml
+## LAB
+
+- Editer le service frontend pour scaler à 2 replicas
+
+`$ vim deployments/frontend.yaml`
+
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
 name: frontend
 spec:
 replicas: 2
-…
-$ kubectl apply -f deployments/frontend.yaml
+```
+
+`$ kubectl apply -f deployments/frontend.yaml`
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition"-->
 
 # Mise à l’échelle et mise à jour
 
@@ -2441,7 +2784,7 @@ $ kubectl apply -f deployments/frontend.yaml
 
 # Rolling upgrade 1/4
 
-![](./assets/images/g3f3310ef84_0_1030.png)
+![center h-800](./assets/images/rolling-update-1.png)
 
 Notes:
 Etat initial : 4 Pods v1 répartis sur 3 noeuds
@@ -2456,7 +2799,7 @@ Le DeploymentController (le A sur le master) va réagir à ce changement de conf
 
 # Rolling upgrade 2/4
 
-![](./assets/images/g3f3310ef84_0_1035.png)
+![center h-800](./assets/images/rolling-update-2.png)
 
 Notes:
 Le DeploymentController va instancier un nouveau Pod “v2” et attendre qu’il soit fonctionnel.
@@ -2471,7 +2814,7 @@ L’ancien Pod ne reçoit plus de nouvelles requêtes, il va être arrêté puis
 
 # Rolling upgrade 3/4
 
-![](./assets/images/g3f3310ef84_0_1040.png)
+![center h-800](./assets/images/rolling-update-3.png)
 
 Notes:
 Chaque Pod est ainsi remplacé par la nouvelle version, un par un.
@@ -2482,7 +2825,7 @@ Chaque Pod est ainsi remplacé par la nouvelle version, un par un.
 
 # Rolling upgrade 4/4
 
-![](./assets/images/g3f3310ef84_0_1045.png)
+![center h-800](./assets/images/rolling-update-4.png)
 
 Notes:
 À la fin du processus de rolling-upgrade, il ne reste que des pods v2.
@@ -2493,19 +2836,19 @@ Il n’y a pas eu d’interruption de service.
 
 <!-- .slide: class="with-code" -->
 
-```
-Mise à jour progressive (rolling-upgrade) sans interruption de service
-Gérée par le Deployment
+# Mise à jour progressive
+
+- Mise à jour progressive (rolling-upgrade) sans interruption de service
+- Gérée par le Deployment
 
 Remplacer nginx par Apache httpd :
 
+```shell
 $ kubectl edit deployment nginx --record
 “image: nginx:alpine” ⇒ “image: httpd:alpine”
-
-
 ```
 
-# Mise à jour progressive
+<!-- .element: class="big-code" -->
 
 Notes:
 Fonctionnalité native Kubernetes au niveau d’un déploiement.
@@ -2522,15 +2865,19 @@ Sortir de vim avec “:wq”
 
 <!-- .slide: class="with-code" -->
 
-```
+# Annuler une mise à jour progressive
+
+```shell
 $ kubectl rollout history deployment nginx
-REV  CHANGE-CAUSE1    kubectl apply --filename=deployment.yaml2    kubectl edit deployment nginx3    kubectl set image deploy nginx nginx=nginx:stable-alpine
+REV  CHANGE-CAUSE
+1    kubectl apply --filename=deployment.yaml
+2    kubectl edit deployment nginx
+3    kubectl set image deploy nginx nginx=nginx:stable-alpine
 
 $ kubectl rollout undo deployment --to-revision=1
-
 ```
 
-# Annuler une mise à jour progressive
+<!-- .element: class="big-code" -->
 
 Notes:
 Le nombre de révision conservées est contrôle par la propriété
@@ -2543,7 +2890,7 @@ pour les anciennes versions.
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition-bg-sfeir-3"-->
 
 # Mise à l’échelle automatique
 
@@ -2553,9 +2900,7 @@ pour les anciennes versions.
 
 # Horizontal Pod Autoscaler
 
-AverageCPU Usage %
-
-![](./assets/images/g3f3310ef84_0_1082.png)
+![center h-800](./assets/images/horizontal-pod-autoscaler.svg)
 
 Notes:
 L’
@@ -2576,17 +2921,11 @@ https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkth
 
 <!-- .slide: class="with-code" -->
 
-```
-
-Déclarer un Horizontal Pod scaler en CLI :
-$ kubectl autoscale deployment nginx \
-    --cpu-percent=50 --min=1 --max=10
-
-
-
-```
-
 # Horizontal Pod Autoscaler
+
+- Déclarer un Horizontal Pod scaler en CLI :
+
+`$ kubectl autoscale deployment nginx --cpu-percent=50 --min=1 --max=10`
 
 Notes:
 On peut déclarer un horizontal pod autoscaler en cli ou via l’api, exemple via l’api page suivante.
@@ -2601,7 +2940,7 @@ D’autres métriques peuvent être utilisés.
 
 # Horizontal Pod Autoscaler
 
-```
+```yaml
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
@@ -2614,24 +2953,25 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: helloweb
-
 ```
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition-bg-sfeir-2"-->
 
 # TP : Autoscaling
 
 ##==##
 
-<!-- .slide:-->
-
-Les tests vont s’effectuer sur l’image docker k8s.gcr.io/hpa-example.
-Cette image contient un apache+php. La home page de cette apache est un script php qui calcule les racines carrées des nombres de 1 à 1 million.
-L’appel à cette page va provoquer une forte consommation CPU.
+<!-- .slide: class="exercice" -->
 
 # TP : Autoscaling
+
+## LAB
+
+- Les tests vont s’effectuer sur l’image docker k8s.gcr.io/hpa-example.
+- Cette image contient un apache+php. La home page de cette apache est un script php qui calcule les racines carrées des nombres de 1 à 1 million.
+- L’appel à cette page va provoquer une forte consommation CPU.
 
 Notes:
 Version
@@ -2644,91 +2984,113 @@ par fichier yaml.
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # TP : Autoscaling
 
-Créer un deployment
-$ kubectl apply -f deployments/hpa-example.yaml
-Exposer le deployment
-$ kubectl expose deployment/hpa-example --port 80
-Créer un hpa sur le deployment
-$ kubectl autoscale deployment hpa-example --cpu-percent=50 --min=1 --max=10
+## LAB
+
+- Créer un deployment
+
+`$ kubectl apply -f deployments/hpa-example.yaml`
+
+- Exposer le deployment
+
+`$ kubectl expose deployment/hpa-example --port 80`
+
+- Créer un hpa sur le deployment
+
+`$ kubectl autoscale deployment hpa-example --cpu-percent=50 --min=1 --max=10`
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice with-code"-->
 
-Vous lancerez ensuite un Pod interactif pour charger l’Apache :
-$ kubectl run -ti load-generator --image=busybox /bin/sh
-Dans laquelle vous exécuterez la boucle d’appels :
+# TP : Autoscaling
+
+## LAB
+
+- Vous lancerez ensuite un Pod interactif pour charger l’Apache :
+
+`$ kubectl run -ti load-generator --image=busybox /bin/sh`
+
+- Dans laquelle vous exécuterez la boucle d’appels :
+
+```shell
 $ while true;
 do wget -q -O- http://hpa-example;
 done
-
-# TP : Autoscaling
-
-##==##
-
-<!-- .slide:-->
-
-# TP : Autoscaling
-
-Vérifier l’état de l’objet HPA
-$ kubectl get hpa/hpa-example
-Arrêter la commande wget
-Attendez 5 minutes
-Vérifier à nouveau l’état du HPA
-Que constatez-vous ?
-
-##==##
-
-<!-- .slide:-->
-
-# Ingress
-
-##==##
-
-<!-- .slide:-->
-
-Point d’entrée unique du cluster
-
-HTTP (port 80) et HTTPS (port 443)
-
-Gestion des certificats SSL
-
-# Ingress
-
-##==##
-
-<!-- .slide:-->
-
-# Ingress
-
-sfeir.com/
-
-sfeir.com/fr/livres-blancs-experts-en-numerique/
-
-institute.sfeir.com/
-
-     HTTP (80)     HTTPS (443)
-
-##==##
-
-<!-- .slide: class="with-code" -->
-
 ```
-apiVersion: v1kind: Ingressmetadata:  name: nginxspec:  rules:  - host: "institute.sfeir.com"
-    http:      paths:      - path: /
+
+<!-- .element: class="big-code" -->
+
+##==##
+
+<!-- .slide: class="exercice"-->
+
+# TP : Autoscaling
+
+## LAB
+
+- Vérifier l’état de l’objet HPA
+
+`$ kubectl get hpa/hpa-example`
+
+- Arrêter la commande wget
+- Attendez 5 minutes
+- Vérifier à nouveau l’état du HPA
+- Que constatez-vous ?
+
+##==##
+
+<!-- .slide: class="transition-bg-sfeir-3"-->
+
+# Ingress
+
+##==##
+
+<!-- .slide:-->
+
+# Ingress
+
+- Point d’entrée unique du cluster
+
+- HTTP (port 80) et HTTPS (port 443)
+
+- Gestion des certificats SSL
+
+##==##
+
+<!-- .slide:-->
+
+# Ingress
+
+![center h-800](./assets/images/ingress.svg)
+
+##==##
+
+<!-- .slide: class="with-code max-height" -->
+
+# Ingress yaml
+
+```yaml
+apiVersion: v1
+kind: Ingress
+metadata:
+  name: nginx
+spec:
+  rules:
+  - host: "institute.sfeir.com"
+    http:
+          paths:
+          - path: /
         pathType: ImplementationSpecific
-        backend:          service
+        backend:
+                  service
             name: nginx
             port:
               name: http
-
 ```
-
-# Ingress yaml
 
 Notes:
 Les règles permettent, avec l’implémentation actuelle, de router le traffic selon :
@@ -2747,13 +3109,19 @@ suivant le nom+port de serveur dans l’url)
 
 # Ingress
 
-```
-$ kubectl get ingressNAME      HOSTS     ADDRESS     PORTS     AGEnginx     *         localhost   80        3m$ kubectl get ing -o yaml nginx
-apiVersion: apps/v1kind: Ingress
-metadata:
-  name: nginx...
+```shell
+$ kubectl get ingress
+NAME      HOSTS     ADDRESS     PORTS     AGE
+nginx     *         localhost   80        3m
 
+$ kubectl get ing -o yaml nginx
+apiVersion: apps/v1
+kind: Ingress
+metadata:
+  name: nginx
 ```
+
+<!-- .element: class="big-code" -->
 
 ##==##
 
@@ -2761,19 +3129,17 @@ metadata:
 
 # Ingress
 
-```
-Implémentation par défaut à base de nginx
+- Implémentation par défaut à base de nginx
 
-À activer sur minikube (minikube addons enable ingress)
+- À activer sur minikube (minikube addons enable ingress)
 
-À déployer manuellement sous Docker-for-Desktop
+- À déployer manuellement sous Docker-for-Desktop
+
 https://kubernetes.github.io/ingress-nginx/deploy/
-
-```
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
 
 # Demo : Ingress
 
@@ -2783,7 +3149,7 @@ https://kubernetes.github.io/ingress-nginx/deploy/
 
 # Récapitulatif
 
-![](./assets/images/g3f3310ef84_0_159.png)
+![center h-800](./assets/images/recap-ingress.png)
 
 Notes:
 Jusqu’à maintenant avons abordé les principales ressources Kubernetes :
@@ -2795,7 +3161,7 @@ Voyons maintenant comment les faire vivre
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition"-->
 
 # Stocker des données
 
@@ -2803,52 +3169,58 @@ Voyons maintenant comment les faire vivre
 
 <!-- .slide:-->
 
-emptyDir
-hostPath
-
-Juste un dossier monté dans un/des containers
-Associé à la vie du Pod, survit au restart des containers
-
-Nombreuses implémentations :
-
 # Volumes
 
-persistentVolumeClaim
-configMap / secret
+- Juste un dossier monté dans un/des containers
+- Associé à la vie du Pod, survit au restart des containers
+- Nombreuses implémentations :
+  - emptyDir
+  - hostPath
+  - persistentVolumeClaim
+  - configMap / secret
 
 ##==##
 
 <!-- .slide: class="with-code" -->
 
-```
-Volume vide, créé au démarrage d’un pod, supprimé avec la suppression du Pod.
-
-volumes:  - name: cache-volume    emptyDir: {}
-
-```
-
 # emptyDir
+
+- Volume vide, créé au démarrage d’un pod, supprimé avec la suppression du Pod.
+
+```yaml
+volumes:
+  - name: cache-volume
+    emptyDir: {}
+```
+
+<!-- .element: class="big-code" -->
 
 Notes:
 Utile pour passer des fichiers d’un container à l’autre ou d’un initContainer à un container.
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: data-type-show="hide"-->
+
+# gcePersistentDisk
 
 PersistentDisk GCE
 Il doit être dans le même projet et la même zone que les VM du cluster
 Il n’est pas supprimé à la suppression du pod
 
-# gcePersistentDisk
-
 ##==##
 
-<!-- .slide:-->
-
-volumes: - name: test-volume gcePersistentDisk: pdName: my-data-disk fsType: ext4
+<!-- .slide: data-type-show="hide"-->
 
 # gcePersistentDisk
+
+```yaml
+volumes:
+  - name: test-volume
+    gcePersistentDisk:
+    pdName: my-data-disk
+    fsType: ext4
+```
 
 Notes:
 Il s’agit d’un disque compute engine classique.
@@ -2859,14 +3231,21 @@ Il NE peut être monter en écriture que sur UN SEUL node à la fois, mais il pe
 
 <!-- .slide: class="with-code" -->
 
-```
-Monte dans le container un dossier du noeud sur lequel le Pod s’exécute
-volumes:  - name: test-volume    hostPath:      # directory location on host      path: /data      # this field is optional      type: Directory
-
-
-```
-
 # hostPath
+
+- Monte dans le container un dossier du noeud sur lequel le Pod s’exécute
+
+```
+volumes:
+  - name: test-volume
+    hostPath:
+      # directory location on host
+      path: /data
+      # this field is optional
+      type: Directory
+```
+
+<!-- .element: class="big-code" -->
 
 Notes:
 Il s’agit d’un disque monté sur une VM du cluster, mais il faut que le pod tourne sur le noeud où le volume a été créé. Peu recommandé.
@@ -2875,114 +3254,199 @@ Il s’agit d’un disque monté sur une VM du cluster, mais il faut que le pod 
 
 <!-- .slide:-->
 
-L’admin crée une ressource PersistentVolume associée à une espace de stockage
-Le pod réclame du disque avec un PersistentVolumeClaim
-
 # persistentVolume & persistentVolumeClaim
+
+- L’admin crée une ressource PersistentVolume associée à une espace de stockage
+- Le pod réclame du disque avec un PersistentVolumeClaim
 
 Notes:
 PersistentVolumeClaim fait référence au PersistentVolume créé précédemment
 
 ##==##
 
-<!-- .slide: class="with-code" -->
-
-```
-kind: PersistentVolumeapiVersion: v1metadata:  name: task-pv-volume  labels:    type: localspec:  storageClassName: manual  capacity:    storage: 10Gi  accessModes:    - ReadWriteOnce  hostPath:    path: "/mnt/data"
-
-```
+<!-- .slide: class="with-code max-height" -->
 
 # persistentVolume
+
+```yaml
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: task-pv-volume
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: '/mnt/data'
+```
 
 Notes:
 Ce persistent volume va créé un espace réservé de 10 Go sur l’un des noeuds du cluster.
 
 ##==##
 
-<!-- .slide:-->
-
-kind: PersistentVolumeClaimapiVersion: v1metadata: name: task-pv-claimspec: storageClassName: manual accessModes: - ReadWriteOnce resources: requests: storage: 3Gi
+<!-- .slide: class="with-code max-height"-->
 
 # persistentVolumeClaim
 
+```yaml
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+name: task-pv-claim
+spec:
+storageClassName: manual
+accessModes:
+
+- ReadWriteOnce
+  resources:
+  requests:
+  storage: 3Gi
+```
+
 ##==##
 
-<!-- .slide:-->
-
-kind: PodapiVersion: v1metadata: name: task-pv-podspec: volumes: - name: task-pv-storage persistentVolumeClaim: claimName: task-pv-claim
+<!-- .slide: class="two-column with-code"-->
 
 # Pod
 
-containers: - name: task-pv-container image: nginx ports: - containerPort: 80 name: "http-server" volumeMounts: - mountPath: "/usr/share/nginx/html" name: task-pv-storage
+```yaml
+kind: Pod
+apiVersion: v1
+metadata:
+name: task-pv-pod
+spec:
+volumes:
+  - name: task-pv-storage
+    persistentVolumeClaim:
+    claimName: task-pv-claim
+```
+
+<!-- .element: class="big-code" -->
+
+##--##
+
+<!-- .slide: class="with-code" -->
+
+<br>
+<br>
+<br>
+
+```yaml
+containers:
+  - name: task-pv-container
+    image: nginx
+    ports:
+  - containerPort: 80
+    name: 'http-server'
+    volumeMounts:
+  - mountPath: '/usr/share/nginx/html'
+    name: task-pv-storage
+```
+
+<!-- .element: class="big-code" -->
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition-bg-sfeir-2"-->
 
 # TP : Volumes
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # TP : Volume
 
-Objectif : déployer un wordpress + MySql persistant
-Générer un secret avec un mot de passe
-$ kubectl create secret generic mysql --from-literal=password=$(openssl rand -hex 12)
+## LAB
+
+- Objectif : déployer un wordpress + MySql persistant
+- Générer un secret avec un mot de passe
+
+`$ kubectl create secret generic mysql --from-literal=password=$(openssl rand -hex 12)`
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # TP : Volume
 
-Créer les volumes
-$ kubectl apply -f volume/mysql-volumeclaim.yaml
-$ kubectl apply -f volume/wordpress-volumeclaim.yaml
-Créer la base mysql
-$ kubectl apply -f volume/mysql.yaml
-$ kubectl apply -f volume/mysql-service.yaml
+## LAB
+
+- Créer les volumes
+
+`$ kubectl apply -f volume/mysql-volumeclaim.yaml`
+
+`$ kubectl apply -f volume/wordpress-volumeclaim.yaml`
+
+- Créer la base mysql
+
+`$ kubectl apply -f volume/mysql.yaml`
+
+`$ kubectl apply -f volume/mysql-service.yaml`
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # TP : Volume
 
-Créer l’instance Wordpress et exposer le service
-$ kubectl apply -f volume/wordpress.yaml
-$ kubectl apply -f volume/wordpress-service.yaml
-Accéder à votre wordpress
-$ curl http://$(kubectl get service wordpress -o jsonpath="{.status.loadBalancer.ingress[0].ip}")
+## LAB
+
+- Créer l’instance Wordpress et exposer le service
+
+`$ kubectl apply -f volume/wordpress.yaml`
+
+`$ kubectl apply -f volume/wordpress-service.yaml`
+
+- Accéder à votre wordpress
+
+`$ curl http://$(kubectl get service wordpress -o jsonpath="{.status.loadBalancer.ingress[0].ip}")`
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="exercice"-->
 
 # TP : Volume
 
-Détruire les pods mysql et wordpress
-$ k delete pods -l="app=mysql"
-$ k delete pods -l="app=wordpress"
-Que se passe-t-il ? (un peu de patience quand même ;) )
+## LAB
+
+- Détruire les pods mysql et wordpress
+
+`$ k delete pods -l="app=mysql"`
+
+`$ k delete pods -l="app=wordpress"`
+
+- Que se passe-t-il ? (un peu de patience quand même ;) )
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide:  class="exerice"-->
 
 # TP : Volume Nettoyage
 
-$ kubectl delete service wordpress
-$ kubectl delete deployment wordpress
-$ kubectl delete pvc wordpress
-$ kubectl delete service mysql
-$ kubectl delete deployment mysql
-$ kubectl delete pvc mysql
+## LAB
+
+`$ kubectl delete service wordpress`
+
+`$ kubectl delete deployment wordpress`
+
+`$ kubectl delete pvc wordpress`
+
+`$ kubectl delete service mysql`
+
+`$ kubectl delete deployment mysql`
+
+`$ kubectl delete pvc mysql`
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition"-->
 
 # Gestion avancée de Pods
 
@@ -2992,15 +3456,11 @@ $ kubectl delete pvc mysql
 
 # DaemonSet : un Pod par noeud
 
-Agent de monitoring
-Relais de logs
-Agent de stockage (client glusterfs, …)
+![center h-500](./assets/images/daemonset.svg)
 
-agent-abcd
-
-agent-efgh
-
-agent-ijkl
+- Agent de monitoring
+- Relais de logs
+- Agent de stockage (client glusterfs, …)
 
 Notes:
 Un objet DaemonSet va exécuter un pod par node, utilisé surtout pour des tâches d’administration/ monitoring du cluster.
@@ -3011,21 +3471,11 @@ Un objet DaemonSet va exécuter un pod par node, utilisé surtout pour des tâch
 
 # StatefulSet : un Volume par Pod
 
-Pour les applis qui ont besoin de garder un état
-Kube réassocie les Pods aux volumes persistants
-Dns : <name>-{0..N-1}.<service>.<ns>.svc.cluster.local
+![center h-500](./assets/images/statefulset.svg)
 
-myapp-0
-
-myapp-1
-
-myapp-2
-
-myvol-0
-
-myvol-1
-
-myvol-2
+- Pour les applis qui ont besoin de garder un état
+- Kube réassocie les Pods aux volumes persistants
+- Dns : <name>-{0..N-1}.<service>.<ns>.svc.cluster.local
 
 Notes:
 Les pods sont numérotés dans l’ordre, et les pods réassignés à ce volumes au redémarrage.
@@ -3036,20 +3486,22 @@ Quelques contraintes : les pods sont démarrés et éteints dans l’ordre de d�
 
 <!-- .slide:-->
 
-Job
-Batch lancé une seule fois
-Kubernetes ne relance pas les Pods de ce type sauf code retour en erreur
-CronJob
-Job déclenché régulièrement selon une expression cron : "_/1 _ \* \* \*"
-
 # Jobs
+
+- Job
+
+  - Batch lancé une seule fois
+  - Kubernetes ne relance pas les Pods de ce type sauf code retour en erreur
+
+- CronJob
+  - Job déclenché régulièrement selon une expression cron : `"_/1 _ \* \* \*"`
 
 Notes:
 Utile pour lancer un batch de façon régulier.
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition-bg-sfeir-3"-->
 
 # Template
 
@@ -3059,7 +3511,7 @@ Utile pour lancer un batch de façon régulier.
 
 # Problème
 
-![](./assets/images/g3404c40d58_0_11.png)
+![center h-800](./assets/images/pb-template.png)
 
 Notes:
 Un déploiement peut devenir rapidement très verbeux, très long, difficile à maintenir
@@ -3070,9 +3522,9 @@ Un déploiement peut devenir rapidement très verbeux, très long, difficile à 
 
 # Problèmes
 
-yaml verbeux
-beaucoup de code en commun entre 2 déploiements
-besoin de déployer un “package”
+- yaml verbeux
+- beaucoup de code en commun entre 2 déploiements
+- besoin de déployer un “package”
 
 Notes:
 Problème de syntaxe avec le yaml
@@ -3087,21 +3539,19 @@ Plutôt que de déployer un deployment + un service + un configmap + ... , on a 
 
 # Template : Helm
 
-```
-Le plus populaire aujourd’hui
-Templating sur la base du moteur de template go
-Chart
-Repository de chart
-Tiller et état
-$ helm repo update
-$ helm install mysql bitnami/mysql
+- Le plus populaire aujourd’hui
+- Templating sur la base du moteur de template go
+- Chart
+- Repository de chart
+- Tiller et état
 
+`$ helm repo update`
 
-```
+`$ helm install mysql bitnami/mysql`
 
 ##==##
 
-<!-- .slide: class="with-code" -->
+<!-- .slide: class="with-code max-height" -->
 
 # Helm : chart
 
@@ -3116,42 +3566,50 @@ wordpress/
   templates/          # A directory of templates that, when combined with values,
                       # will generate valid Kubernetes manifest files.
   templates/NOTES.txt # OPTIONAL: A plain text file containing short usage notes
-
 ```
+
+<!-- .element: class="big-code" -->
 
 Notes:
 L’organisation d’un chart helm
 
 ##==##
 
-<!-- .slide: class="with-code"  class="with-code" -->
+<!-- .slide: class="with-code two-column max-height" -->
 
 # Helm : Template
 
-```
 [deployment.yaml]
+
+```yaml
 spec:
   containers:
     - name: deis-database
       image: postgres:{{.Values.dockerTag}}
-      imagePullPolicy: {{.Values.pullPolicy}}
+      imagePullPolicy: { { .Values.pullPolicy } }
       ports:
         - containerPort: 5432
       env:
         - name: DATABASE_STORAGE
-          value: {{default "minio" .Values.storage}}
-
+          value: { { default "minio" .Values.storage } }
 ```
 
-```
+##--##
+
+<!-- .slide: class="with-code" -->
+
+<br>
+<br>
+<br>
+
 [Values.yaml]
 
+```yaml
 # The tag for the docker image.
 dockerTag: 7.1.2
 pullPolicy: Always
 # The storage backend, whose default is set to "minio"
 # storage:
-
 ```
 
 Notes:
@@ -3176,11 +3634,11 @@ storage
 
 # Template : Kustomize
 
-Challenger
-Plain yaml
-Pas de “templating”
-Mais plutôt du “patch”
-Intégré à kubectl ‘kubectl apply -k ...’
+- Challenger
+- Plain yaml
+- Pas de “templating”
+- Mais plutôt du “patch”
+- Intégré à kubectl ‘kubectl apply **-k ...**’
 
 ##==##
 
@@ -3188,14 +3646,14 @@ Intégré à kubectl ‘kubectl apply -k ...’
 
 # Kustomize
 
-![](./assets/images/g3404c40d58_0_23.png)
+![center h-800](./assets/images/kustomize.png)
 
 Notes:
 Un exemple avec kustomize
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition-bg-sfeir-3"-->
 
 # Sécurité
 
@@ -3205,45 +3663,48 @@ Un exemple avec kustomize
 
 # RBAC
 
-Role-based Access Control
-Contrôle l’accès à l’api pour les utilisateurs
-Gestion des droits par défaut dans kubernetes
+- Role-based Access Control
+- Contrôle l’accès à l’api pour les utilisateurs
+- Gestion des droits par défaut dans kubernetes
 
-Role / ClusterRole
-RoleBinding / ClusterRoleBinding
+- Role / ClusterRole
+- RoleBinding / ClusterRoleBinding
 
 ##==##
 
-<!-- .slide: class="with-code"  class="with-code" -->
+<!-- .slide: class="with-code two-column" -->
 
 # RBAC
 
-```
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   namespace: default
   name: pod-reader
 rules:
-- apiGroups: [""]
-  resources: ["pods"]
-  verbs: ["get", "watch", "list"]
-
-
+  - apiGroups: ['']
+    resources: ['pods']
+    verbs: ['get', 'watch', 'list']
 ```
 
-```
-...
+##--##
+
+<br>
+<br>
+<br>
+
+```yaml
+---
 kind: RoleBinding
 subjects:
-- kind: User
-  name: jane # Name is case sensitive
-  apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: jane # Name is case sensitive
+    apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: Role
   name: pod-reader
   apiGroup: rbac.authorization.k8s.io
-
 ```
 
 ##==##
@@ -3252,10 +3713,10 @@ roleRef:
 
 # RBAC : rôles par défaut
 
-view
-edit
-admin
-cluster-admin
+- view
+- edit
+- admin
+- cluster-admin
 
 Notes:
 view : permet d’avoir une vue readonly sur la plupart des objets d’un namespace, ne permet pas de voir les secrets, ou les objets roles et rolebinding
@@ -3268,7 +3729,7 @@ cluster-admin : tous les droits
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition-bg-sfeir-3"-->
 
 # Monitoring
 
@@ -3278,17 +3739,18 @@ cluster-admin : tous les droits
 
 # Monitoring : Prometheus
 
-Pull de métriques sur les applications.
-Inverse la logique de monitoring.
+- Pull de métriques sur les applications.
+- Inverse la logique de monitoring.
 
 Notes:
-Traditionnellement, les applications envoient leurs métriques à des systèmes centralisés. Cette façon de faire rend l'application responsable de cet envoi des métriques. Dans une architecture cloud moderne, la logique est inversée pour faciliter ce monitoring.
+Traditionnellement, les applications envoient leurs métriques à des systèmes centralisés. Cette façon de faire rend l'application responsable de cet envoi des métriques.
+Dans une architecture cloud moderne, la logique est inversée pour faciliter ce monitoring.
 
 Prometheus est un des outils qui implémente cette logique. Il va interroger périodiquement une URL sur vos applications pour lire vos métriques, puis envoyer ces métriques à une base de données spécialisée dans les séries temporelles. Cette base pourra être interrogée pour la surveillance des applications.
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition"-->
 
 # Méthodes d’installation de clusters
 
@@ -3298,14 +3760,14 @@ Prometheus est un des outils qui implémente cette logique. Il va interroger pé
 
 # Installation k8s : développement
 
-Docker Desktop
-Rancher Desktop
-Installation manuelle “k8s the hard way”
-Quid du réseau?
-Sécurité first
-Kind
-Kops
-K3s
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- [Rancher Desktop](https://rancherdesktop.io/)
+- Installation manuelle [“k8s the hard way”](https://github.com/kelseyhightower/kubernetes-the-hard-way)
+  - Quid du réseau?
+  - Sécurité first
+- [Kind](https://kind.sigs.k8s.io/)
+- [Kops](https://github.com/kubernetes/kops)
+- [K3s](https://k3s.io/)
 
 Notes:
 “The hard way“ : pour les très courageux : comment installer un cluster k8s complémente à la main. (très intéressant pour comprendre k8s mais très peu recommandé)
@@ -3320,14 +3782,14 @@ Kops : cli pour créer un cluster k8s sur des VMs chez des cloud provider AWS, G
 
 # Installation du cluster : production
 
-On premise
-Kubeadm
-Cloud
-GKE (Google)
-AKS (Azure)
-EKS (AWS)
-OVH
-….
+- On premise
+  - Kubeadm
+- Cloud
+  - GKE (Google)
+  - AKS (Azure)
+  - EKS (AWS)
+    $ OVH
+  - ….
 
 Notes:
 
@@ -3337,7 +3799,7 @@ Kubernetes Managé : GCP, Amazon, Azure, mais aussi Digital Ocean, OVH (and coun
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition-bg-sfeir-3"-->
 
 # Service mesh
 
@@ -3347,11 +3809,11 @@ Kubernetes Managé : GCP, Amazon, Azure, mais aussi Digital Ocean, OVH (and coun
 
 # Istio
 
-Routage
-Sécurité
-Observabilité
-En option sur GKE
-CNCF
+- Routage
+- Sécurité
+- Observabilité
+- En option sur GKE
+- CNCF
 
 Notes:
 routage : canary release / circuit breaker
@@ -3364,7 +3826,7 @@ cncf : le projet fait partie comme kubernetes de la cncf
 
 ##==##
 
-<!-- .slide:-->
+<!-- .slide: class="transition-bg-sfeir-3"-->
 
 # Architecture micro-service
 
@@ -3372,34 +3834,78 @@ cncf : le projet fait partie comme kubernetes de la cncf
 
 <!-- .slide:-->
 
-Base de code : système de contrôle de version
-Dépendances : Déclarez explicitement et isolez les dépendances
-Configuration : Stockez la configuration dans l’environnement
-Services externes : ressources rattachées
-Build, release, run : Séparez le build/packaging et d’exécution
-Processus : Exécutez l’application comme un ou plusieurs processus sans état
-
 # Les 12 facteurs des applications Cloud
 
-Notes:
-I. Base de codeUne base de code suivie avec un système de contrôle de version, plusieurs déploiementsII. DépendancesDéclarez explicitement et isolez les dépendancesIII. ConfigurationStockez la configuration dans l’environnement ===> ConfigMap, Secrets, Consul, …
+- Base de code : système de contrôle de version
+- Dépendances : Déclarez explicitement et isolez les dépendances
+- Configuration : Stockez la configuration dans l’environnement
+- Services externes : ressources rattachées
+- Build, release, run : Séparez le build/packaging et d’exécution
+- Processus : Exécutez l’application comme un ou plusieurs processus sans état
 
-IV. Services externesTraitez les services externes comme des ressources attachéesV. Build, release, runSéparez strictement les étapes d’assemblage et d’exécutionVI. ProcessusExécutez l’application comme un ou plusieurs processus sans étatVII. Associations de portsExportez les services via des associations de portsVIII. ConcurrenceGrossissez à l’aide du modèle de processusIX. JetableMaximisez la robustesse avec des démarrages rapides et des arrêts gracieuxX. Parité dev/prodGardez le développement, la validation et la production aussi proches que possibleXI. LogsTraitez les logs comme des flux d’évènementsXII. Processus d’administrationLancez les processus d’administration et de maintenance comme des one-off-processes
+Notes:
+I. Base de code
+Une base de code suivie avec un système de contrôle de version, plusieurs déploiements
+II. Dépendances
+Déclarez explicitement et isolez les dépendances
+III. Configuration
+Stockez la configuration dans l’environnement ===> ConfigMap, Secrets, Consul, …
+
+IV. Services externes
+Traitez les services externes comme des ressources attachées
+V. Build, release, run
+Séparez strictement les étapes d’assemblage et d’exécution
+VI. Processus
+Exécutez l’application comme un ou plusieurs processus sans état
+VII. Associations de ports
+Exportez les services via des associations de ports
+VIII. Concurrence
+Grossissez à l’aide du modèle de processus
+IX. Jetable
+Maximisez la robustesse avec des démarrages rapides et des arrêts gracieux
+X. Parité dev/prod
+Gardez le développement, la validation et la production aussi proches que possible
+XI. Logs
+Traitez les logs comme des flux d’évènements
+XII. Processus d’administration
+Lancez les processus d’administration et de maintenance comme des one-off-processes
 
 ##==##
 
 <!-- .slide:-->
 
-Associations de ports : Exportez les services via des associations de ports
-VIII. Concurrence : Grossissez à l’aide du modèle de processus
-IX. Jetable : Maximisez la robustesse avec des démarrages rapides et des arrêts gracieux
-X. Parité dev/prod : Gardez le développement, la validation et la production aussi proches que possible
-XI. Logs : Traitez les logs comme des flux d'événements
-XII. Processus d’administration : Lancez les processus d’administration et de maintenance comme des one-off-processes
-
 # Les 12 facteurs des applications Cloud
 
-Notes:
-I. Base de codeUne base de code suivie avec un système de contrôle de version, plusieurs déploiementsII. DépendancesDéclarez explicitement et isolez les dépendancesIII. ConfigurationStockez la configuration dans l’environnement ===> ConfigMap, Secrets, Consul, …
+- Associations de ports : Exportez les services via des associations de ports
+- VIII. Concurrence : Grossissez à l’aide du modèle de processus
+- IX. Jetable : Maximisez la robustesse avec des démarrages rapides et des arrêts gracieux
+- X. Parité dev/prod : Gardez le développement, la validation et la production aussi proches que possible
+- XI. Logs : Traitez les logs comme des flux d'événements
+- XII. Processus d’administration : Lancez les processus d’administration et de maintenance comme des one-off-processes
 
-IV. Services externesTraitez les services externes comme des ressources attachéesV. Build, release, runSéparer strictement les étapes d’assemblage et d’exécutionVI. ProcessusExécutez l’application comme un ou plusieurs processus sans étatVII. Associations de portsExportez les services via des associations de portsVIII. ConcurrenceGrossissez à l’aide du modèle de processusIX. JetableMaximisez la robustesse avec des démarrages rapides et des arrêts gracieuxX. Parité dev/prodGardez le développement, la validation et la production aussi proches que possibleXI. LogsTraitez les logs comme des flux d'événementsXII. Processus d’administrationLancez les processus d’administration et de maintenance comme des one-off-processes
+Notes:
+I. Base de code
+Une base de code suivie avec un système de contrôle de version, plusieurs déploiements
+II. Dépendances
+Déclarez explicitement et isolez les dépendances
+III. Configuration
+Stockez la configuration dans l’environnement ===> ConfigMap, Secrets, Consul, …
+
+IV. Services externes
+Traitez les services externes comme des ressources attachées
+V. Build, release, run
+Séparer strictement les étapes d’assemblage et d’exécution
+VI. Processus
+Exécutez l’application comme un ou plusieurs processus sans état
+VII. Associations de ports
+Exportez les services via des associations de ports
+VIII. Concurrence
+Grossissez à l’aide du modèle de processus
+IX. Jetable
+Maximisez la robustesse avec des démarrages rapides et des arrêts gracieux
+X. Parité dev/prod
+Gardez le développement, la validation et la production aussi proches que possible
+XI. Logs
+Traitez les logs comme des flux d'événements
+XII. Processus d’administration
+Lancez les processus d’administration et de maintenance comme des one-off-processes

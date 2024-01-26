@@ -1,8 +1,6 @@
-# Kubernetes 200 
+# Kubernetes 200
 
-A [SFEIR School](https://www.sfeir.com/formation/school/)
-
-![logo](https://www.sfeir.com//img/school/formations/Kubernetes%20200.png)
+A [SFEIR School](https://www.sfeir.com/fr/le-contenus-dexperts-de-la-technologie-et-de-linnovation/formation-gratuite-avec-nos-experts/)
 
 [Calendrier des formations, liste des formateurs et programme de formation](https://institute.sfeir.com/formations/kubernetes/kubernetes-les-fondamentaux/)
 
@@ -13,7 +11,7 @@ A [SFEIR School](https://www.sfeir.com/formation/school/)
 
 ## Slides
 
-Les slides sont disponibles ici : [Sfeir School Kubernetes](https://docs.google.com/presentation/d/1b93xE5z1MLsATfVXsSrnf2Muz4wCrwrIpZqUTWQupQM)
+Les slides sont disponibles ici : [Sfeir School Kubernetes](https://sfeir-open-source.github.io/sfeir-school-kubernetes/)
 
 Les Slides sont derrière une license [CC BY ND 3.0](https://github.com/sfeir-open-source/sfeir-school-kubernetes/blob/master/docs/LICENSE)
 

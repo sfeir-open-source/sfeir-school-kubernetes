@@ -1,16 +1,19 @@
 <!-- .slide: class="speaker-slide" -->
 
-# Présentation
+# Votre hôte pour la journée
 
-![speaker](./assets/images/speakers/22814454_110474959719187_3689385843432922601_n.jpg)
-![badge](./assets/images/badges/gcloud-logo.png)
+![speaker](./assets/images/julien.png)
 
-<h2> Julien<span> FURGEROT</span></h2>
+![compagny](./assets/images/logo-sfeir.png)
 
-### Google Cloud Architect & Trainer
+![badge first-badge](./assets/images/certif-cloud-archi.png)
+
+![badge second-badge](./assets/images/certif-cloud-network.png)
+
+![badge third-badge](./assets/images/certif-cloud-sec.png)
+
+<h2> Julien <span>Furgerot</span></h2>
+
+### GCP Trainer
+
 <!-- .element: class="icon-rule icon-first" -->
-
-### @CuriousJfu
-<!-- .element: class="icon-twitter icon-second" -->
-
-![company](./assets/images/logo_sfeir_bleu_orange.png)

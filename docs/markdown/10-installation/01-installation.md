@@ -26,11 +26,13 @@ Kops : cli pour créer un cluster k8s sur des VMs chez des cloud provider AWS, G
 
 - On premise
   - Kubeadm
+  - Rke2
+  - Kubespray
 - Cloud
   - GKE (Google)
   - AKS (Azure)
   - EKS (AWS)
-    $ OVH
+  - OVH
   - ….
 
 Notes:

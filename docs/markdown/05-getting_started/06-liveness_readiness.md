@@ -23,7 +23,8 @@
 Notes:
 Kubeproxy sortira un pod du flux si le readiness devient ko.
 
-Kubelet va redémarrer le container si le liveness est ko.
+Kubelet va redémarrer le container si le liveness est ko, 
+ou si la startup n'est pas OK au bout d'une durée configurée
 
 ##==##
 

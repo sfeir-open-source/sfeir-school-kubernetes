@@ -37,10 +37,9 @@ Plutôt que de déployer un deployment + un service + un configmap + ... , on a 
 # Template : Helm
 
 - Le plus populaire aujourd’hui
+- Chart: Ensemble de manifest permettant de déployer une solution/application
 - Templating sur la base du moteur de template go
-- Chart
 - Repository de chart
-- Tiller et état
 
 `$ helm repo update`
 

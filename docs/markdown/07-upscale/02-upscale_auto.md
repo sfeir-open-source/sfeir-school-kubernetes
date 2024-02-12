@@ -40,7 +40,8 @@ On peut déclarer un horizontal pod autoscaler en cli ou via l’api, exemple vi
 
 Le HPA va agir sur le deployment pour monter ou descendre le nombre de pod en fonction du pourcentage de cpu consommé.
 
-D’autres métriques peuvent être utilisés.
+D’autres métriques peuvent être utilisés. Nativement CPU & RAM
+Custom , nombre d'event dans un broker, nombre de requêtes/s
 
 ##==##
 

@@ -39,7 +39,10 @@ Les noeuds exécutent les applications packagées dans des containers regroupés
 
 L’exécution des Pods est gérée par les kubelet.
 
-Kubelet est un process qui pilote l'engine docker pour deployer les resources
+Kubelet est un process qui pilote le moteur de containeurs
+respectant le CRI (Container Runtime Interface)
+ex:
+(Docker engines, CRI-O, Containerd)
 
 ##==##
 

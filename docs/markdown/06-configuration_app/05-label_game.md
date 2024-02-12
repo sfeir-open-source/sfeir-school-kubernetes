@@ -11,6 +11,10 @@
 - Pour le fonctionnement interne de Kubernetes
   - ReplicaSet && Deployments ⇒ Pods
   - Services ⇒ Pods
+- Recommandations de nommage
+  - app.kubernetes.io/name: mysql
+  - app.kubernetes.io/component: database
+  - app.kubernetes.io/part-of: wordpress
 
 ##==##
 

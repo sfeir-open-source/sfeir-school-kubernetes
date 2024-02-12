@@ -8,7 +8,7 @@
 
 # Namespace
 
-- Espace de nom pour isoler les déploiements
+- Espace de nom pour isoler les ressources
 - Peut être utilisé pour séparer les environnements (soft multi-tenant)
 - Le nom d’une ressource est unique au sein d’un namespace.
 - Par défaut:

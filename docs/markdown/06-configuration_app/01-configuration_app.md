@@ -8,7 +8,7 @@
 
 ##==##
 
-<!-- .slide: class="with-code" -->
+<!-- .slide: class="with-code max-height" -->
 
 # Variables d’environnement
 
@@ -179,6 +179,10 @@ data:
 
 <!-- .element: class="big-code"  -->
 
+Notes:
+
+La valeur des clés est encodé en base64, ce n'est pas du chiffrement.
+
 ##==##
 
 <!-- .slide: class="with-code"-->
@@ -205,7 +209,8 @@ $ kubectl create secret docker-registry regcred
 
 Notes:
 Un secret va permettre de stocker des informations sensibles, comme des mots de passe, des clés privées.
-
+L'objet secret permet de définir des règles de sécurité (RBAC), ex:
+Les developpeurs n'ont pas accès aux secrets, les ops si
 ##==##
 
 <!-- .slide: class="with-code max-height" -->

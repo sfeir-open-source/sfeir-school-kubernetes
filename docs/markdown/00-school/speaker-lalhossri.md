@@ -14,4 +14,6 @@
 
 <h2> Laurent <span>Al Hossri</span></h2>
 
+### Cloud Architect
+
 <!-- .element: class="icon-rule icon-first" -->

@@ -196,7 +196,7 @@ containers:
 
 ## LAB
 
-- https://killercoda.com/laurental/scenario/8-volumes
+https://killercoda.com/laurental/scenario/8-volumes
 - Objectif : déployer un wordpress + MySql persistant
 - Générer un secret avec un mot de passe
 

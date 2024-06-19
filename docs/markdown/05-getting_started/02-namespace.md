@@ -65,7 +65,7 @@ installés
 
 ## LAB
 
-- https://killercoda.com/laurental/scenario/1-kubectl
+https://killercoda.com/laurental/scenario/1-kubectl
 
 <br>
 

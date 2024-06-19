@@ -262,7 +262,7 @@ LoadBalancer
 
 ## LAB
 
-- https://killercoda.com/laurental/scenario/5-services
+https://killercoda.com/laurental/scenario/5-services
 
 - Lire le manifest de l’objet service
 

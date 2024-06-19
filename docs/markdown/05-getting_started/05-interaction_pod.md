@@ -148,6 +148,8 @@ lui-même.
 
 ## LAB
 
+- https://killercoda.com/laurental/scenario/2-pod
+
 - Regarder le code pour créer un pod
 
 `$ cat pod/monolith.yaml`

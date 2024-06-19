@@ -78,6 +78,7 @@ spec:
 
 ## LAB
 
+- https://killercoda.com/laurental/scenario/7-autoscaling
 - Les tests vont s’effectuer sur l’image docker k8s.gcr.io/hpa-example.
 - Cette image contient un apache+php. La home page de cette apache est un script php qui calcule les racines carrées des nombres de 1 à 1 million.
 - L’appel à cette page va provoquer une forte consommation CPU.

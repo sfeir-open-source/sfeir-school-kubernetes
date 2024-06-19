@@ -283,6 +283,8 @@ volumes:
 
 ## LAB
 
+- - https://killercoda.com/laurental/scenario/4-configmap-secrets
+
 `$ kubectl create configmap nginx-proxy-conf --from-file=configuration/nginx/proxy.conf`
 
 `$ kubectl describe configmaps nginx-proxy-conf`

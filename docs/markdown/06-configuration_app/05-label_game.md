@@ -103,6 +103,8 @@ Rôle: BE
 
 ## LAB
 
+- https://killercoda.com/laurental/scenario/6-deployment
+
 - On va créer une stack complète hello, auth, frontend
 
 - Avec deployment et service

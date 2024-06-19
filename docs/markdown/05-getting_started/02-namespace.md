@@ -65,6 +65,8 @@ installés
 
 ## LAB
 
+- https://killercoda.com/laurental/scenario/1-kubectl
+
 <br>
 
 1. !! Faites une sauvegarde du fichier ~/.kube/config !!

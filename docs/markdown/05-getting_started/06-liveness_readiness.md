@@ -118,6 +118,8 @@ livenessProbe indique si le pod est ok, si nok kubelet redémarre le pod
 
 ## LAB
 
+- https://killercoda.com/laurental/scenario/3-readiness
+
 - Regarder le contenu du pod
   `$ cat readiness/healthy-monolith.yaml`
   `$ kubectl apply -f readiness/healthy-monolith.yaml`

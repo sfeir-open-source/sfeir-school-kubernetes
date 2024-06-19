@@ -1,6 +1,6 @@
 <!-- .slide: class="speaker-slide" -->
 
-# Votre hôte pour la journée
+# Nos formateurs kubernetes
 
 ![speaker](./assets/images/julien.png)
 

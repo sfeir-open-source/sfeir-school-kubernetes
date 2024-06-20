@@ -22,7 +22,7 @@ Credentials
 
 ![sfeir-icons big](user)<!-- .element: style="--icon-color:var(--light-grey);" --> WIFI-SFEIR
 
-![sfeir-icons big](lock)<!-- .element: style="--icon-color:var(--light-grey);" --> wifi@SFEIR33000!
+![sfeir-icons big](lock)<!-- .element: style="--icon-color:var(--light-grey);" --> Demandez nous :)
 
 ##==##
 <!-- .slide:  -->
@@ -30,7 +30,7 @@ Credentials
 
 <br>
 
-C'est quand la pause ?<br>
+A quelle heure est la pause ?<br>
 Quand est-ce qu'on mange ?<br>
 Tour de table ...
 <br><br>

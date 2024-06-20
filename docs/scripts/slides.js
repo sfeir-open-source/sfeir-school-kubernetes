@@ -5,7 +5,9 @@ function schoolSlides() {
   return [
     //
     `${directory}00-TITLE.md`, //
+    `${directory}speaker-btouron.md`, //
     `${directory}speaker-jfurgerot.md`, //
+    `${directory}speaker-lalhossri.md`, //
     `${directory}01-intro.md`, //
   ];
 }

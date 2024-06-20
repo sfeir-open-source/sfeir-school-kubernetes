@@ -1,11 +1,5 @@
 <!-- .slide:-->
 
-![center h-800](./assets/images/tour-de-table.png)
-
-##==##
-
-<!-- .slide:-->
-
 # Pré-requis
 
 Pour assister à cette formation, il est nécessaire de connaître et comprendre les notions de base associées aux conteneurs. Vous êtes capable de construire une image (par exemple avec un Dockerfile), lancer un conteneur, l'arrêter, inspecter ses logs.

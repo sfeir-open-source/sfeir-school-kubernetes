@@ -65,45 +65,4 @@ installés
 
 ## LAB
 
-<br>
-
-1. !! Faites une sauvegarde du fichier ~/.kube/config !!
-
-##==##
-
-<!-- .slide: class="exercice with-code" -->
-
-# TP : Configurer kubectl
-
-## LAB
-
-<br>
-
-1. Installer gcloud & kubectl
-1. Configurer kubectl
-
-```shell
-$ gcloud container clusters get-credentials <cluster> --zone <zone>
-$ echo 'source <(kubectl completion bash)' >>~/.bashrc
-```
-
-<!-- .element: class="big-code" -->
-
-##==##
-
-<!-- .slide: class="exercice with-code" -->
-
-# TP : Configurer kubectl
-
-## LAB
-
-```shell
-$ alias k=”kubectl”
-$ kubectl get nodes # Lister les noeuds du cluster
-$ kubectl get namespace # Lister les espaces de nom
-$ kubectl config set-context --current
-    --namespace=<insert-namespace-name-here>
-$ kubectl config view --minify=true
-```
-
-<!-- .element: class="big-code" -->
+https://killercoda.com/laurental/scenario/1-kubectl

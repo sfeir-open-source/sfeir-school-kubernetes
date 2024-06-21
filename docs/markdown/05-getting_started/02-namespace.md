@@ -28,31 +28,6 @@ kube-public : namespace créé par défaut pour les ressources exposés publique
 
 ##==##
 
-<!-- .slide: class="with-code" -->
-
-# Récupérer les exercices
-
-- Clonez le dépôt github suivant :
-
-`git clone https://github.com/sfeir-open-source/sfeir-school-kubernetes.git`
-
-- et placez-vous dans le dépôt cloné :
-
-`cd sfeir-school-kubernetes/steps`
-
-Notes:
-À faire
-
-dans Cloud Shell
-
-OU
-
-sur les machines locales si
-git, kubectl et Cloud SDK
-installés
-
-##==##
-
 <!-- .slide: class="transition-bg-sfeir-2"-->
 
 # TP : Configurer kubectl

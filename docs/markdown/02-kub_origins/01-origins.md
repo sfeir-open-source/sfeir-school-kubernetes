@@ -83,7 +83,7 @@ Lors de montée de version, l'api de kubernetes est enrichie, et rare sont les e
 - **Scalabilité** : Possibilité de faire du scaling automatique.
 - **Portabilité** : Déploiement quasi identique entre on premise et les différents cloud.
 - **Gestion déclarative** : Avoir l'ensemble de ses déploiements as code.
-- **Écosystème riche** : Enormément d'outils/extensions et communauté active.
+- **Écosystème riche** : Énormément d'outils/extensions et communauté active.
 
 Notes:
 Orchestration de containers dans un cluster de machines

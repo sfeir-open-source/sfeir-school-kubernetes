@@ -1,3 +1,3 @@
 <!-- .slide: class="transition"-->
 
-# Premier aperçu
+# Le cluster Kubernetes

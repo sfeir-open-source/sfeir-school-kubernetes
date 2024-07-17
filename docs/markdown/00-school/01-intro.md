@@ -1,36 +1,6 @@
 <!-- .slide:-->
 
-# Pré-requis
-
-Pour assister à cette formation, il est nécessaire de connaître et comprendre les notions de base associées aux conteneurs. Vous êtes capable de construire une image (par exemple avec un Dockerfile), lancer un conteneur, l'arrêter, inspecter ses logs.
-
-- Un navigateur
-- Un compte GCP
-
-Notes:
-Note : ce slide sera à exporter dans un document à part pour les SfeirSchools
-
-Sondage :
-
-qui connaît docker ?
-
-qui connaît un orchestrateur de container ?
-
-qui connaît kubernetes ?
-
-##==##
-
-<!-- .slide: data-type-show="hide"-->
-
-# Self-link
-
-https://bit.ly/sfeir-school-k8s-2024
-
-##==##
-
-<!-- .slide:-->
-
-# Agenda
+# Les objectifs de la formation
 
 - Rappel sur Docker
 - Kubernetes : les origines

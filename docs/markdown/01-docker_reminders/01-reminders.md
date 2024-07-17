@@ -1,50 +1,34 @@
 <!-- .slide:-->
 
-# Qu’est-ce que Docker ?
+# Rappels sur Docker
+## En quelques points
 
-Docker permet de **packager une application**
-
-<!-- .element: class="center" -->
-
-avec **l’ensemble de ses dépendances**
-
-<!-- .element: class="center" -->
-
-dans une **unité standardisée** pour le déploiement de logiciels :
-
-<!-- .element: class="center" -->
-
-<br>
-
-les **CONTAINERS**
-
-<!-- .element: class="center" -->
-
-<br>
-Notes:
-Docker en une phrase
+Docker est une plateforme de conteneurisation qui permet de créer, déployer et exécuter des applications dans des environnements isolés appelés conteneurs.
+* Conteneurs : unités légères qui contiennent tout l'application a besoin pour fonctionner.
+* Isolation : chaque conteneur fonctionne de manière isolée.
+* Portabilité : Les conteneurs peuvent être exécutées sur n'importe quel système compatible, poste de développement, serveur de test ou un environnement de production.
 
 ##==##
 
-<!-- .slide:-->
+# Rappels sur Docker
+## En quelques points
 
-# Utilisation de Docker
-
-![center h-800](./assets/images/docker-utilisation.svg)
-
-Notes:
-En informatique, le container peut aussi embarquer une grande variété de contenus.
-
-Il s’exécute à l’identique dans plusieurs environnements sans être modifié.
+* Efficacité : utilise moins de ressources qu'une VM, car partage le noyau du système d'exploitation hôte.
+* Rapidité : Les conteneurs démarrent et s'arrêtent en quelques secondes.
+* Reproductibilité : Docker garantit que l'application fonctionnera de la même manière dans différents environnements.
 
 ##==##
 
 <!-- .slide: class="flex-row" -->
-
-# VM vs Containers
+# Rappels sur Docker
+## VM vs Containers
 
 ![h-600](./assets/images/vms.png)
 ![h-600](./assets/images/containers.png)
+
+* Une VM nécessite un OS entier, docker utilise le système hôte.
+* Réduit les ressources utilisées, et permet un démarrage rapide.
+* Les conteneurs sont immuables, contrairement aux VMs.
 
 Notes:
 Avantages de Docker :
@@ -63,9 +47,13 @@ accès au matériel plus simple
 
 <!-- .slide:-->
 
-# Rappel sur les containers
+# Rappels sur Docker
+## Build & push
 
-![center h-800](./assets/images/docker-recap.png)
+![h-400](./assets/images/docker.png)
+* Dockerfile: contient les instructions pour construire l’image
+* Image: contiennent les fichiers nécessaires à l’exécution l'application : binaires, dépendances, configuration
+* Registry: publique ou privé, permet de récupérer les images à l'aide de la commande pull.
 
 Notes:
 Le Dockerfile :

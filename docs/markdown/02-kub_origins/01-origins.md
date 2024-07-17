@@ -1,23 +1,29 @@
 <!-- .slide:-->
 
-# Google : 20 ans de containers
+# Kubernetes : introduction
+## Produit Open-source
+![float-left h-300](./assets/images/K8S-logo.png)
+* <https://github.com/kubernetes/kubernetes>
 
-![h-800 center](./assets/images/google-containers.png)
-
-Notes:
-Google, 20 ans d’expérience sur l’orchestration de containers
-
-Borg = c++, ~2003
+  * 109k+ stars
+  * 3600+ contributeurs
+* Premier projet intégré à la création de la CNCF en Juillet 2015
 
 ##==##
+# Kubernetes : introduction
+## Apercu
+![center h-800](./assets/images/archi-kube.png)
 
-<!-- .slide:-->
-
-# Cloud Native Computing Foundation
-
-![center h-800](./assets/images/cloud-native-foundation.svg)
-
+##==##
+# Kubernetes : introduction
+## Cloud Native Computing Foundation
+![](./assets/images/cncf-orchestrator.png)
 [landscape.cncf.io](landscape.cncf.io)
+
+* Fondée en 2015, c'est une organisation à but non lucratif, ayant pour mission de favoriser l'adoption des technologies tourant autour du Cloud.
+  * heberge de nombreux projets open source
+  * organise des evenements (kubecon)
+  * propose des certifications
 
 <!-- .element: class="credits" -->
 
@@ -47,10 +53,24 @@ Linux
 en procurant les ressources et services centralisés, la Linux Foundation regroupe 70 membres.
 
 ##==##
+# Kubernetes : introduction
+## Les versions
+Pour nommer ses versions, Kubernetes utilise du semantic versioning (x.y.z)
+* x est le numéro de la version majeure
+* y est l'incrément de la version mineure
+* z est le niveau de correctif
+
+Lors de montée de version, l'api de kubernetes est enrichie, et rare sont les endpoints qui sont supprimés. Une montée de version est donc rarement risquée.
+* La version 1.30.2 est la dernière en date (12.06.2024)
+* Une version mineur sort tous les 4 mois.
+* Si une api devient dépréciée, elle est retirée au bout d'un an (soit 4 versions plus tard)
+
+##==##
+
 
 <!-- .slide: class="two-column" -->
-
-# Kubernetes, pour quoi faire ?
+# Kubernetes : introduction
+## Kubernetes, pour quoi faire ?
 
 ![w-600](./assets/images/kub-for-what.svg)
 
@@ -58,12 +78,12 @@ en procurant les ressources et services centralisés, la Linux Foundation regrou
 
 <br><br>
 
-- Lancer 5 containers basés sur l’image redis:4.0
-- Mettre en place un load-balancer interne au cluster pour servir ces 5 containers
-- Lancer 10 containers webapp:1.0
-- Mettre en place un load-balancer public pour permettre d’accéder aux containers de l’extérieur du cluster
-- Augmenter le nombre de containers webapp pendant les soldes 😉
-- Continuer à servir les requêtes pendant la mise à jour vers webapp:2.0
+- **Orchestration automatisée:** peu d'actions manuelles
+- **Haute disponibilité:** Répartition de charge et relance automatiques
+- **Scalabilité:** possibilité de faire du scaling automatique
+- **Portabilité:** déploiement quasi identique entre on premise et les différents cloud
+- **Gestion déclarative:** avoir l'ensemble de ses déploiements as code
+- **Écosystème riche:** enormément d'outils / extensions et communauté active
 
 Notes:
 Orchestration de containers dans un cluster de machines
@@ -72,65 +92,129 @@ Orchestration de containers dans un cluster de machines
 
 ##==##
 
-<!-- .slide: class="with-code" -->
+<!-- .slide: class="exercice" -->
+## Quiz
 
-# Mais aussi
+<br>
 
-- Mise à l’échelle automatique
-- Déploiement “Blue/green” et “Canary”
-- Exécution de traitements unitaires ou répétés
-- Prioriser les tâches en cas de manque de ressources sur le cluster
-- Exécuter des services qui persistent des données sur disque
-- Contrôler l’accès aux différentes ressources
-- Automatiser les tâches complexes (“operators”)
+_Question_ : Lequel de ces runtime n'est supporté dans Kubernetes ?
 
-Notes:
-Orchestration de containers dans un cluster de machines
+<br>
 
-##==##
-
-<!-- .slide: data-type-show="hide"-->
-
-# Question 1
-
-texte
-
-choix 1
-choix 2
-choix 3
+1. Containerd
+2. Cri-o
+3. gvisor
+4. runtime java
 
 ##==##
 
-<!-- .slide: data-type-show="hide"-->
+<!-- .slide: class="exercice" -->
 
-# Question 1
+## Quiz
 
-texte
+<br>
 
-choix 1
-choix 2
-choix 3
+_Question_ : Lequel de ces runtime n'est supporté dans Kubernetes ?
+
+<br>
+
+1. Containerd
+2. Cri-o
+3. gvisor
+4. **runtime java**
+
+##==##
+<!-- .slide: class="exercice" -->
+## Quiz
+
+<br>
+
+_Question_ : Dans quel langage est développé Kubernetes ?
+
+<br>
+
+1. C++
+2. Java
+3. Golang
+4. PHP
 
 ##==##
 
-<!-- .slide: data-type-show="hide"-->
+<!-- .slide: class="exercice" -->
 
-# Question 1
+## Quiz
 
-Quelle est la différence entre une VM et un container?
+<br>
 
-Un container fait tourner un nouvel OS, émule du matériel physique tandis qu’une VM partage les mêmes OS et noyau que son hôte et réalise une virtualisation au niveau système
-Une VM fait tourner un nouvel OS, émule du matériel physique tandis qu’un container partage les mêmes OS et noyau que son hôte et réalise une virtualisation au niveau système
-Les deux sont des moyens de virtualisation mais le container peut tourner sur tous les OS contrairement à la VM
+_Question_ : Dans quel langage est développé Kubernetes ?
+
+<br>
+
+1. C++
+2. Java
+3. **Golang**
+4. PHP
+
+##==##
+<!-- .slide: class="exercice" -->
+## Quiz
+
+<br>
+
+_Question_ : Quel est le rôle principal d'un "Pod" dans Kubernetes ?
+
+<br>
+
+1. Stocker des données persistantes
+2. Exécuter un ou plusieurs conteneurs
+3. Gérer le réseau du cluster
+4. Orchestrer les déploiements
 
 ##==##
 
-<!-- .slide: data-type-show="hide"-->
+<!-- .slide: class="exercice" -->
 
-# Question 1
+## Quiz
 
-Quelle est la différence entre une VM et un container?
+<br>
 
-Une VM fait tourner un nouvel OS, émule du matériel physique tandis qu’un container partage les mêmes OS et noyau que son hôte et réalise une virtualisation au niveau système
-Un container fait tourner un nouvel OS, émule du matériel physique tandis qu’une VM partage les mêmes OS et noyau que son hôte et réalise une virtualisation au niveau système
-Les deux sont des moyens de virtualisation mais le container peut tourner sur tous les OS contrairement à la VM
+_Question_ : Quel est le rôle principal d'un "Pod" dans Kubernetes ?
+
+<br>
+
+1. Stocker des données persistantes
+2. **Exécuter un ou plusieurs conteneurs**
+3. Gérer le réseau du cluster
+4. Orchestrer les déploiements
+
+##==##
+<!-- .slide: class="exercice" -->
+## Quiz
+
+<br>
+
+_Question_ : Quelle commande utiliser pour obtenir des informations sur les pods en cours d'exécution
+
+<br>
+
+1. kubectl get pods
+2. kubernetes list pods
+3. k8s show pods
+4. kube-ctl pods info
+
+##==##
+
+<!-- .slide: class="exercice" -->
+
+## Quiz
+
+<br>
+
+_Question_ : Quelle commande utiliser pour obtenir des informations sur les pods en cours d'exécution
+
+<br>
+
+1. **kubectl get pods**
+2. kubernetes list pods
+3. k8s show pods
+4. kube-ctl pods info

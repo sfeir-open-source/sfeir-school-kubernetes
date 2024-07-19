@@ -21,53 +21,43 @@ function dockerReminders() {
   ];
 }
 
-function kubOrigins() {
-  const directory = '02-kub_origins/';
+function kubIntro() {
+  const directory = '02-kub_intro/';
   return [
     //
     `${directory}00-TITLE.md`, //
-    `${directory}01-origins.md`, //
+    `${directory}01-introduction.md`, //
   ];
 }
 
-function firstView() {
-  const directory = '03-first_view/';
+function kubCluster() {
+  const directory = '03-kub_cluster/';
   return [
     //
     `${directory}00-TITLE.md`, //
-    `${directory}01-first_view.md`, //
+    `${directory}01-kub_cluster.md`, //
   ];
 }
 
-function internalArchitecture() {
-  const directory = '04-internal_archi/';
+function clusterInteraction() {
+  const directory = '04-cluster_interaction/';
   return [
     //
     `${directory}00-TITLE.md`, //
-    `${directory}01-internal_archi.md`, //
-  ];
-}
-
-function gettingStarted() {
-  const directory = '05-getting_started/';
-  return [
-    //
-    `${directory}00-TITLE.md`, //
-    `${directory}01-getting_started.md`, //
+    `${directory}01-cluster_interaction.md`, //
     `${directory}02-namespace.md`, //
-    `${directory}03-manifest.md`, //
-    `${directory}04-interaction_obj.md`, //
-    `${directory}05-interaction_pod.md`, //
-    `${directory}06-liveness_readiness.md`, //
+    `${directory}03-resources.md`, //
+    `${directory}04-pods.md`, //
+    `${directory}05-liveness_readiness.md`, //
   ];
 }
 
-function configurationApp() {
-  const directory = '06-configuration_app/';
+function resources() {
+  const directory = '05-resources/';
   return [
     //
     `${directory}00-TITLE.md`, //
-    `${directory}01-configuration_app.md`, //
+    `${directory}01-secret_configmap.md`, //
     `${directory}02-service.md`, //
     `${directory}03-replicaset.md`, //
     `${directory}04-deployment.md`, //
@@ -123,11 +113,10 @@ function formation() {
     //
     ...schoolSlides(), //
     ...dockerReminders(), //
-    ...kubOrigins(), //
-    ...firstView(), //
-    ...internalArchitecture(), //
-    ...gettingStarted(), //
-    ...configurationApp(), //
+    ...kubIntro(), //
+    ...kubCluster(), //
+    ...clusterInteraction(), //
+    ...resources(), //
     ...upscale(), //
     ...storeData(), //
     ...advancedPods(), //

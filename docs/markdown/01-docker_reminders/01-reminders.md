@@ -1,7 +1,6 @@
 <!-- .slide:-->
 
-# Rappels sur Docker
-## En quelques points
+## Rappels sur Docker > **en quelques points**
 
 Docker est une plateforme de conteneurisation qui permet de créer, déployer et exécuter des applications dans des environnements isolés appelés conteneurs.
 * Conteneurs : unités légères qui contiennent tout l'application a besoin pour fonctionner.
@@ -10,8 +9,7 @@ Docker est une plateforme de conteneurisation qui permet de créer, déployer et
 
 ##==##
 
-# Rappels sur Docker
-## En quelques points
+## Rappels sur Docker > **en quelques points**
 
 * Efficacité : utilise moins de ressources qu'une VM, car partage le noyau du système d'exploitation hôte.
 * Rapidité : Les conteneurs démarrent et s'arrêtent en quelques secondes.
@@ -20,8 +18,7 @@ Docker est une plateforme de conteneurisation qui permet de créer, déployer et
 ##==##
 
 <!-- .slide: class="flex-row" -->
-# Rappels sur Docker
-## VM vs Containers
+## Rappels sur Docker > **VM vs Containers**
 
 ![h-600](./assets/images/vms.png)
 ![h-600](./assets/images/containers.png)
@@ -47,8 +44,7 @@ accès au matériel plus simple
 
 <!-- .slide:-->
 
-# Rappels sur Docker
-## Build & push
+## Rappels sur Docker > **Build & push**
 
 ![h-400](./assets/images/docker.png)
 * Dockerfile: contient les instructions pour construire l’image

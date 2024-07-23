@@ -2,7 +2,7 @@
 
 ## Le cluster Kubernetes > **Vue d'ensemble**
 
-![w-800](./assets/images/kube-overview.png)
+![w-800](./assets/images/archi-kube.png)
 
 ##--##
 

@@ -46,7 +46,7 @@ accès au matériel plus simple
 
 ## Rappels sur Docker > **Build & push**
 
-![h-400](./assets/images/docker.png)
+![center h-400](./assets/images/docker.png)
 * Dockerfile: contient les instructions pour construire l’image
 * Image: contiennent les fichiers nécessaires à l’exécution l'application : binaires, dépendances, configuration
 * Registry: publique ou privé, permet de récupérer les images à l'aide de la commande pull.

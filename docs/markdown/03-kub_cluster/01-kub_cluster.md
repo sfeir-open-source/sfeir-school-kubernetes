@@ -9,8 +9,8 @@
 <br><br><br>
 
 Un cluster kubernetes est composé à minima d'un control plane, et d'un worker node. Afin de conserver de la haute disponibilité, les workers nodes sont souvent au nombre de trois.
-* **Control plane:** Il a pour rôle de maintenir l'état souhaité du cluster, en redémarrant des pods, ou en augmentant le nombre de réplica.
-* **Worker node:** Ils ont pour rôle d'héberger les applications et d'être joignables de l'exterieur.
+* **Control plane** : Il a pour rôle de maintenir l'état souhaité du cluster, en redémarrant des pods, ou en augmentant le nombre de réplica.
+* **Worker node** : Ils ont pour rôle d'héberger les applications et d'être joignables de l'exterieur.
 
 Notes:
 Un cluster est un ensemble de machines qui collaborent entre elles.
@@ -30,10 +30,10 @@ Sur Kubernetes, on distingue le master des noeuds (nodes).
 <br>
 
 Le control plane a pour but de maintenir l'état désiré du cluster, en étant responsable de l'orchestration. Il posséde les composants suivants :
-* **kube-apiserver:**  valide et traite les requetes, gere l'authentification et permet aux nodes de connaitre l'état du cluster.
-* **etcd:** base de données de type clef / valeur, stockant l'état du cluster. C'est la source de vérité.
-* **kube-scheduler:** quand un pod n'est pas encore lancé, il regarde les ressources des nodes et selectionne meilleur.
-* **kube-controller-manager:** gère tous les controllers du cluster.
+* **kube-apiserver** : Valide et traite les requetes, gere l'authentification et permet aux nodes de connaitre l'état du cluster.
+* **etcd** : Base de données de type clef/valeur, stockant l'état du cluster. C'est la source de vérité.
+* **kube-scheduler** : Quand un pod n'est pas encore lancé, il regarde les ressources des nodes et selectionne meilleur.
+* **kube-controller-manager** : Gère tous les controllers du cluster.
 
 Notes:
 Le master est responsable de d’essentiel de la partie “contrôle” (control plane) du cluster.
@@ -57,9 +57,9 @@ En dev ces deux fonctions peuvent être déployées sur une unique machine (ex: 
 <br>
 
 Le worker node a pour but de permettre aux pods applicatifs d'être démarrés grâce à une communication avec le control plane. Il posséde les composants suivants :
-* **kubelet:** agent qui executent les pods en suivant les specs des ressources demandées par l'api server.
-* **kube-proxy:** agent de gestion du réseau pour les pods au travers des services. C'est un proxy UDP/TCP
-* **container-runtime:** agent responsable du pull des images, de lancer les conteneurs et leur allouer des ressources.
+* **kubelet** : Agent qui executent les pods en suivant les specs des ressources demandées par l'api server.
+* **kube-proxy** : Agent de gestion du réseau pour les pods au travers des services. C'est un proxy UDP/TCP.
+* **container-runtime** : Agent responsable du pull des images, de lancer les conteneurs et leur allouer des ressources.
 
 Notes:
 Les noeuds exécutent les applications packagées dans des containers regroupés dans des “Pods”.
@@ -86,9 +86,9 @@ ex:
 <br><br><br>
 
 C'est la plus petite ressource déployable sur kubernetes, contenant un ou plusieurs conteneurs partageant le réseau et le stockage.
-* **réseau:** l'ensemble des conteneurs dans un pod partagent la même adresse IP.
-* **cycle de vie:** tous les conteneurs d'un pod sont créés et détruits ensemble.
-* **gestion:** généralement, ils sont gérés par des controllers de plus haut niveau (déploiement, statefulset ou daemonset).
+* **Réseau** : L'ensemble des conteneurs dans un pod partagent la même adresse IP.
+* **Cycle de vie** : Tous les conteneurs d'un pod sont créés et détruits ensemble.
+* **Gestion** : Généralement, ils sont gérés par des controllers de plus haut niveau (déploiement, statefulset ou daemonset).
 
 Notes:
 Pod :

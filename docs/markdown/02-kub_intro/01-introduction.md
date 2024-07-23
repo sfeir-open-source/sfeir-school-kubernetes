@@ -4,8 +4,8 @@
 ![float-left h-300](./assets/images/K8S-logo.png)
 * <https://github.com/kubernetes/kubernetes>
 
-  * 109k+ stars
-  * 3600+ contributeurs
+  * **109k+** stars
+  * **3600+** contributeurs
 * Premier projet intégré à la création de la CNCF en Juillet 2015
 
 ##==##
@@ -50,16 +50,16 @@ Linux
 en procurant les ressources et services centralisés, la Linux Foundation regroupe 70 membres.
 
 ##==##
-## Introduction > **Les versions**
+## Introduction > **Les versions (semver)**
 Pour nommer ses versions, Kubernetes utilise du semantic versioning (x.y.z)
-* x est le numéro de la version majeure
-* y est l'incrément de la version mineure
-* z est le niveau de correctif
+* *x* est le numéro de la version **majeure**
+* *y* est l'incrément de la version **mineure**
+* *z* est le niveau de **correctif**
 
 Lors de montée de version, l'api de kubernetes est enrichie, et rare sont les endpoints qui sont supprimés. Une montée de version est donc rarement risquée.
 * La version 1.30.2 est la dernière en date (12.06.2024)
 * Une version mineur sort tous les 4 mois.
-* Si une api devient dépréciée, elle est retirée au bout d'un an (soit 4 versions plus tard)
+* Si une api devient dépréciée, elle est retirée au bout d'un an (soit 4 versions plus tard).
 
 ##==##
 
@@ -73,12 +73,12 @@ Lors de montée de version, l'api de kubernetes est enrichie, et rare sont les e
 
 <br><br>
 
-- **Orchestration automatisée:** peu d'actions manuelles
-- **Haute disponibilité:** Répartition de charge et relance automatiques
-- **Scalabilité:** possibilité de faire du scaling automatique
-- **Portabilité:** déploiement quasi identique entre on premise et les différents cloud
-- **Gestion déclarative:** avoir l'ensemble de ses déploiements as code
-- **Écosystème riche:** enormément d'outils / extensions et communauté active
+- **Orchestration automatisée** : Peu d'actions manuelles.
+- **Haute disponibilité** : Répartition de charge et relance automatiques.
+- **Scalabilité** : Possibilité de faire du scaling automatique.
+- **Portabilité** : Déploiement quasi identique entre on premise et les différents cloud.
+- **Gestion déclarative** : Avoir l'ensemble de ses déploiements as code.
+- **Écosystème riche** : Énormément d'outils/extensions et communauté active.
 
 Notes:
 Orchestration de containers dans un cluster de machines

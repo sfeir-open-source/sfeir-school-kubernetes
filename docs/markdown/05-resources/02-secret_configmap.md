@@ -76,8 +76,8 @@ spec:
 
 <br><br><br>
 
-* Le volume indique quelle configMap monter en tant que fichier dans le pod (elle doit se trouver dans le même namespace que le déploiement)
-* Le volumeMount indique qu'il faut injecter la configMap dans le fichier /etc/nginx/conf.f/nginx.conf
+* Le volume indique quelle configMap monter en tant que fichier dans le pod (elle doit se trouver dans le même namespace que le déploiement).
+* Le volumeMount indique qu'il faut injecter la configMap dans le fichier /etc/nginx/conf.f/nginx.conf.
 
 ##==##
 

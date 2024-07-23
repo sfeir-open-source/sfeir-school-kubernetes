@@ -3,10 +3,10 @@
 # Les pods > **Kézaco**
 
 C'est la plus petite ressource d'un cluster Kubernetes. 
-* Il contient un ou plusieurs conteneur étroitement liés 
-* Les conteneurs partagent la même IP, et le même espace de port
-* Ils peuvent communiquer avec la boucle locale
-* Ils peuvent partager des volumes
+* Il contient un ou plusieurs conteneur étroitement liés .
+* Les conteneurs partagent la même IP, et le même espace de port.
+* Ils peuvent communiquer avec la boucle locale.
+* Ils peuvent partager des volumes.
 
 ##--##
 <br>
@@ -94,10 +94,10 @@ spec:
 <br><br>
 
 Les variables d'environnement permettent de configurer les applications dans un format clé / valeur
-* En fournissant directement la valeur
-* Depuis un secret
-* Depuis une configMap
-* En cas de multiple déclaration, les valeurs données dans le pod > secret / configMap
+* En fournissant directement la valeur.
+* Depuis un secret.
+* Depuis une configMap.
+* En cas de multiple déclaration, les valeurs données dans le pod > secret / configMap.
 
 ##==##
 

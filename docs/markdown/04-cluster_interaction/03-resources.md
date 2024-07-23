@@ -48,11 +48,11 @@ Ce qui nous donne
 
 # Les ressources > **Création déclarative**
 Les ressources sont créées à partir de fichier YAML avec les avantages suivants
-* Gestion des ressources as code (via GitOPs)
-* Permet des déploiements complexes
-* Facilite le déploiement dans divers environnements (dev, preprod, prod)
-* Facilite les rollback ou les montées de version
-* Peut être associé à du déploiement continu (ArgoCD / FluxCD)
+* Gestion des ressources as code (via GitOPs).
+* Permet des déploiements complexes.
+* Facilite le déploiement dans divers environnements (dev, preprod, prod).
+* Facilite les rollback ou les montées de version.
+* Peut être associé à du déploiement continu (ArgoCD / FluxCD).
 
 ##==##
 

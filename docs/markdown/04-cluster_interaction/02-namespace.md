@@ -9,10 +9,10 @@
 # Les namespaces > **présentation**
 
 Ils permettent de partager un cluster unique entre plusieurs utilisateurs, équipes ou applications, tout en maintenant une séparation logique.
-* Les ressources sont isolées des autres namespaces
-* Les noms des ressources doivent être uniques au sein d'un namespace, mais pas nécessairement entre les namespaces
-* Ils permettent de séparer les applications ou les environnements
-* La gestion des droits peut se faire dans les namespace au travers des RBAC
+* Les ressources sont isolées des autres namespaces.
+* Les noms des ressources doivent être uniques au sein d'un namespace, mais pas nécessairement entre les namespaces.
+* Ils permettent de séparer les applications ou les environnements.
+* La gestion des droits peut se faire dans les namespace au travers des RBAC.
 
 ##==##
 

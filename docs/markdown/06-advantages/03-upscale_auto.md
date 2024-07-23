@@ -3,7 +3,7 @@
 # Les avantages > **Mise à l'échelle automatique**
 
 Kubernetes offre plusieurs mécanismes pour ajuster automatiquement la taille de vos applications en fonction de la charge ou d'autres métriques.
-Il existe trois types principaux d'autoscaling dans Kubernetes :
+Il existe trois types principaux d'autoscaling dans Kubernetes:
 * Horizontal Pod Autoscaler
 * Vertical Pod Autoscaler
 * Cluster Autoscaler
@@ -62,7 +62,7 @@ spec:
 
 # Les avantages > Mise à l'échelle automatique > **Cluster Autoscaler**
 
-Le cluster autoscaler permet d'augmenter le nombre de noeud d'un cluster en cas de sûr consommation de ressources de ceux présents. La configuration dépend de l'infrastructure sur laquelle repose Kubernetes.  
+Le cluster autoscaler permet d'augmenter le nombre de nœeud d'un cluster en cas de sûr consommation de ressources de ceux présents. La configuration dépend de l'infrastructure sur laquelle repose Kubernetes.  
 Pour plus d'informations:
 * https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler
 

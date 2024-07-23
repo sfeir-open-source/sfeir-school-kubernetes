@@ -9,10 +9,10 @@
 
 # Les ressources > **Les labels**
 
-Les labels, sous forme de paires clé-valeur, sont attachés aux ressources Kubernetes. Cela permet
-* De catégoriser les ressources
-* De filter pour des ensembles de ressources
-* D'associer des ressources (pod avec déploiement, service avec déploiement) 
+Les labels, sous forme de paires clé-valeur, sont attachés aux ressources Kubernetes. Cela permet: 
+* De catégoriser les ressources.
+* De filter pour des ensembles de ressources.
+* D'associer des ressources (pod avec déploiement, service avec déploiement).
 
 ##--##
 
@@ -25,9 +25,9 @@ Les labels, sous forme de paires clé-valeur, sont attachés aux ressources Kube
 
 # Les ressources > Les labels > **Bonnes pratiques**
 
-La bonne pratique pour créer un label est d'utiliser : **\<prefix\>/\<nom\>**. Prenons l'exemple d'une application découpée en microservices avec un front, un back et une base de données. Un bon usage de labels serait :
-* label pour l'app, le tier et le role
-* un prefix pour la compagnie
+La bonne pratique pour créer un label est d'utiliser : **\<prefix\>/\<nom\>**. Prenons l'exemple d'une application découpée en microservices avec un front, un back et une base de données. Un bon usage de labels serait:
+* Label pour l'app, le tier et le role.
+* Un prefix pour la compagnie.
 
 ![center h-500](./assets/images/labels-effectivly.png)
 

@@ -7,7 +7,7 @@ Client Kubernetes en ligne de commande écrit en go et interagissant avec l'api 
 * Un fichier peut contenir plusieurs clusters, découpé en contextes.
   * Un contexte est un ensemble contenant cluster + utilisateur.
 
-![h-600](./assets/images/kubectl-config.png)
+![center h-600](./assets/images/kubectl-config.png)
 
 Notes:
 Comme Docker, Kubernetes s’utilise en mode client-server.

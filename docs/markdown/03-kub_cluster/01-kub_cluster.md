@@ -2,15 +2,15 @@
 
 ## Le cluster Kubernetes > **Vue d'ensemble**
 
-![w-800](./assets/images/kube-overview.png)
+![w-800](./assets/images/archi-kube.png)
 
 ##--##
 
 <br><br><br>
 
 Un cluster kubernetes est composé à minima d'un control plane, et d'un worker node. Afin de conserver de la haute disponibilité, les workers nodes sont souvent au nombre de trois.
-* **Control plane:** Il a pour rôle de maintenir l'état souhaité du cluster, en redémarrant des pods, ou en augmentant le nombre de réplica.
-* **Worker node:** Ils ont pour rôle d'héberger les applications et d'être joignables de l'exterieur.
+* **Control plane** : Il a pour rôle de maintenir l'état souhaité du cluster, en redémarrant des pods, ou en augmentant le nombre de réplica.
+* **Worker node** : Ils ont pour rôle d'héberger les applications et d'être joignables de l'exterieur.
 
 Notes:
 Un cluster est un ensemble de machines qui collaborent entre elles.

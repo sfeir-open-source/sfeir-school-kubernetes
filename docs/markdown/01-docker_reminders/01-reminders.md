@@ -3,17 +3,17 @@
 ## Rappels sur Docker > **en quelques points**
 
 Docker est une plateforme de conteneurisation qui permet de créer, déployer et exécuter des applications dans des environnements isolés appelés conteneurs.
-* Conteneurs : unités légères qui contiennent tout l'application a besoin pour fonctionner.
-* Isolation : chaque conteneur fonctionne de manière isolée.
-* Portabilité : Les conteneurs peuvent être exécutées sur n'importe quel système compatible, poste de développement, serveur de test ou un environnement de production.
+* **Conteneurs** : Unités légères qui contiennent tout ce dont l'application a besoin pour fonctionner.
+* **Isolation** : Chaque conteneur fonctionne de manière isolée.
+* **Portabilité** : Les conteneurs peuvent être exécutées sur n'importe quel système compatible, poste de développement, serveur de test ou un environnement de production.
 
 ##==##
 
 ## Rappels sur Docker > **en quelques points**
 
-* Efficacité : utilise moins de ressources qu'une VM, car partage le noyau du système d'exploitation hôte.
-* Rapidité : Les conteneurs démarrent et s'arrêtent en quelques secondes.
-* Reproductibilité : Docker garantit que l'application fonctionnera de la même manière dans différents environnements.
+* **Efficacité** : Utilise moins de ressources qu'une VM, car partage le noyau du système d'exploitation hôte.
+* **Rapidité** : Les conteneurs démarrent et s'arrêtent en quelques secondes.
+* **Reproductibilité** : Docker garantit que l'application fonctionnera de la même manière dans différents environnements.
 
 ##==##
 
@@ -47,9 +47,9 @@ accès au matériel plus simple
 ## Rappels sur Docker > **Build & push**
 
 ![h-400](./assets/images/docker.png)
-* Dockerfile: contient les instructions pour construire l’image
-* Image: contiennent les fichiers nécessaires à l’exécution l'application : binaires, dépendances, configuration
-* Registry: publique ou privé, permet de récupérer les images à l'aide de la commande pull.
+* **Dockerfile** : Contient les instructions pour construire l’image.
+* **Image** : Contiennent les fichiers nécessaires à l’exécution l'application : binaires, dépendances, configuration.
+* **Registry** : Publique ou privé, permet de récupérer les images à l'aide de la commande pull.
 
 Notes:
 Le Dockerfile :

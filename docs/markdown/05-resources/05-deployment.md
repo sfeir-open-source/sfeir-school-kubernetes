@@ -35,10 +35,10 @@ spec:
 <br><br>
 
 Les déploiements sont une ressource Kubernetes permettant de gérer le cycle de vie de pods au travers des replicaSets.
-* Contiennet un état souhaité d'une application que le controlleur s'assure de maintenir
-* Permet de scaler l'application via le nombre de réplicas
-* Mise à jour progressives (rolling update), et retour arrière possible (rollback)
-* Les pods en echecs dans un déploiement sont automatiquement redémarrés
+* Contiennet un état souhaité d'une application que le controlleur s'assure de maintenir.
+* Permet de scaler l'application via le nombre de réplicas.
+* Mise à jour progressives (rolling update), et retour arrière possible (rollback).
+* Les pods en echecs dans un déploiement sont automatiquement redémarrés.
 
 ##==##
 
@@ -60,9 +60,9 @@ spec:
 ```
 
 La première partie d'un déploiement contient l'état souhaité des templates de pods (seconde partie)
-* replica: nombre de pods créés qui seront désservis par le service
-* selector: permet d'identifier les pods gérés par le déploiement via les labels
-* template: décrit les pods souhaités du déploiement
+* **replica**: Nombre de pods créés qui seront désservis par le service.
+* **selector**: Permet d'identifier les pods gérés par le déploiement via les labels.
+* **template**: Décrit les pods souhaités du déploiement.
 
 ##==##
 
@@ -71,9 +71,9 @@ La première partie d'un déploiement contient l'état souhaité des templates d
 # Les ressources > Deploiements > **template**
 
 La seconde partie d'un déploiement contient la description du pod géré par le déploiement
-* metadata: contient les labels, nécessaires à l'association déploiement / pods
-* containers: peut contenir un ou plusieurs conteneurs (initContainer, sidecar)
-* aller plus loin: peut avoir des volumes, des healthcheck, de l'affinité, des limites, des variables
+* **metadata**: Contient les labels, nécessaires à l'association déploiement / pods.
+* **containers**: Peut contenir un ou plusieurs conteneurs (initContainer, sidecar).
+* **aller plus loin**: Peut avoir des volumes, des healthcheck, de l'affinité, des limites, des variables.
 
 ```yaml
     metadata:

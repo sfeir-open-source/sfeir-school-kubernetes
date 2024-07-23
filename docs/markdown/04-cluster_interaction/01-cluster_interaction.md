@@ -3,9 +3,9 @@
 # Interaction avec un cluster > **kubectl**
 
 Client Kubernetes en ligne de commande écrit en go et interagissant avec l'api kubernetes.
-* Utilise par défaut le fichier `~/.kube/config` pour se connecter au cluster
+* Utilise par défaut le fichier `~/.kube/config` pour se connecter au cluster.
 * Un fichier peut contenir plusieurs clusters, découpé en contextes.
-  * Un contexte est un ensemble contenant cluster + utilisateur
+  * Un contexte est un ensemble contenant cluster + utilisateur.
 
 ![center h-600](./assets/images/kubectl-config.png)
 
@@ -118,10 +118,10 @@ De plus il existe une page dédiée à kubectl sur le site officiel de kubernete
 # Interaction avec un cluster > kubectl > **k9s, l'UI de kubectl**
 
 Interface utlisateur en mode terminal permettant de gérer les cluster kubernetes.
-* Visualisation en temps réel des ressources du cluster
-* Navigation rapide entre différents types de ressources
-* Gestion des pods, déploiements, services, etc.
-* Visualisation des logs et exécution de commandes dans les pods
+* Visualisation en temps réel des ressources du cluster.
+* Navigation rapide entre différents types de ressources.
+* Gestion des pods, déploiements, services, etc…
+* Visualisation des logs et exécution de commandes dans les pods.
 
 ![center h-500](./assets/images/k9scli.png)
   [k9scli.io](https://k9scli.io/)

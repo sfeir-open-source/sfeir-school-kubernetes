@@ -15,7 +15,7 @@ Un cluster kubernetes est composé à minima d'un control plane, et d'un worker 
 Notes:
 Un cluster est un ensemble de machines qui collaborent entre elles.
 
-Sur Kubernetes, on distingue le master des noeuds (nodes).
+Sur Kubernetes, on distingue le master des nœuds (nodes).
 
 ##==##
 
@@ -30,15 +30,15 @@ Sur Kubernetes, on distingue le master des noeuds (nodes).
 <br>
 
 Le control plane a pour but de maintenir l'état désiré du cluster, en étant responsable de l'orchestration. Il posséde les composants suivants :
-* **kube-apiserver** : Valide et traite les requetes, gere l'authentification et permet aux nodes de connaitre l'état du cluster.
-* **etcd** : Base de données de type clef/valeur, stockant l'état du cluster. C'est la source de vérité.
-* **kube-scheduler** : Quand un pod n'est pas encore lancé, il regarde les ressources des nodes et selectionne meilleur.
-* **kube-controller-manager** : Gère tous les controllers du cluster.
+* **kube-apiserver:**  Valide et traite les requêtes, gere l'authentification et permet aux nodes de connaitre l'état du cluster.
+* **etcd:** Base de données de type clef / valeur, stockant l'état du cluster. C'est la source de vérité.
+* **kube-scheduler:** Quand un pod n'est pas encore lancé, il regarde les ressources des nodes et selectionne la meilleure.
+* **kube-controller-manager:** Gère tous les controllers du cluster.
 
 Notes:
 Le master est responsable de d’essentiel de la partie “contrôle” (control plane) du cluster.
 
-Les noeuds (nodes) sont responsables de l’exécution des applications.
+Les nœuds (nodes) sont responsables de l’exécution des applications.
 
 Les fonctions de master et de node sont habituellement déployées sur des machines différentes.
 
@@ -57,12 +57,12 @@ En dev ces deux fonctions peuvent être déployées sur une unique machine (ex: 
 <br>
 
 Le worker node a pour but de permettre aux pods applicatifs d'être démarrés grâce à une communication avec le control plane. Il posséde les composants suivants :
-* **kubelet** : Agent qui executent les pods en suivant les specs des ressources demandées par l'api server.
-* **kube-proxy** : Agent de gestion du réseau pour les pods au travers des services. C'est un proxy UDP/TCP.
-* **container-runtime** : Agent responsable du pull des images, de lancer les conteneurs et leur allouer des ressources.
+* **kubelet:** Agent qui executent les pods en suivant les specs des ressources demandées par l'api server.
+* **kube-proxy:** Agent de gestion du réseau pour les pods au travers des services. C'est un proxy UDP/TCP.
+* **container-runtime:** Agent responsable du pull des images, de lancer les conteneurs et leur allouer des ressources.
 
 Notes:
-Les noeuds exécutent les applications packagées dans des containers regroupés dans des “Pods”.
+Les nœeuds exécutent les applications packagées dans des containers regroupés dans des “Pods”.
 
 L’exécution des Pods est gérée par les kubelet.
 
@@ -86,9 +86,9 @@ ex:
 <br><br><br>
 
 C'est la plus petite ressource déployable sur kubernetes, contenant un ou plusieurs conteneurs partageant le réseau et le stockage.
-* **Réseau** : L'ensemble des conteneurs dans un pod partagent la même adresse IP.
-* **Cycle de vie** : Tous les conteneurs d'un pod sont créés et détruits ensemble.
-* **Gestion** : Généralement, ils sont gérés par des controllers de plus haut niveau (déploiement, statefulset ou daemonset).
+* **Réseau:** L'ensemble des conteneurs dans un pod partagent la même adresse IP.
+* **Cycle de vie:** Tous les conteneurs d'un pod sont créés et détruits ensemble.
+* **Gestion:** Généralement, ils sont gérés par des controllers de plus haut niveau (déploiement, statefulset ou daemonset).
 
 Notes:
 Pod :
@@ -125,7 +125,7 @@ un ou plusieurs volumes
 
 ![](./assets/images/kube-csi.png)
 
-* Pas de CSI installé sur le cluster à l'initialisation celui ci étant dépendant du storage provider
+* Pas de CSI installé sur le cluster à l'initialisation celui ci étant dépendant du storage provider.
   * Les foncitonnalités différes entre les CSI. RWO ou RWM, auto extend, etc...
 
 ##==##

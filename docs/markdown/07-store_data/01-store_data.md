@@ -4,7 +4,7 @@
 
 Les volumes permettent aux pods de monter un dossier contenant ou non des données. 
 * La durée de vie d'un volume est lié au pod (et non au conteneur), permettant de conserver les données lors d'un redémarrage.
-* Plusieurs types de volumes sont supportés
+* Plusieurs types de volumes sont supportés:
   * configMap
   * emptyDir
   * hostPath
@@ -20,8 +20,8 @@ Les volumes permettent aux pods de monter un dossier contenant ou non des donné
 # Les volumes > **utilisation**
 
 Un volume est attaché a un pod, mais monté dans un conteneur.
-* **volumeMounts:** Liste des volumes et de leur point de montage (dans les specs conteneur)
-* **volumes:** liste des volumes et de leur type (dans les specs pods)
+* **volumeMounts:** Liste des volumes et de leur point de montage (dans les specs conteneur).
+* **volumes:** Liste des volumes et de leur type (dans les specs pods).
 
 ##--##
 
@@ -50,9 +50,9 @@ spec:
 # Les volumes > type > **emptyDir**
 
 Volume vide, créé au démarrage d’un pod, supprimé avec la suppression du Pod.
-* Permet le partage de données entre conteneurs d'un même pod
-* Peut servir de cache (tmps)
-* N'est pas vidé en cas de crash du conteneur
+* Permet le partage de données entre conteneurs d'un même pod.
+* Peut servir de cache (tmps).
+* N'est pas vidé en cas de crash du conteneur.
 
 ```yaml
 volumes:
@@ -80,9 +80,9 @@ volumes:
 ```
 
 Monte ou créer un fichier depuis le système de fichier du worker node ou tourne le pod. Accède donc aux ressources de celui-ci.
-* Les données reste sur l'hôte même après suppression du pod
-* Manque de sécurité (pas d'isolation)
-* Non portable entre les noeuds, sauf cas NFS
+* Les données reste sur l'hôte même après suppression du pod.
+* Manque de sécurité (pas d'isolation).
+* Non portable entre les noeuds, sauf cas NFS.
 
 ##==##
 
@@ -91,9 +91,9 @@ Monte ou créer un fichier depuis le système de fichier du worker node ou tourn
 # Les volumes > type > **PersistentVolumeClaim**
 
 Demande de volume à partir **persistentVolume** (lié à une infrastructure de stockage).
-* Les persistentVolume sont généralement créé automatiquement à travers la **storageClass**
-* Les PVC permettent de définir le mode d'accès souhaité (RWO, RWX, ...)
-* Défini la quantité de stockage souhaité
+* Les persistentVolume sont généralement créé automatiquement à travers la **storageClass**.
+* Les PVC permettent de définir le mode d'accès souhaité (RWO, RWX, ...).
+* Défini la quantité de stockage souhaité.
 
 ```yaml
 apiVersion: v1

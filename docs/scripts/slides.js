@@ -21,73 +21,63 @@ function dockerReminders() {
   ];
 }
 
-function kubOrigins() {
-  const directory = '02-kub_origins/';
+function kubIntro() {
+  const directory = '02-kub_intro/';
   return [
     //
     `${directory}00-TITLE.md`, //
-    `${directory}01-origins.md`, //
+    `${directory}01-introduction.md`, //
   ];
 }
 
-function firstView() {
-  const directory = '03-first_view/';
+function kubCluster() {
+  const directory = '03-kub_cluster/';
   return [
     //
     `${directory}00-TITLE.md`, //
-    `${directory}01-first_view.md`, //
+    `${directory}01-kub_cluster.md`, //
   ];
 }
 
-function internalArchitecture() {
-  const directory = '04-internal_archi/';
+function clusterInteraction() {
+  const directory = '04-cluster_interaction/';
   return [
     //
     `${directory}00-TITLE.md`, //
-    `${directory}01-internal_archi.md`, //
-  ];
-}
-
-function gettingStarted() {
-  const directory = '05-getting_started/';
-  return [
-    //
-    `${directory}00-TITLE.md`, //
-    `${directory}01-getting_started.md`, //
+    `${directory}01-cluster_interaction.md`, //
     `${directory}02-namespace.md`, //
-    `${directory}03-manifest.md`, //
-    `${directory}04-interaction_obj.md`, //
-    `${directory}05-interaction_pod.md`, //
-    `${directory}06-liveness_readiness.md`, //
+    `${directory}03-resources.md`, //
   ];
 }
 
-function configurationApp() {
-  const directory = '06-configuration_app/';
+function resources() {
+  const directory = '05-resources/';
   return [
     //
     `${directory}00-TITLE.md`, //
-    `${directory}01-configuration_app.md`, //
-    `${directory}02-service.md`, //
-    `${directory}03-replicaset.md`, //
-    `${directory}04-deployment.md`, //
-    `${directory}05-label_game.md`, //
+    `${directory}01-pods.md`, //
+    `${directory}02-secret_configmap.md`, //
+    `${directory}03-labels_selectors.md`, //
+    `${directory}04-service.md`, //
+    `${directory}05-deployment.md`, //
+    `${directory}06-ingress.md`, //
+    `${directory}07-all_together.md`, //
   ];
 }
 
-function upscale() {
-  const directory = '07-upscale/';
+function advantages() {
+  const directory = '06-advantages/';
   return [
     //
     `${directory}00-TITLE.md`, //
-    `${directory}01-upscale.md`, //
-    `${directory}02-upscale_auto.md`, //
-    `${directory}03-ingress.md`, //
+    `${directory}01-liveness_readiness.md`, //
+    `${directory}02-upgrades.md`, //
+    `${directory}03-upscale_auto.md`, //
   ];
 }
 
 function storeData() {
-  const directory = '08-store_data/';
+  const directory = '07-store_data/';
   return [
     //
     `${directory}00-TITLE.md`, //
@@ -95,43 +85,29 @@ function storeData() {
   ];
 }
 
-function advancedPods() {
-  const directory = '09-advanced_pods/';
+function after() {
+  const directory = '08-after/';
   return [
     //
     `${directory}00-TITLE.md`, //
-    `${directory}01-advanced_pods.md`, //
-    `${directory}02-template.md`, //
-    `${directory}03-security.md`, //
-    `${directory}04-monitoring.md`, //
+    `${directory}01-other_resources.md`, //
+    `${directory}02-certifications.md`, //
   ];
 }
 
-function installation() {
-  const directory = '10-installation/';
-  return [
-    //
-    `${directory}00-TITLE.md`, //
-    `${directory}01-installation.md`, //
-    `${directory}02-service_mesh.md`, //
-    `${directory}03-micro_service.md`, //
-  ];
-}
 
 function formation() {
   return [
     //
     ...schoolSlides(), //
     ...dockerReminders(), //
-    ...kubOrigins(), //
-    ...firstView(), //
-    ...internalArchitecture(), //
-    ...gettingStarted(), //
-    ...configurationApp(), //
-    ...upscale(), //
+    ...kubIntro(), //
+    ...kubCluster(), //
+    ...clusterInteraction(), //
+    ...resources(), //
+    ...advantages(), //
     ...storeData(), //
-    ...advancedPods(), //
-    ...installation(), //
+    ...after(), //
   ].map((slidePath) => {
     return { path: slidePath };
   });

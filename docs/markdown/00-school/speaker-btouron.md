@@ -1,6 +1,6 @@
 <!-- .slide: class="speaker-slide" -->
 
-# Nos formateurs kubernetes
+# Nos formateurs Kubernetes
 
 ![speaker](./assets/images/benoit.jpg)
 ![company](./assets/images/logo-sfeir-blanc.png)

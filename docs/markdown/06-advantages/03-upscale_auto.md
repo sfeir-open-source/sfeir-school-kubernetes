@@ -40,7 +40,7 @@ spec:
 
 # Les avantages > Mise à l'échelle automatique > **Vertical Pod Autoscaler**
 
-La CDR du [vertical pod autoscaler](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) n'est pas installée nativement, mais permet de modifier les limites en cpu et ram des déploiements de manière automatique.
+La CRD du [vertical pod autoscaler](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) n'est pas installée nativement, mais permet de modifier les limites en cpu et ram des déploiements de manière automatique.
 
 ```yaml
 apiVersion: autoscaling.k8s.io/v1
@@ -62,7 +62,7 @@ spec:
 
 # Les avantages > Mise à l'échelle automatique > **Cluster Autoscaler**
 
-Le cluster autoscaler permet d'augmenter le nombre de nœeud d'un cluster en cas de sûr consommation de ressources de ceux présents. La configuration dépend de l'infrastructure sur laquelle repose Kubernetes.  
+Le cluster autoscaler permet d'augmenter le nombre de nœuds d'un cluster en cas de sur-consommation des ressources de ceux présents. La configuration dépend de l'infrastructure sur laquelle repose Kubernetes.  
 Pour plus d'informations:
 * https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler
 

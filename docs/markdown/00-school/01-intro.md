@@ -1,6 +1,6 @@
 <!-- .slide:-->
 
-# School kubernetes > **Plan de la formation**
+# School Kubernetes > **Plan de la formation**
 
 1. Rappel sur Docker
 2. Kubernetes : introduction
@@ -14,7 +14,7 @@
 
 <!-- .slide:-->
 
-# School kubernetes > **Supports de formation**
+# School Kubernetes > **Supports de formation**
 <https://github.com/sfeir-open-source/sfeir-school-kubernetes>
 
 <https://sfeir-open-source.github.io/sfeir-school-kubernetes/#/>

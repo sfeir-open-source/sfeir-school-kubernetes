@@ -5,7 +5,7 @@
 Docker est une plateforme de conteneurisation qui permet de créer, déployer et exécuter des applications dans des environnements isolés appelés conteneurs.
 * **Conteneurs** : Unités légères qui contiennent tout ce dont l'application a besoin pour fonctionner.
 * **Isolation** : Chaque conteneur fonctionne de manière isolée.
-* **Portabilité** : Les conteneurs peuvent être exécutées sur n'importe quel système compatible, poste de développement, serveur de test ou un environnement de production.
+* **Portabilité** : Les conteneurs peuvent être exécutés sur n'importe quel système compatible, poste de développement, serveur de test ou environnement de production.
 
 ##==##
 
@@ -48,8 +48,8 @@ accès au matériel plus simple
 
 ![h-400](./assets/images/docker.png)
 * **Dockerfile** : Contient les instructions pour construire l’image.
-* **Image** : Contiennent les fichiers nécessaires à l’exécution l'application : binaires, dépendances, configuration.
-* **Registry** : Publique ou privé, permet de récupérer les images à l'aide de la commande pull.
+* **Image** : Contient les fichiers nécessaires à l’exécution de l'application : binaires, dépendances, configuration.
+* **Registry** : Publique ou privée, permet de récupérer les images à l'aide de la commande pull.
 
 Notes:
 Le Dockerfile :

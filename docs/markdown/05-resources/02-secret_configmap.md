@@ -7,8 +7,8 @@
 
 # Les ressources > **ConfigMap**
 
-**Définition:** Une configMap est une ressource kubernetes servant à stocker des données non confidentielles au format clé / valeur. 
-* Elles seront utilisées au travers de variable d'environnement ou de volume. 
+**Définition:** Une configMap est une ressource Kubernetes servant à stocker des données non confidentielles au format clé / valeur. 
+* Elles seront utilisées au travers de variables d'environnement ou de volumes. 
 * Utiles pour découper les valeurs spécifiques à un environnement.
 
 ##--##
@@ -85,7 +85,7 @@ spec:
 
 # Les ressources > **Secrets**
 
-**Définition:** Un secret est une ressource kubernetes servant à stocker des données confidentielles au format clé / valeur. 
+**Définition:** Un secret est une ressource Kubernetes servant à stocker des données confidentielles au format clé / valeur. 
 * Ils sont utilisés au travers de variables d'environnement ou de volumes. 
 * ![sfeir-icons](alert-triangle)<!-- .element: style="--icon-size:48px; --icon-color:red;" --> Ils sont encodés en base64, et non chiffrés
 * Par défaut, stocké en clair dans la base etcd

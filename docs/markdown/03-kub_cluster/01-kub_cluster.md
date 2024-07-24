@@ -8,7 +8,7 @@
 
 <br><br><br>
 
-Un cluster kubernetes est composé à minima d'un control plane, et d'un worker node. Afin de conserver de la haute disponibilité, les workers nodes sont souvent au nombre de trois.
+Un cluster Kubernetes est composé à minima d'un control plane, et d'un worker node. Afin de conserver de la haute disponibilité, les workers nodes sont souvent au nombre de trois.
 * **Control plane** : Il a pour rôle de maintenir l'état souhaité du cluster, en redémarrant des pods, ou en augmentant le nombre de réplica.
 * **Worker node** : Ils ont pour rôle d'héberger les applications et d'être joignables de l'exterieur.
 
@@ -57,7 +57,7 @@ En dev ces deux fonctions peuvent être déployées sur une unique machine (ex: 
 <br>
 
 Le worker node a pour but de permettre aux pods applicatifs d'être démarrés grâce à une communication avec le control plane. Il posséde les composants suivants :
-* **kubelet:** Agent qui executent les pods en suivant les specs des ressources demandées par l'api server.
+* **kubelet:** Agent qui execute les pods en suivant les specs des ressources demandées par l'api server.
 * **kube-proxy:** Agent de gestion du réseau pour les pods au travers des services. C'est un proxy UDP/TCP.
 * **container-runtime:** Agent responsable du pull des images, de lancer les conteneurs et leur allouer des ressources.
 
@@ -85,7 +85,7 @@ ex:
 
 <br><br><br>
 
-C'est la plus petite ressource déployable sur kubernetes, contenant un ou plusieurs conteneurs partageant le réseau et le stockage.
+C'est la plus petite ressource déployable sur Kubernetes, contenant un ou plusieurs conteneurs partageant le réseau et le stockage.
 * **Réseau:** L'ensemble des conteneurs dans un pod partagent la même adresse IP.
 * **Cycle de vie:** Tous les conteneurs d'un pod sont créés et détruits ensemble.
 * **Gestion:** Généralement, ils sont gérés par des controllers de plus haut niveau (déploiement, statefulset ou daemonset).
@@ -126,7 +126,7 @@ un ou plusieurs volumes
 ![](./assets/images/kube-csi.png)
 
 * Pas de CSI installé sur le cluster à l'initialisation celui ci étant dépendant du storage provider.
-  * Les foncitonnalités différes entre les CSI. RWO ou RWM, auto extend, etc...
+  * Les fonctionnalités différent entre les CSI. RWO ou RWM, auto extend, etc...
 
 ##==##
 

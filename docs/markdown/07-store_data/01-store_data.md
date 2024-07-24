@@ -79,8 +79,8 @@ volumes:
     type: Directory
 ```
 
-Monte ou créer un fichier depuis le système de fichier du worker node ou tourne le pod. Accède donc aux ressources de celui-ci.
-* Les données reste sur l'hôte même après suppression du pod.
+Monte ou créer un fichier depuis le système de fichiers du worker node ou tourne le pod. Accède donc aux ressources de celui-ci.
+* Les données restent sur l'hôte même après suppression du pod.
 * Manque de sécurité (pas d'isolation).
 * Non portable entre les noeuds, sauf cas NFS.
 
@@ -91,9 +91,9 @@ Monte ou créer un fichier depuis le système de fichier du worker node ou tourn
 # Les volumes > type > **PersistentVolumeClaim**
 
 Demande de volume à partir **persistentVolume** (lié à une infrastructure de stockage).
-* Les persistentVolume sont généralement créé automatiquement à travers la **storageClass**.
+* Les persistentVolume sont généralement créés automatiquement à travers la **storageClass**.
 * Les PVC permettent de définir le mode d'accès souhaité (RWO, RWX, ...).
-* Défini la quantité de stockage souhaité.
+* Définit la quantité de stockage souhaitée.
 
 ```yaml
 apiVersion: v1

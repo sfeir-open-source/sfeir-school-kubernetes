@@ -17,7 +17,7 @@
 ![](./assets/images/cncf-orchestrator.png)
 [landscape.cncf.io](https://landscape.cncf.io)
 
-* Fondée en 2015, c'est une organisation à but non lucratif, ayant pour mission de favoriser l'adoption des technologies tourant autour du Cloud.
+* Fondée en 2015, c'est une organisation à but non lucratif, ayant pour mission de favoriser l'adoption des technologies tournant autour du Cloud.
   * heberge de nombreux projets open source
   * organise des evenements (kubecon)
   * propose des certifications
@@ -56,7 +56,7 @@ Pour nommer ses versions, Kubernetes utilise du semantic versioning (x.y.z)
 * *y* est l'incrément de la version **mineure**
 * *z* est le niveau de **correctif**
 
-Lors de montée de version, l'api de kubernetes est enrichie, et rare sont les endpoints qui sont supprimés. Une montée de version est donc rarement risquée.
+Lors de montée de version, l'api de kubernetes est enrichie, et rares sont les endpoints qui sont supprimés. Une montée de version est donc rarement risquée.
 * La version 1.30.2 est la dernière en date (12.06.2024)
 * Une version mineur sort tous les 4 mois.
 * Si une api devient dépréciée, elle est retirée au bout d'un an (soit 4 versions plus tard).
@@ -74,7 +74,7 @@ Lors de montée de version, l'api de kubernetes est enrichie, et rare sont les e
 <br><br>
 
 - **Orchestration automatisée** : Peu d'actions manuelles.
-- **Haute disponibilité** : Répartition de charge et relance automatiques.
+- **Haute disponibilité** : Répartition de charge et relance automatique.
 - **Scalabilité** : Possibilité de faire du scaling automatique.
 - **Portabilité** : Déploiement quasi identique entre on premise et les différents cloud.
 - **Gestion déclarative** : Avoir l'ensemble de ses déploiements as code.
@@ -92,7 +92,7 @@ Orchestration de containers dans un cluster de machines
 
 <br>
 
-_Question_ : Lequel de ces runtime n'est supporté dans Kubernetes ?
+_Question_ : Lequel de ces runtimes n'est pas supporté dans Kubernetes ?
 
 <br>
 
@@ -109,7 +109,7 @@ _Question_ : Lequel de ces runtime n'est supporté dans Kubernetes ?
 
 <br>
 
-_Question_ : Lequel de ces runtime n'est supporté dans Kubernetes ?
+_Question_ : Lequel de ces runtimes n'est pas supporté dans Kubernetes ?
 
 <br>
 

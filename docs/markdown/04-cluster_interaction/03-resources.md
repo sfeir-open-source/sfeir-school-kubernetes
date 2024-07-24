@@ -77,7 +77,7 @@ spec:
 
 <!-- .slide: class="with-code-bg-dark" -->
 # Les ressources > Création déclarative > **Avec kubectl**
-Une fois des manifests en notre posséssion, il est possible d'utiliser kubectl pour les intéragir avec dans notre cluster.
+Une fois des manifests en notre possession, il est possible d'utiliser kubectl pour intéragir avec dans notre cluster.
 
 ```bash
 # Créer ou modifier une ressource

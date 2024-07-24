@@ -11,7 +11,7 @@
 
 Les labels, sous forme de paires clé-valeur, sont attachés aux ressources Kubernetes. Cela permet: 
 * De catégoriser les ressources.
-* De filter pour des ensembles de ressources.
+* De filtrer pour des ensembles de ressources.
 * D'associer des ressources (pod avec déploiement, service avec déploiement).
 
 ##--##

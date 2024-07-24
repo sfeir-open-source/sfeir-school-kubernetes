@@ -34,11 +34,11 @@ spec:
 
 <br><br>
 
-Les déploiements sont une ressource Kubernetes permettant de gérer le cycle de vie de pods au travers des replicaSets.
-* Contiennet un état souhaité d'une application que le controlleur s'assure de maintenir.
+Les déploiements sont des ressources Kubernetes permettant de gérer le cycle de vie de pods au travers des replicaSets.
+* Contiennent un état souhaité d'une application que le controlleur s'assure de maintenir.
 * Permet de scaler l'application via le nombre de réplicas.
-* Mise à jour progressives (rolling update), et retour arrière possible (rollback).
-* Les pods en echecs dans un déploiement sont automatiquement redémarrés.
+* Mise à jour progressive (rolling update), et retour arrière possible (rollback).
+* Les pods en échecs dans un déploiement sont automatiquement redémarrés.
 
 ##==##
 

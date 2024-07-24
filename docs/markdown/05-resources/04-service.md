@@ -16,7 +16,7 @@
 <!-- .slide:-->
 
 # Les ressources > Services > **définition**
-**Définition:** C'est une ressource qui permet d'accéder un ensemble de pods, via un "label selector", et qui donne un nom DNS et une IP à cet ensemble.
+**Définition:** C'est une ressource qui permet d'accéder à un ensemble de pods, via un "label selector", et qui donne un nom DNS et une IP à cet ensemble.
 * Permet à une ressource d'être accessible depuis l'exterieur.
 * Fait le lien avec les services à l'aide de label selector.
 * Agit comme un reverse proxy (port d'entrée vers port du conteneur).
@@ -35,7 +35,7 @@
 
 ##--##
 
-Permet d'exposer une application à l'exterieur en ouvrant un port spécifique sur **tous** les nœeuds du cluster
+Permet d'exposer une application à l'exterieur en ouvrant un port spécifique sur **tous** les nœuds du cluster
 * Les ports sont compris entre 30000-32767.
 * Le trafic qui arrive sur ce port est automatiquement routé vers ce service.
 * L'application est accessible via : **<IP_du_nœeud:port>**.

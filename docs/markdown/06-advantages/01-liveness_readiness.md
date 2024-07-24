@@ -8,7 +8,7 @@
 
 # Les avantages > Readiness, Liveness et Startup Probes > **Readiness**
 
-La readiness probe permet à kubernetes de déterminer si un pod est prêt à recevoir du traffic au travers d'un service ou non. Cela peut être une probe HTTP, TCP ou encore une commande de type linux.
+La readiness probe permet à Kubernetes de déterminer si un pod est prêt à recevoir du traffic au travers d'un service ou non. Cela peut être une probe HTTP, TCP ou encore une commande de type linux.
 
 ![center h-600](./assets/images/readiness.png)
 
@@ -43,7 +43,7 @@ spec:
 
 # Les avantages > Readiness, Liveness et Startup Probes > **Liveness**
 
-La liveness probe permet à kubernetes de déterminer si un pod fonctionnel ou non et redémarre celui-ci lorsque nécessaire. Cela peut être une probe HTTP, TCP ou encore une commande de type linux.
+La liveness probe permet à Kubernetes de déterminer si un pod est fonctionnel ou non et redémarre celui-ci lorsque nécessaire. Cela peut être une probe HTTP, TCP ou encore une commande de type linux.
 
 ![center h-600](./assets/images/liveness.png)
 
@@ -80,7 +80,7 @@ spec:
 
 # Les avantages > Readiness, Liveness et Startup Probes > **Startup probe**
 
-La startup probe permet à kubernetes d'attendre qu'une application démarre avant de lancer la readiness et la liveless. C'est un cas utile pour les applications longues à démarrer. Si elle échoue, le pod est redémarré.
+La startup probe permet à Kubernetes d'attendre qu'une application démarre avant de lancer la readiness et la liveless. C'est un cas utile pour les applications longues à démarrer. Si elle échoue, le pod est redémarré.
 
 ```yaml
 apiVersion: v1

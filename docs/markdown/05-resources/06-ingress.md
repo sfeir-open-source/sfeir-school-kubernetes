@@ -58,6 +58,6 @@ spec:
 
 Voici une ressource ingress qui expose l'application school au travers de l'url https://school.mydomain.com
 * **tls:** Utilise le certificat présent dans le secret school-tls pour exposer l'application en HTTPS.
-* **host:** FQDN attendu pour rediriger le trafic vers le service assoicié.
+* **host:** FQDN attendu pour rediriger le trafic vers le service associé.
 * **path:** Permet de gérer les sous chemins (/api redirigé vers le microservice api).
 * **backend:** Spécifie le service vers lequel rediriger le trafic.

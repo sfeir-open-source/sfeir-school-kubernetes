@@ -112,4 +112,4 @@ spec:
 ## LAB
 # TP : Readiness/Liveness
 
-https://killercoda.com/laurental/scenario/3-readiness
+https://killercoda.com/sfeir-killercoda/scenario/3-readiness

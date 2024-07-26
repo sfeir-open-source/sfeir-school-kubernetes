@@ -187,4 +187,4 @@ Quelle est la plage de ports par défaut pour les services NodePort ?
 ## LAB
 # TP : Créer un service
 
-https://killercoda.com/laurental/scenario/5-services
+https://killercoda.com/sfeir-killercoda/scenario/5-services

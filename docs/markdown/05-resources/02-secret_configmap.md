@@ -131,4 +131,4 @@ stringData:
 
 
 
-https://killercoda.com/laurental/scenario/4-configmap-secrets
+https://killercoda.com/sfeir-killercoda/scenario/4-configmap-secrets

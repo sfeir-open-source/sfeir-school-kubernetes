@@ -100,4 +100,4 @@ La seconde partie d'un déploiement contient la description du pod géré par le
 ## LAB
 # TP : Deploiements
 
-https://killercoda.com/laurental/scenario/6-deployment
+https://killercoda.com/sfeir-killercoda/scenario/6-deployment

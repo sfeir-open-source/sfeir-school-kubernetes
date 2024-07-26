@@ -226,5 +226,5 @@ Comment obtenez-vous des informations détaillées sur un service nommé "my-ser
 ## LAB
 # TP : Kubectl
 
-https://killercoda.com/laurental/scenario/1-kubectl
+https://killercoda.com/sfeir-killercoda/scenario/1-kubectl
 

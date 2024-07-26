@@ -79,4 +79,4 @@ Pour plus d'informations:
 ## LAB
 # TP : Autoscaling
 
-https://killercoda.com/laurental/scenario/7-autoscaling
+https://killercoda.com/sfeir-killercoda/scenario/7-autoscaling

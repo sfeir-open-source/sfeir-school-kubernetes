@@ -111,4 +111,4 @@ Les variables d'environnement permettent de configurer les applications dans un 
 ## LAB
 # TP : les Pods
 
-https://killercoda.com/laurental/scenario/2-pod
+https://killercoda.com/sfeir-killercoda/scenario/2-pod

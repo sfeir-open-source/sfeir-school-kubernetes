@@ -190,4 +190,4 @@ Quel type de volume est éphémère et supprimé lorsque le pod est terminé ?
 ## LAB
 # TP : Volume
 
-https://killercoda.com/laurental/scenario/8-volumes
+https://killercoda.com/sfeir-killercoda/scenario/8-volumes

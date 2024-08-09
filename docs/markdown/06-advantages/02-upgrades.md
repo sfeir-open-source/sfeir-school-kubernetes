@@ -1,6 +1,6 @@
 <!-- .slide:-->
 
-# Les avantages > **Les mises à jour applicatives**
+# L'orchestration > **Les mises à jour applicatives**
 
 Il existe plusieurs méthodes de mise à jour des applications dans Kubernetes. L'idée principale est que celle-ci soit la plus fluide possible.
 * Rolling update
@@ -12,7 +12,7 @@ Il existe plusieurs méthodes de mise à jour des applications dans Kubernetes. 
 
 <!-- .slide: class="with-code-bg-dark" -->
 
-# Les avantages > Les mises à jour applicatives > **Rolling update**
+# L'orchestration > Les mises à jour applicatives > **Rolling update**
 
 ```yaml
 spec:
@@ -34,7 +34,7 @@ C'est la stratégie de mise à jour par défaut.
 
 <!-- .slide: class="with-code-bg-dark" -->
 
-# Les avantages > Les mises à jour applicatives > **Recreate**
+# L'orchestration > Les mises à jour applicatives > **Recreate**
 
 Stratégie implémentée dans Kubernetes. Utile si les versions ne peuvent cohabiter. Temps d'arrêt entre la suppression et la création.
 1. Les pods sont détruits.
@@ -50,7 +50,7 @@ spec:
 
 <!-- .slide: class="two-column" -->
 
-# Les avantages > Les mises à jour applicatives > **Blue / Green deployment**
+# L'orchestration > Les mises à jour applicatives > **Blue / Green deployment**
 
 Stratégie non native à Kubernetes. Le principe est de déployer deux versions en parallèle de l'application, mais une seule reçoit le trafic. Pas de temps d'arrêt lors de la bascule de service.
 1. Une deuxième version de l'application est lancée.
@@ -67,7 +67,7 @@ Stratégie non native à Kubernetes. Le principe est de déployer deux versions 
 
 <!-- .slide: class="two-column" -->
 
-# Les avantages > Les mises à jour applicatives > **Canary deployment**
+# L'orchestration > Les mises à jour applicatives > **Canary deployment**
 
 ![center h-700](./assets/images/canary.png)
 

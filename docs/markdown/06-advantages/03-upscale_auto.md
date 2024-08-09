@@ -1,6 +1,6 @@
 <!-- .slide:-->
 
-# Les avantages > **Mise à l'échelle automatique**
+# L'orchestration > **Mise à l'échelle automatique**
 
 Kubernetes offre plusieurs mécanismes pour ajuster automatiquement la taille de vos applications en fonction de la charge ou d'autres métriques.
 Il existe trois types principaux d'autoscaling dans Kubernetes:
@@ -12,7 +12,7 @@ Il existe trois types principaux d'autoscaling dans Kubernetes:
 
 <!-- .slide: class="with-code-bg-dark" -->
 
-# Les avantages > Mise à l'échelle automatique > **Horizontal Pod Autoscaler**
+# L'orchestration > Mise à l'échelle automatique > **Horizontal Pod Autoscaler**
 
 Natif à Kubernetes, il permet la création d'un nouveau pod quand une métrique **cpu, ram ou custom** dépasse un certain seuil.
 ```yaml
@@ -38,7 +38,7 @@ spec:
 
 <!-- .slide: class="with-code-bg-dark" -->
 
-# Les avantages > Mise à l'échelle automatique > **Vertical Pod Autoscaler**
+# L'orchestration > Mise à l'échelle automatique > **Vertical Pod Autoscaler**
 
 La CRD du [vertical pod autoscaler](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) n'est pas installée nativement, mais permet de modifier les limites en cpu et ram des déploiements de manière automatique.
 
@@ -60,7 +60,7 @@ spec:
 
 <!-- .slide: class="with-code-bg-dark" -->
 
-# Les avantages > Mise à l'échelle automatique > **Cluster Autoscaler**
+# L'orchestration > Mise à l'échelle automatique > **Cluster Autoscaler**
 
 Le cluster autoscaler permet d'augmenter le nombre de nœuds d'un cluster en cas de sur-consommation des ressources de ceux présents. La configuration dépend de l'infrastructure sur laquelle repose Kubernetes.  
 Pour plus d'informations:

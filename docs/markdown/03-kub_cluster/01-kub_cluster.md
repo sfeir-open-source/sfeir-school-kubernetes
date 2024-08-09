@@ -113,17 +113,17 @@ un ou plusieurs volumes
 
 <!-- .slide:-->
 
-## Le cluster Kubernetes > **Les composants additionnels: CNI**
+## Le cluster Kubernetes > **Les composants additionnels: CNI (Container Network Interface)**
 
-![center h-800](./assets/images/kube-cni.png)
+![center h-700](./assets/images/kube-cni.png)
 
 ##==##
 
 <!-- .slide:-->
 
-## Le cluster Kubernetes > **Les composants additionnels: CSI**
+## Le cluster Kubernetes > **Les composants additionnels: CSI (Container Storage Interface)**
 
-![](./assets/images/kube-csi.png)
+![center h-600](./assets/images/kube-csi.png)
 
 * Pas de CSI installé sur le cluster à l'initialisation celui ci étant dépendant du storage provider.
   * Les fonctionnalités différent entre les CSI. RWO ou RWM, auto extend, etc...

@@ -29,6 +29,35 @@
 
 <!-- .slide: class="two-column with-code-bg-dark" -->
 
+# Les ressources > Services > **ClusterIP**
+
+<br><br>  
+
+![center](./assets/images/service-clusterip.png)
+
+##--##
+
+Permet d'exposer une application seulement à l'intérieur du cluster.
+* Est accessible via le DNS **\<nom-service\>.\<namespace\>.svc.cluster.local**.
+* Peut être couplé à un ingress pour être accessible via un FQDN.
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mon-service
+spec:
+  type: ClusterIP  # Peut être omis car c'est le type par défaut
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    app: mon-app
+```
+##==##
+
+<!-- .slide: class="two-column with-code-bg-dark" -->
+
 # Les ressources > Services > **NodePort**
 
 ![center h-800](./assets/images/NodePort.png)
@@ -86,35 +115,6 @@ spec:
 
 ![center h-800](./assets/images/service-loadbalancer.png)
 
-##==##
-
-<!-- .slide: class="two-column with-code-bg-dark" -->
-
-# Les ressources > Services > **ClusterIP**
-
-<br><br>  
-
-![center](./assets/images/service-clusterip.png)
-
-##--##
-
-Permet d'exposer une application seulement à l'intérieur du cluster.
-* Est accessible via le DNS **\<nom-service\>.\<namespace\>.svc.cluster.local**.
-* Peut être couplé à un ingress pour être accessible via un FQDN.
-
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: mon-service
-spec:
-  type: ClusterIP  # Peut être omis car c'est le type par défaut
-  ports:
-    - port: 80
-      targetPort: 8080
-  selector:
-    app: mon-app
-```
 ##==##
 
 <!-- .slide: class="exercice" -->

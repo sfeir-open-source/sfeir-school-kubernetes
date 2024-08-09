@@ -1,12 +1,12 @@
 <!-- .slide: class="transition-bg-sfeir-3"-->
 
-# Les avantages > **Readiness, Liveness et Startup Probes**
+# **Readiness, Liveness et Startup Probes**
 
 ##==##
 
 <!-- .slide: -->
 
-# Les avantages > Readiness, Liveness et Startup Probes > **Readiness**
+# L'orchestration > Readiness, Liveness et Startup Probes > **Readiness**
 
 La readiness probe permet à Kubernetes de déterminer si un pod est prêt à recevoir du traffic au travers d'un service ou non. Cela peut être une probe HTTP, TCP ou encore une commande de type linux.
 
@@ -16,7 +16,7 @@ La readiness probe permet à Kubernetes de déterminer si un pod est prêt à re
 
 <!-- .slide: class="with-code-bg-dark" -->
 
-# Les avantages > Readiness, Liveness et Startup Probes > **Readiness**
+# L'orchestration > Readiness, Liveness et Startup Probes > **Readiness**
 
 Voici comment écrire une readiness HTTP avec /health en endpoint
 
@@ -41,7 +41,7 @@ spec:
 
 <!-- .slide: -->
 
-# Les avantages > Readiness, Liveness et Startup Probes > **Liveness**
+# L'orchestration > Readiness, Liveness et Startup Probes > **Liveness**
 
 La liveness probe permet à Kubernetes de déterminer si un pod est fonctionnel ou non et redémarre celui-ci lorsque nécessaire. Cela peut être une probe HTTP, TCP ou encore une commande de type linux.
 
@@ -51,7 +51,7 @@ La liveness probe permet à Kubernetes de déterminer si un pod est fonctionnel 
 
 <!-- .slide: class="with-code-bg-dark" -->
 
-# Les avantages > Readiness, Liveness et Startup Probes > **Liveness**
+# L'orchestration > Readiness, Liveness et Startup Probes > **Liveness**
 
 Voici comment écrire une liveness executant une commande linux
 
@@ -78,7 +78,7 @@ spec:
 
 <!-- .slide: class="with-code-bg-dark" -->
 
-# Les avantages > Readiness, Liveness et Startup Probes > **Startup probe**
+# L'orchestration > Readiness, Liveness et Startup Probes > **Startup probe**
 
 La startup probe permet à Kubernetes d'attendre qu'une application démarre avant de lancer la readiness et la liveless. C'est un cas utile pour les applications longues à démarrer. Si elle échoue, le pod est redémarré.
 

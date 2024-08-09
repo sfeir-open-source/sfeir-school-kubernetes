@@ -3,9 +3,9 @@
 # Les pods > **Kézaco**
 
 C'est la plus petite ressource d'un cluster Kubernetes. 
-* Il contient un ou plusieurs conteneurs étroitement liés .
+* Il contient un ou plusieurs conteneurs partageant le même cycle de vie.
 * Les conteneurs partagent la même IP, et le même espace de port.
-* Ils peuvent communiquer avec la boucle locale.
+* Ils peuvent communiquer via l'interface réseau localhost.
 * Ils peuvent partager des volumes.
 
 ##--##

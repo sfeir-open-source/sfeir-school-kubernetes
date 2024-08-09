@@ -9,10 +9,6 @@
 * Premier projet intégré à la création de la CNCF en Juillet 2015
 
 ##==##
-## Introduction > **Apercu**
-![center h-800](./assets/images/archi-kube.png)
-
-##==##
 ## Introduction > **Cloud Native Computing Foundation**
 ![](./assets/images/cncf-orchestrator.png)
 [landscape.cncf.io](https://landscape.cncf.io)
@@ -22,9 +18,15 @@
   * organise des evenements (kubecon)
   * propose des certifications
 
+##==##
+## Introduction > **Apercu**
+![center h-800](./assets/images/archi-kube.png)
+
 <!-- .element: class="credits" -->
 
 Notes:
+Parler à minima des pods pour permettre de répondre à la question du quizz
+
 Kubernetes réecrit en Go par les Googlers
 
 Offert à la Cloud Native Computing Foundation en 2015

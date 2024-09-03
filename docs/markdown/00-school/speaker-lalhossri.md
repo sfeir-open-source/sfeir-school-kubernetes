@@ -3,8 +3,7 @@
 # Nos formateurs kubernetes
 
 ![speaker](./assets/images/laurent.jpg)
-
-![compagny](./assets/images/logo-sfeir.png)
+![company](./assets/images/logo-sfeir-blanc.png)
 
 ![badge first-badge](./assets/images/certif-cloud-architect.png)
 

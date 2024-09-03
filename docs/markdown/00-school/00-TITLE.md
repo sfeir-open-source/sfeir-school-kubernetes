@@ -26,7 +26,7 @@ Credentials
 
 ##==##
 <!-- .slide:  -->
-# Déroulement de la formation
+# School Kubernetes > **Déroulement de la formation**
 
 <br>
 

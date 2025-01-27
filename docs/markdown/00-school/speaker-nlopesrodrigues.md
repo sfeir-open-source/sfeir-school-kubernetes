@@ -9,8 +9,5 @@
 
 ![badge second-badge](./assets/images/certif-terraform-associate.png)
 
-<h2> Benoit <span>Touron</span></h2>
-
-### GCP Trainer
-
+<h2> Nicolas <span>Lopes Rodrigues</span></h2>
 <!-- .element: class="icon-rule icon-first" -->

@@ -4,8 +4,8 @@
 ![float-left h-300](./assets/images/K8S-logo.png)
 * <https://github.com/kubernetes/kubernetes>
 
-  * **109k+** stars
-  * **3600+** contributeurs
+  * **113k+** stars
+  * **3.7k+** contributeurs
 * Premier projet intégré à la création de la CNCF en Juillet 2015
 
 ##==##

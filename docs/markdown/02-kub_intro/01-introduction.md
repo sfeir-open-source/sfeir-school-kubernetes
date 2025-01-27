@@ -59,7 +59,7 @@ Pour nommer ses versions, Kubernetes utilise du semantic versioning (x.y.z)
 * *z* est le niveau de **correctif**
 
 Lors de montée de version, l'api de kubernetes est enrichie, et rares sont les endpoints qui sont supprimés. Une montée de version est donc rarement risquée.
-* La version 1.30.2 est la dernière en date (12.06.2024)
+* La version 1.32.1 est la dernière en date (14.01.2025)
 * Une version mineur sort tous les 4 mois.
 * Si une api devient dépréciée, elle est retirée au bout d'un an (soit 4 versions plus tard).
 

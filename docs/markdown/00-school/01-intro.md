@@ -15,9 +15,9 @@
 <!-- .slide:-->
 
 # School Kubernetes > **Supports de formation**
-<https://github.com/sfeir-open-source/sfeir-school-kubernetes>
+<https://github.com/lopesrodriguesn/sfeir-school-kubernetes>
 
-<https://sfeir-open-source.github.io/sfeir-school-kubernetes/#/>
+<https://github.com/lopesrodriguesn/sfeir-school-kubernetes/#/>
 
 <https://killercoda.com/>
 

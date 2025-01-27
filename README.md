@@ -6,7 +6,7 @@ A [SFEIR School](https://www.sfeir.com/fr/le-contenus-dexperts-de-la-technologie
 
 ## Installation
 
-- `git clone https://github.com/sfeir-open-source/sfeir-school-kubernetes.git`
+- `git clone https://github.com/lopesrodriguesn/sfeir-school-kubernetes.git`
 - `cd sfeir-school-kubernetes`
 
 ## Slides

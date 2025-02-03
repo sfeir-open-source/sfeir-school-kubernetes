@@ -43,3 +43,6 @@ Avec kubeclt, il est possible d'afficher les labels
 * Filtrage du résultat possible avec les opérateurs in, notin et exists
 
 ![center h-600](./assets/images/labels-filter.png)
+
+Notes: 
+Presentation Rémi

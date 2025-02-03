@@ -59,7 +59,6 @@ function resources() {
     `${directory}04-service.md`, //
     `${directory}05-deployment.md`, //
     `${directory}06-ingress.md`, //
-    `${directory}07-all_together.md`, //
   ];
 }
 

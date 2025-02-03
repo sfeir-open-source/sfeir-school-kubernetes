@@ -7,8 +7,7 @@
 3. Le cluster Kubernetes
 4. Interaction avec un cluster
 4. Les ressources
-6. Les avantages
-7. Les volumes
+6. Les volumes
 
 ##==##
 

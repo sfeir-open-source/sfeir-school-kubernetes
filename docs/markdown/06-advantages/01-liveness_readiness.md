@@ -113,3 +113,6 @@ spec:
 # TP : Readiness/Liveness
 
 https://killercoda.com/sfeir-killercoda/scenario/3-readiness
+
+Notes:
+Break Apres midi

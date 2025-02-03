@@ -228,3 +228,6 @@ Comment obtenez-vous des informations détaillées sur un service nommé "my-ser
 
 https://killercoda.com/sfeir-killercoda/scenario/1-kubectl
 
+
+Notes: 
+BReak Matin

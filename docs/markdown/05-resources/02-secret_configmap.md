@@ -132,3 +132,6 @@ stringData:
 
 
 https://killercoda.com/sfeir-killercoda/scenario/4-configmap-secrets
+
+Notes:
+Break Lunch

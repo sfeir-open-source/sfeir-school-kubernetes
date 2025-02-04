@@ -5,9 +5,7 @@ function schoolSlides() {
   return [
     //
     `${directory}00-TITLE.md`, //
-    `${directory}speaker-btouron.md`, //
-    `${directory}speaker-jfurgerot.md`, //
-    `${directory}speaker-lalhossri.md`, //
+    `${directory}speaker-nlopesrodrigues.md`, //
     `${directory}01-intro.md`, //
   ];
 }
@@ -61,7 +59,6 @@ function resources() {
     `${directory}04-service.md`, //
     `${directory}05-deployment.md`, //
     `${directory}06-ingress.md`, //
-    `${directory}07-all_together.md`, //
   ];
 }
 

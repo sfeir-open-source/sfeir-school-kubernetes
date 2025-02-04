@@ -61,3 +61,6 @@ Voici une ressource ingress qui expose l'application school au travers de l'url 
 * **host:** FQDN attendu pour rediriger le trafic vers le service associé.
 * **path:** Permet de gérer les sous chemins (/api redirigé vers le microservice api).
 * **backend:** Spécifie le service vers lequel rediriger le trafic.
+
+Notes: 
+Presentation Nicolas

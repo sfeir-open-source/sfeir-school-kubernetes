@@ -6,12 +6,12 @@ A [SFEIR School](https://www.sfeir.com/fr/le-contenus-dexperts-de-la-technologie
 
 ## Installation
 
-- `git clone https://github.com/lopesrodriguesn/sfeir-school-kubernetes.git`
+- `git clone https://github.com/sfeir-open-source/sfeir-school-kubernetes.git`
 - `cd sfeir-school-kubernetes`
 
 ## Slides
 
-Les slides sont disponibles ici : [Sfeir School Kubernetes](https://lopesrodriguesn.github.io/sfeir-school-kubernetes/)
+Les slides sont disponibles ici : [Sfeir School Kubernetes](https://sfeir-open-source.github.io/sfeir-school-kubernetes/)
 
 Les Slides sont derrière une license [CC BY ND 3.0](https://github.com/sfeir-open-source/sfeir-school-kubernetes/blob/master/docs/LICENSE)
 
